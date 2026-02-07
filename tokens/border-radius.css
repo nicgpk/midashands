@@ -1,0 +1,17 @@
+/**
+ * DESIGN TOKENS - BORDER RADIUS
+ * 
+ * Consistent corner rounding for components.
+ * 
+ * Usage:
+ *   border-radius: var(--radius-md);
+ */
+
+:root {
+  --radius-none: 0;
+  --radius-sm: 0.25rem;   /* 4px - subtle */
+  --radius-md: 0.5rem;    /* 8px - default */
+  --radius-lg: 0.75rem;   /* 12px - cards */
+  --radius-xl: 1rem;      /* 16px - large cards */
+  --radius-full: 9999px;  /* Full circle/pill */
+}

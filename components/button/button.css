@@ -1,0 +1,144 @@
+/**
+ * BUTTON COMPONENT
+ * 
+ * A flexible button component with multiple variants.
+ * 
+ * Dependencies:
+ *   - tokens/tokens.css
+ * 
+ * Usage:
+ *   <button class="btn btn-primary">Click me</button>
+ * 
+ * Variants:
+ *   .btn-primary    - Main action button
+ *   .btn-secondary  - Secondary actions
+ *   .btn-outline    - Outlined style
+ *   .btn-ghost      - Minimal style
+ *   .btn-destructive - Delete/danger actions
+ * 
+ * Sizes:
+ *   .btn-sm  - Small button
+ *   .btn-lg  - Large button
+ */
+
+/* Base Button Styles */
+.btn {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  
+  /* Sizing */
+  height: 2.5rem;
+  padding: 0 var(--spacing-4);
+  
+  /* Typography */
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: 1;
+  text-decoration: none;
+  
+  /* Visual */
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  
+  /* Interaction */
+  transition: all 0.2s ease;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Primary Variant */
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+
+.btn-primary:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.btn-primary:active:not(:disabled) {
+  opacity: 0.8;
+}
+
+/* Secondary Variant */
+.btn-secondary {
+  background: var(--color-secondary);
+  color: var(--color-secondary-foreground);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  opacity: 0.8;
+}
+
+/* Outline Variant */
+.btn-outline {
+  background: transparent;
+  color: var(--color-foreground);
+  border-color: var(--color-border);
+}
+
+.btn-outline:hover:not(:disabled) {
+  background: var(--color-secondary);
+}
+
+/* Ghost Variant */
+.btn-ghost {
+  background: transparent;
+  color: var(--color-foreground);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background: var(--color-secondary);
+}
+
+/* Destructive Variant */
+.btn-destructive {
+  background: var(--color-destructive);
+  color: var(--color-destructive-foreground);
+}
+
+.btn-destructive:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+/* Size Variants */
+.btn-sm {
+  height: 2rem;
+  padding: 0 var(--spacing-3);
+  font-size: var(--font-size-xs);
+}
+
+.btn-lg {
+  height: 3rem;
+  padding: 0 var(--spacing-6);
+  font-size: var(--font-size-base);
+}
+
+/* Icon buttons */
+.btn-icon {
+  width: 2.5rem;
+  padding: 0;
+}
+
+.btn-icon.btn-sm {
+  width: 2rem;
+}
+
+.btn-icon.btn-lg {
+  width: 3rem;
+}

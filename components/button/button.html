@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button Component - Examples</title>
+  
+  <!-- Import tokens and button component -->
+  <link rel="stylesheet" href="../../tokens/tokens.css">
+  <link rel="stylesheet" href="./button.css">
+  
+  <style>
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--spacing-8);
+    }
+    
+    .section {
+      margin-bottom: var(--spacing-12);
+    }
+    
+    .section h2 {
+      margin-bottom: var(--spacing-4);
+      font-size: var(--font-size-2xl);
+      font-weight: var(--font-weight-bold);
+    }
+    
+    .section h3 {
+      margin-top: var(--spacing-8);
+      margin-bottom: var(--spacing-4);
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-muted-foreground);
+    }
+    
+    .button-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-4);
+      align-items: center;
+    }
+    
+    .code-block {
+      background: var(--color-muted);
+      padding: var(--spacing-4);
+      border-radius: var(--radius-md);
+      margin-top: var(--spacing-2);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-sm);
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 style="margin-bottom: var(--spacing-8); font-size: var(--font-size-4xl);">
+      Button Component
+    </h1>
+    
+    <!-- Variants Section -->
+    <section class="section">
+      <h2>Variants</h2>
+      
+      <h3>Primary</h3>
+      <div class="button-grid">
+        <button class="btn btn-primary">Primary Button</button>
+        <button class="btn btn-primary" disabled>Disabled</button>
+      </div>
+      <div class="code-block">
+        &lt;button class="btn btn-primary"&gt;Primary Button&lt;/button&gt;
+      </div>
+      
+      <h3>Secondary</h3>
+      <div class="button-grid">
+        <button class="btn btn-secondary">Secondary Button</button>
+        <button class="btn btn-secondary" disabled>Disabled</button>
+      </div>
+      <div class="code-block">
+        &lt;button class="btn btn-secondary"&gt;Secondary Button&lt;/button&gt;
+      </div>
+      
+      <h3>Outline</h3>
+      <div class="button-grid">
+        <button class="btn btn-outline">Outline Button</button>
+        <button class="btn btn-outline" disabled>Disabled</button>
+      </div>
+      <div class="code-block">
+        &lt;button class="btn btn-outline"&gt;Outline Button&lt;/button&gt;
+      </div>
+      
+      <h3>Ghost</h3>
+      <div class="button-grid">
+        <button class="btn btn-ghost">Ghost Button</button>
+        <button class="btn btn-ghost" disabled>Disabled</button>
+      </div>
+      <div class="code-block">
+        &lt;button class="btn btn-ghost"&gt;Ghost Button&lt;/button&gt;
+      </div>
+      
+      <h3>Destructive</h3>
+      <div class="button-grid">
+        <button class="btn btn-destructive">Delete</button>
+        <button class="btn btn-destructive" disabled>Disabled</button>
+      </div>
+      <div class="code-block">
+        &lt;button class="btn btn-destructive"&gt;Delete&lt;/button&gt;
+      </div>
+    </section>
+    
+    <!-- Sizes Section -->
+    <section class="section">
+      <h2>Sizes</h2>
+      
+      <div class="button-grid">
+        <button class="btn btn-primary btn-sm">Small</button>
+        <button class="btn btn-primary">Default</button>
+        <button class="btn btn-primary btn-lg">Large</button>
+      </div>
+      <div class="code-block">
+        &lt;button class="btn btn-primary btn-sm"&gt;Small&lt;/button&gt;<br>
+        &lt;button class="btn btn-primary"&gt;Default&lt;/button&gt;<br>
+        &lt;button class="btn btn-primary btn-lg"&gt;Large&lt;/button&gt;
+      </div>
+    </section>
+    
+    <!-- Combinations Section -->
+    <section class="section">
+      <h2>Real-World Examples</h2>
+      
+      <h3>Form Actions</h3>
+      <div class="button-grid">
+        <button class="btn btn-primary">Save Changes</button>
+        <button class="btn btn-outline">Cancel</button>
+      </div>
+      
+      <h3>Danger Zone</h3>
+      <div class="button-grid">
+        <button class="btn btn-destructive">Delete Account</button>
+        <button class="btn btn-outline">Keep Account</button>
+      </div>
+      
+      <h3>Navigation</h3>
+      <div class="button-grid">
+        <button class="btn btn-ghost">← Back</button>
+        <button class="btn btn-primary">Continue →</button>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

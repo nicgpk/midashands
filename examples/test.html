@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design System Test</title>
+  
+  <!-- Import your tokens -->
+  <link rel="stylesheet" href="../tokens/colors.css">
+  
+  <style>
+    body {
+      background: var(--color-background);
+      color: var(--color-foreground);
+      font-family: system-ui, -apple-system, sans-serif;
+      padding: 40px;
+    }
+    
+    .box {
+      padding: 20px;
+      margin: 10px 0;
+      border-radius: 8px;
+    }
+    
+    .primary {
+      background: var(--color-primary);
+      color: var(--color-primary-foreground);
+    }
+    
+    .secondary {
+      background: var(--color-secondary);
+      color: var(--color-secondary-foreground);
+    }
+    
+    .muted {
+      background: var(--color-muted);
+      color: var(--color-muted-foreground);
+    }
+    
+    .destructive {
+      background: var(--color-destructive);
+      color: var(--color-destructive-foreground);
+    }
+  </style>
+</head>
+<body>
+  <h1>My Design System - Color Test</h1>
+  
+  <div class="box primary">
+    Primary - Main actions and buttons
+  </div>
+  
+  <div class="box secondary">
+    Secondary - Less prominent actions
+  </div>
+  
+  <div class="box muted">
+    Muted - Subtle backgrounds
+  </div>
+  
+  <div class="box destructive">
+    Destructive - Delete and error states
+  </div>
+</body>
+</html>
