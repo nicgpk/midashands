@@ -9,27 +9,35 @@
  */
 
 :root {
-  /* Elevation Shadows */
+  /* No shadow */
   --shadow-none: none;
+  /* Extra small shadow */
   --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  /* Small shadow */
   --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  /* Medium shadow */
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  /* Large shadow */
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  /* Extra large shadow */
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  /* 2X large shadow */
   --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  
-  /* Inner Shadows (for pressed/inset effects) */
-  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+  /* Small inner shadow */
   --shadow-inner-sm: inset 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  /* Default inner shadow */
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+  /* Medium inner shadow */
   --shadow-inner-md: inset 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  /* Large inner shadow */
   --shadow-inner-lg: inset 0 4px 6px 0 rgba(0, 0, 0, 0.15);
-  
-  /* Focus Ring (outline shadow) */
+  /* Focus ring shadow */
   --shadow-focus: 0 0 0 2px var(--color-background), 0 0 0 4px var(--color-primary);
-  
-  /* Glow Effects (for interactive elements) */
+  /* Small glow effect */
   --shadow-glow-sm: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* Medium glow effect */
   --shadow-glow-md: 0 0 20px rgba(0, 0, 0, 0.15);
+  /* Large glow effect */
   --shadow-glow-lg: 0 0 30px rgba(0, 0, 0, 0.2);
 }
 

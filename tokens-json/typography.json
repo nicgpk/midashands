@@ -1,0 +1,142 @@
+{
+  "font": {
+    "family": {
+      "sans": {
+        "value": "'Geist', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+        "type": "fontFamily",
+        "comment": "Geist - shadcn/ui's default font"
+      },
+      "mono": {
+        "value": "'Geist Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, 'Courier New', monospace",
+        "type": "fontFamily",
+        "comment": "Geist Mono - for code blocks"
+      }
+    },
+    "size": {
+      "xs": {
+        "value": "0.75rem",
+        "type": "dimension",
+        "comment": "12px"
+      },
+      "sm": {
+        "value": "0.875rem",
+        "type": "dimension",
+        "comment": "14px"
+      },
+      "base": {
+        "value": "1rem",
+        "type": "dimension",
+        "comment": "16px"
+      },
+      "lg": {
+        "value": "1.125rem",
+        "type": "dimension",
+        "comment": "18px"
+      },
+      "xl": {
+        "value": "1.25rem",
+        "type": "dimension",
+        "comment": "20px"
+      },
+      "2xl": {
+        "value": "1.5rem",
+        "type": "dimension",
+        "comment": "24px"
+      },
+      "3xl": {
+        "value": "1.875rem",
+        "type": "dimension",
+        "comment": "30px"
+      },
+      "4xl": {
+        "value": "2.25rem",
+        "type": "dimension",
+        "comment": "36px"
+      },
+      "5xl": {
+        "value": "3rem",
+        "type": "dimension",
+        "comment": "48px"
+      }
+    },
+    "weight": {
+      "thin": {
+        "value": "100",
+        "type": "fontWeight",
+        "comment": "Thin weight"
+      },
+      "extralight": {
+        "value": "200",
+        "type": "fontWeight",
+        "comment": "Extra light weight"
+      },
+      "light": {
+        "value": "300",
+        "type": "fontWeight",
+        "comment": "Light weight"
+      },
+      "normal": {
+        "value": "400",
+        "type": "fontWeight",
+        "comment": "Normal/regular weight"
+      },
+      "medium": {
+        "value": "500",
+        "type": "fontWeight",
+        "comment": "Medium weight"
+      },
+      "semibold": {
+        "value": "600",
+        "type": "fontWeight",
+        "comment": "Semibold weight"
+      },
+      "bold": {
+        "value": "700",
+        "type": "fontWeight",
+        "comment": "Bold weight"
+      },
+      "extrabold": {
+        "value": "800",
+        "type": "fontWeight",
+        "comment": "Extra bold weight"
+      },
+      "black": {
+        "value": "900",
+        "type": "fontWeight",
+        "comment": "Black/heavy weight"
+      }
+    },
+    "lineHeight": {
+      "none": {
+        "value": "1",
+        "type": "number",
+        "comment": "No line height"
+      },
+      "tight": {
+        "value": "1.25",
+        "type": "number",
+        "comment": "Tight line height"
+      },
+      "snug": {
+        "value": "1.375",
+        "type": "number",
+        "comment": "Snug line height"
+      },
+      "normal": {
+        "value": "1.5",
+        "type": "number",
+        "comment": "Normal line height"
+      },
+      "relaxed": {
+        "value": "1.625",
+        "type": "number",
+        "comment": "Relaxed line height"
+      },
+      "loose": {
+        "value": "2",
+        "type": "number",
+        "comment": "Loose line height"
+      }
+    }
+  }
+}

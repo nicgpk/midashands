@@ -1,0 +1,14 @@
+{
+  "name": "midashands-design-system",
+  "version": "1.0.0",
+  "description": "Design system with JSON-based tokens",
+  "scripts": {
+    "build:tokens": "node build-tokens.js",
+    "watch:tokens": "nodemon --watch tokens-json -e json --exec \"npm run build:tokens\"",
+    "build:figma": "node build-figma-tokens.js"
+  },
+  "devDependencies": {
+    "style-dictionary": "^3.9.1",
+    "nodemon": "^3.0.0"
+  }
+}

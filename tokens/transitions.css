@@ -8,15 +8,27 @@
  */
 
 :root {
-  /* Transition Durations */
+  /* Fast transition */
+  --transition-duration-fast: 0.1s;
+  /* Normal transition */
+  --transition-duration-normal: 0.2s;
+  /* Slow transition */
+  --transition-duration-slow: 0.3s;
+  /* Default easing */
+  --transition-easing-default: ease;
+  /* Fast preset */
   --transition-fast: 0.1s ease;
+  /* Normal preset */
   --transition-normal: 0.2s ease;
+  /* Slow preset */
   --transition-slow: 0.3s ease;
-  
-  /* Specific Transitions */
+  /* Color transition preset */
   --transition-colors: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+  /* Opacity transition preset */
   --transition-opacity: opacity 0.2s ease;
+  /* Transform transition preset */
   --transition-transform: transform 0.2s ease;
+  /* All properties transition */
   --transition-all: all 0.2s ease;
 }
 

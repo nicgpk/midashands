@@ -1,52 +1,34 @@
 /**
  * DESIGN TOKENS - COLORS
  * 
- * Based on shadcn/ui Neutral theme
- * These are your single source of truth for colors.
+ * Color palette for the design system.
+ * Based on shadcn/ui zinc color scheme.
  * 
  * Usage:
- *   background: var(--color-background);
- *   color: var(--color-foreground);
+ *   background: var(--color-primary);
  */
 
 :root {
-  /* Base Colors */
-  --color-background: #FFFFFF;
-  --color-foreground: #09090B;
-  
-  /* Primary (buttons, links, key actions) */
-  --color-primary: #18181B;
-  --color-primary-foreground: #FAFAFA;
-  
-  /* Borders and dividers */
-  --color-border: #E4E4E7;
-  
-  /* Secondary (less prominent elements) */
-  --color-secondary: #F4F4F5;
-  --color-secondary-foreground: #18181B;
-  
-  /* Muted (subtle backgrounds) */
-  --color-muted: #F4F4F5;
-  --color-muted-foreground: #71717A;
-  
-  /* Destructive (errors, delete actions) */
-  --color-destructive: #EF4444;
-  --color-destructive-foreground: #FFFFFF;
-}
-
-/* Dark Mode */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: #09090B;
-    --color-foreground: #FAFAFA;
-    --color-primary: #FAFAFA;
-    --color-primary-foreground: #18181B;
-    --color-border: #27272A;
-    --color-secondary: #27272A;
-    --color-secondary-foreground: #FAFAFA;
-    --color-muted: #27272A;
-    --color-muted-foreground: #A1A1AA;
-    --color-destructive: #DC2626;
-    --color-destructive-foreground: #FAFAFA;
-  }
+  /* Base background color */
+  --color-background: #ffffff;
+  /* Base text color */
+  --color-foreground: #09090b;
+  /* Primary brand color */
+  --color-primary: #18181b;
+  /* Text on primary color */
+  --color-primary-foreground: #fafafa;
+  /* Secondary background */
+  --color-secondary: #f4f4f5;
+  /* Text on secondary */
+  --color-secondary-foreground: #18181b;
+  /* Border color */
+  --color-border: #e4e4e7;
+  /* Muted backgrounds */
+  --color-muted: #f4f4f5;
+  /* Muted text */
+  --color-muted-foreground: #71717a;
+  /* Destructive/error color */
+  --color-destructive: #ef4444;
+  /* Text on destructive */
+  --color-destructive-foreground: #ffffff;
 }

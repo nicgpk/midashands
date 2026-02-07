@@ -1,0 +1,380 @@
+{
+  "$themes": [],
+  "$metadata": {
+    "tokenSetOrder": [
+      "colors",
+      "spacing",
+      "typography",
+      "radius",
+      "shadows",
+      "sizes"
+    ]
+  },
+  "colors": {
+    "color-base-background": {
+      "value": "#FFFFFF",
+      "type": "color",
+      "description": "Base background color"
+    },
+    "color-base-foreground": {
+      "value": "#09090B",
+      "type": "color",
+      "description": "Base text color"
+    },
+    "color-primary": {
+      "value": "#18181B",
+      "type": "color",
+      "description": "Primary brand color"
+    },
+    "color-primary-foreground": {
+      "value": "#FAFAFA",
+      "type": "color",
+      "description": "Text on primary color"
+    },
+    "color-secondary": {
+      "value": "#F4F4F5",
+      "type": "color",
+      "description": "Secondary background"
+    },
+    "color-secondary-foreground": {
+      "value": "#18181B",
+      "type": "color",
+      "description": "Text on secondary"
+    },
+    "color-border": {
+      "value": "#E4E4E7",
+      "type": "color",
+      "description": "Border color"
+    },
+    "color-muted": {
+      "value": "#F4F4F5",
+      "type": "color",
+      "description": "Muted backgrounds"
+    },
+    "color-muted-foreground": {
+      "value": "#71717A",
+      "type": "color",
+      "description": "Muted text"
+    },
+    "color-destructive": {
+      "value": "#EF4444",
+      "type": "color",
+      "description": "Destructive/error color"
+    },
+    "color-destructive-foreground": {
+      "value": "#FFFFFF",
+      "type": "color",
+      "description": "Text on destructive"
+    }
+  },
+  "spacing": {
+    "spacing-1": {
+      "value": "4",
+      "type": "sizing",
+      "description": "4px"
+    },
+    "spacing-2": {
+      "value": "8",
+      "type": "sizing",
+      "description": "8px"
+    },
+    "spacing-3": {
+      "value": "12",
+      "type": "sizing",
+      "description": "12px"
+    },
+    "spacing-4": {
+      "value": "16",
+      "type": "sizing",
+      "description": "16px"
+    },
+    "spacing-6": {
+      "value": "24",
+      "type": "sizing",
+      "description": "24px"
+    },
+    "spacing-8": {
+      "value": "32",
+      "type": "sizing",
+      "description": "32px"
+    },
+    "spacing-12": {
+      "value": "48",
+      "type": "sizing",
+      "description": "48px"
+    }
+  },
+  "typography": {
+    "font-family-sans": {
+      "value": "'Geist', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+      "type": "fontFamilies",
+      "description": "Geist - shadcn/ui's default font"
+    },
+    "font-family-mono": {
+      "value": "'Geist Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, 'Courier New', monospace",
+      "type": "fontFamilies",
+      "description": "Geist Mono - for code blocks"
+    },
+    "font-size-xs": {
+      "value": "0.75rem",
+      "type": "sizing",
+      "description": "12px"
+    },
+    "font-size-sm": {
+      "value": "0.875rem",
+      "type": "sizing",
+      "description": "14px"
+    },
+    "font-size-base": {
+      "value": "1rem",
+      "type": "sizing",
+      "description": "16px"
+    },
+    "font-size-lg": {
+      "value": "1.125rem",
+      "type": "sizing",
+      "description": "18px"
+    },
+    "font-size-xl": {
+      "value": "1.25rem",
+      "type": "sizing",
+      "description": "20px"
+    },
+    "font-size-2xl": {
+      "value": "1.5rem",
+      "type": "sizing",
+      "description": "24px"
+    },
+    "font-size-3xl": {
+      "value": "1.875rem",
+      "type": "sizing",
+      "description": "30px"
+    },
+    "font-size-4xl": {
+      "value": "2.25rem",
+      "type": "sizing",
+      "description": "36px"
+    },
+    "font-size-5xl": {
+      "value": "3rem",
+      "type": "sizing",
+      "description": "48px"
+    },
+    "font-weight-thin": {
+      "value": "100",
+      "type": "fontWeights",
+      "description": "Thin weight"
+    },
+    "font-weight-extralight": {
+      "value": "200",
+      "type": "fontWeights",
+      "description": "Extra light weight"
+    },
+    "font-weight-light": {
+      "value": "300",
+      "type": "fontWeights",
+      "description": "Light weight"
+    },
+    "font-weight-normal": {
+      "value": "400",
+      "type": "fontWeights",
+      "description": "Normal/regular weight"
+    },
+    "font-weight-medium": {
+      "value": "500",
+      "type": "fontWeights",
+      "description": "Medium weight"
+    },
+    "font-weight-semibold": {
+      "value": "600",
+      "type": "fontWeights",
+      "description": "Semibold weight"
+    },
+    "font-weight-bold": {
+      "value": "700",
+      "type": "fontWeights",
+      "description": "Bold weight"
+    },
+    "font-weight-extrabold": {
+      "value": "800",
+      "type": "fontWeights",
+      "description": "Extra bold weight"
+    },
+    "font-weight-black": {
+      "value": "900",
+      "type": "fontWeights",
+      "description": "Black/heavy weight"
+    },
+    "font-lineHeight-none": {
+      "value": "1",
+      "type": "lineHeights",
+      "description": "No line height"
+    },
+    "font-lineHeight-tight": {
+      "value": "1.25",
+      "type": "lineHeights",
+      "description": "Tight line height"
+    },
+    "font-lineHeight-snug": {
+      "value": "1.375",
+      "type": "lineHeights",
+      "description": "Snug line height"
+    },
+    "font-lineHeight-normal": {
+      "value": "1.5",
+      "type": "lineHeights",
+      "description": "Normal line height"
+    },
+    "font-lineHeight-relaxed": {
+      "value": "1.625",
+      "type": "lineHeights",
+      "description": "Relaxed line height"
+    },
+    "font-lineHeight-loose": {
+      "value": "2",
+      "type": "lineHeights",
+      "description": "Loose line height"
+    }
+  },
+  "radius": {
+    "radius-none": {
+      "value": "0",
+      "type": "borderRadius",
+      "description": "No rounding"
+    },
+    "radius-sm": {
+      "value": "4",
+      "type": "borderRadius",
+      "description": "4px - Subtle rounding"
+    },
+    "radius-md": {
+      "value": "8",
+      "type": "borderRadius",
+      "description": "8px - Default rounding"
+    },
+    "radius-lg": {
+      "value": "12",
+      "type": "borderRadius",
+      "description": "12px - Card rounding"
+    },
+    "radius-xl": {
+      "value": "16",
+      "type": "borderRadius",
+      "description": "16px - Large card rounding"
+    },
+    "radius-full": {
+      "value": "9999px",
+      "type": "borderRadius",
+      "description": "Full circle/pill"
+    }
+  },
+  "shadows": {
+    "shadow-none": {
+      "value": "none",
+      "type": "boxShadow",
+      "description": "No shadow"
+    },
+    "shadow-xs": {
+      "value": "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+      "type": "boxShadow",
+      "description": "Extra small shadow"
+    },
+    "shadow-sm": {
+      "value": "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)",
+      "type": "boxShadow",
+      "description": "Small shadow"
+    },
+    "shadow-md": {
+      "value": "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)",
+      "type": "boxShadow",
+      "description": "Medium shadow"
+    },
+    "shadow-lg": {
+      "value": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)",
+      "type": "boxShadow",
+      "description": "Large shadow"
+    },
+    "shadow-xl": {
+      "value": "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)",
+      "type": "boxShadow",
+      "description": "Extra large shadow"
+    },
+    "shadow-2xl": {
+      "value": "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+      "type": "boxShadow",
+      "description": "2X large shadow"
+    },
+    "shadow-inner-sm": {
+      "value": "inset 0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+      "type": "boxShadow",
+      "description": "Small inner shadow"
+    },
+    "shadow-inner-default": {
+      "value": "inset 0 2px 4px 0 rgba(0, 0, 0, 0.05)",
+      "type": "boxShadow",
+      "description": "Default inner shadow"
+    },
+    "shadow-inner-md": {
+      "value": "inset 0 2px 4px 0 rgba(0, 0, 0, 0.1)",
+      "type": "boxShadow",
+      "description": "Medium inner shadow"
+    },
+    "shadow-inner-lg": {
+      "value": "inset 0 4px 6px 0 rgba(0, 0, 0, 0.15)",
+      "type": "boxShadow",
+      "description": "Large inner shadow"
+    },
+    "shadow-focus": {
+      "value": "0 0 0 2px var(--color-background), 0 0 0 4px var(--color-primary)",
+      "type": "boxShadow",
+      "description": "Focus ring shadow"
+    },
+    "shadow-glow-sm": {
+      "value": "0 0 10px rgba(0, 0, 0, 0.1)",
+      "type": "boxShadow",
+      "description": "Small glow effect"
+    },
+    "shadow-glow-md": {
+      "value": "0 0 20px rgba(0, 0, 0, 0.15)",
+      "type": "boxShadow",
+      "description": "Medium glow effect"
+    },
+    "shadow-glow-lg": {
+      "value": "0 0 30px rgba(0, 0, 0, 0.2)",
+      "type": "boxShadow",
+      "description": "Large glow effect"
+    }
+  },
+  "sizes": {
+    "size-component-height-sm": {
+      "value": "2rem",
+      "type": "sizing",
+      "description": "32px - Small component height"
+    },
+    "size-component-height-default": {
+      "value": "2.5rem",
+      "type": "sizing",
+      "description": "40px - Default component height"
+    },
+    "size-component-height-lg": {
+      "value": "3rem",
+      "type": "sizing",
+      "description": "48px - Large component height"
+    },
+    "size-icon-sm": {
+      "value": "1rem",
+      "type": "sizing",
+      "description": "16px - Small icon"
+    },
+    "size-icon-default": {
+      "value": "1.25rem",
+      "type": "sizing",
+      "description": "20px - Default icon"
+    },
+    "size-icon-lg": {
+      "value": "1.5rem",
+      "type": "sizing",
+      "description": "24px - Large icon"
+    }
+  }
+}

@@ -8,10 +8,16 @@
  */
 
 :root {
+  /* No rounding */
   --radius-none: 0;
-  --radius-sm: 0.25rem;   /* 4px - subtle */
-  --radius-md: 0.5rem;    /* 8px - default */
-  --radius-lg: 0.75rem;   /* 12px - cards */
-  --radius-xl: 1rem;      /* 16px - large cards */
-  --radius-full: 9999px;  /* Full circle/pill */
+  /* 4px - Subtle rounding */
+  --radius-sm: 0.25rem;
+  /* 8px - Default rounding */
+  --radius-md: 0.5rem;
+  /* 12px - Card rounding */
+  --radius-lg: 0.75rem;
+  /* 16px - Large card rounding */
+  --radius-xl: 1rem;
+  /* Full circle/pill */
+  --radius-full: 9999px;
 }

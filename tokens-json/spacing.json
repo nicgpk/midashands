@@ -1,0 +1,39 @@
+{
+  "spacing": {
+    "1": {
+      "value": "0.25rem",
+      "type": "dimension",
+      "comment": "4px"
+    },
+    "2": {
+      "value": "0.5rem",
+      "type": "dimension",
+      "comment": "8px"
+    },
+    "3": {
+      "value": "0.75rem",
+      "type": "dimension",
+      "comment": "12px"
+    },
+    "4": {
+      "value": "1rem",
+      "type": "dimension",
+      "comment": "16px"
+    },
+    "6": {
+      "value": "1.5rem",
+      "type": "dimension",
+      "comment": "24px"
+    },
+    "8": {
+      "value": "2rem",
+      "type": "dimension",
+      "comment": "32px"
+    },
+    "12": {
+      "value": "3rem",
+      "type": "dimension",
+      "comment": "48px"
+    }
+  }
+}

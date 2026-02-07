@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-Content \"c:\\\\Users\\\\Nic\\\\Documents\\\\midashands\\\\tokens\\\\typography.css\" -Tail 1)",
+      "Bash(Format-Hex)",
+      "Bash(npm install:*)",
+      "Bash(npm run build:tokens:*)",
+      "Bash(npm run build:figma:*)"
+    ]
+  }
+}

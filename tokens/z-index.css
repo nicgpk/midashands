@@ -8,19 +8,28 @@
  */
 
 :root {
-  /* Base Layers */
-  --z-index-base: 0;
-  --z-index-elevated: 10;
-  --z-index-sticky: 100;
-  --z-index-fixed: 200;
-  --z-index-overlay: 300;
-  --z-index-modal: 400;
-  --z-index-popover: 500;
-  --z-index-tooltip: 600;
-  
-  /* Component Specific */
-  --z-index-dropdown: 50;
-  --z-index-button-hover: 10;
-  --z-index-button-active: 15;
-  --z-index-button-focus: 20;
+  /* Base layer */
+  --zIndex-base: 0;
+  /* Elevated elements */
+  --zIndex-elevated: 10;
+  /* Sticky positioned elements */
+  --zIndex-sticky: 100;
+  /* Fixed positioned elements */
+  --zIndex-fixed: 200;
+  /* Overlay backgrounds */
+  --zIndex-overlay: 300;
+  /* Modal dialogs */
+  --zIndex-modal: 400;
+  /* Popover menus */
+  --zIndex-popover: 500;
+  /* Tooltips */
+  --zIndex-tooltip: 600;
+  /* Dropdown menus */
+  --zIndex-dropdown: 50;
+  /* Button hover state */
+  --zIndex-button-hover: 10;
+  /* Button active state */
+  --zIndex-button-active: 15;
+  /* Button focus state */
+  --zIndex-button-focus: 20;
 }

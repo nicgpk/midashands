@@ -1,0 +1,40 @@
+{
+  "size": {
+    "component": {
+      "height": {
+        "sm": {
+          "value": "2rem",
+          "type": "dimension",
+          "comment": "32px - Small component height"
+        },
+        "default": {
+          "value": "2.5rem",
+          "type": "dimension",
+          "comment": "40px - Default component height"
+        },
+        "lg": {
+          "value": "3rem",
+          "type": "dimension",
+          "comment": "48px - Large component height"
+        }
+      }
+    },
+    "icon": {
+      "sm": {
+        "value": "1rem",
+        "type": "dimension",
+        "comment": "16px - Small icon"
+      },
+      "default": {
+        "value": "1.25rem",
+        "type": "dimension",
+        "comment": "20px - Default icon"
+      },
+      "lg": {
+        "value": "1.5rem",
+        "type": "dimension",
+        "comment": "24px - Large icon"
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "radius": {
+    "none": {
+      "value": "0",
+      "type": "dimension",
+      "comment": "No rounding"
+    },
+    "sm": {
+      "value": "0.25rem",
+      "type": "dimension",
+      "comment": "4px - Subtle rounding"
+    },
+    "md": {
+      "value": "0.5rem",
+      "type": "dimension",
+      "comment": "8px - Default rounding"
+    },
+    "lg": {
+      "value": "0.75rem",
+      "type": "dimension",
+      "comment": "12px - Card rounding"
+    },
+    "xl": {
+      "value": "1rem",
+      "type": "dimension",
+      "comment": "16px - Large card rounding"
+    },
+    "full": {
+      "value": "9999px",
+      "type": "dimension",
+      "comment": "Full circle/pill"
+    }
+  }
+}

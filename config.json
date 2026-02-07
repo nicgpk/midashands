@@ -1,0 +1,103 @@
+{
+  "source": ["tokens-json/**/*.json"],
+  "platforms": {
+    "css": {
+      "transformGroup": "css",
+      "buildPath": "tokens/",
+      "files": [
+        {
+          "destination": "colors.css",
+          "format": "css/variables",
+          "filter": {
+            "attributes": {
+              "category": "color"
+            }
+          }
+        },
+        {
+          "destination": "spacing.css",
+          "format": "css/variables",
+          "filter": {
+            "attributes": {
+              "category": "spacing"
+            }
+          }
+        },
+        {
+          "destination": "typography.css",
+          "format": "css/variables",
+          "filter": {
+            "attributes": {
+              "category": "font"
+            }
+          }
+        },
+        {
+          "destination": "border-radius.css",
+          "format": "css/variables",
+          "filter": {
+            "attributes": {
+              "category": "radius"
+            }
+          }
+        },
+        {
+          "destination": "component-sizes.css",
+          "format": "css/variables",
+          "filter": {
+            "attributes": {
+              "category": "size"
+            }
+          }
+        },
+        {
+          "destination": "shadows.css",
+          "format": "css/variables",
+          "filter": {
+            "attributes": {
+              "category": "shadow"
+            }
+          }
+        },
+        {
+          "destination": "z-index.css",
+          "format": "css/variables",
+          "filter": {
+            "attributes": {
+              "category": "zIndex"
+            }
+          }
+        },
+        {
+          "destination": "transitions.css",
+          "format": "css/variables",
+          "filter": {
+            "attributes": {
+              "category": "transition"
+            }
+          }
+        }
+      ]
+    },
+    "json": {
+      "transformGroup": "js",
+      "buildPath": "dist/",
+      "files": [
+        {
+          "destination": "tokens.json",
+          "format": "json/flat"
+        }
+      ]
+    },
+    "js": {
+      "transformGroup": "js",
+      "buildPath": "dist/",
+      "files": [
+        {
+          "destination": "tokens.js",
+          "format": "javascript/es6"
+        }
+      ]
+    }
+  }
+}

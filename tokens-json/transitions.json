@@ -1,0 +1,65 @@
+{
+  "transition": {
+    "duration": {
+      "fast": {
+        "value": "0.1s",
+        "type": "duration",
+        "comment": "Fast transition"
+      },
+      "normal": {
+        "value": "0.2s",
+        "type": "duration",
+        "comment": "Normal transition"
+      },
+      "slow": {
+        "value": "0.3s",
+        "type": "duration",
+        "comment": "Slow transition"
+      }
+    },
+    "easing": {
+      "default": {
+        "value": "ease",
+        "type": "cubicBezier",
+        "comment": "Default easing"
+      }
+    },
+    "preset": {
+      "fast": {
+        "value": "0.1s ease",
+        "type": "transition",
+        "comment": "Fast preset"
+      },
+      "normal": {
+        "value": "0.2s ease",
+        "type": "transition",
+        "comment": "Normal preset"
+      },
+      "slow": {
+        "value": "0.3s ease",
+        "type": "transition",
+        "comment": "Slow preset"
+      },
+      "colors": {
+        "value": "color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease",
+        "type": "transition",
+        "comment": "Color transition preset"
+      },
+      "opacity": {
+        "value": "opacity 0.2s ease",
+        "type": "transition",
+        "comment": "Opacity transition preset"
+      },
+      "transform": {
+        "value": "transform 0.2s ease",
+        "type": "transition",
+        "comment": "Transform transition preset"
+      },
+      "all": {
+        "value": "all 0.2s ease",
+        "type": "transition",
+        "comment": "All properties transition"
+      }
+    }
+  }
+}

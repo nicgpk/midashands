@@ -1,0 +1,61 @@
+{
+  "color": {
+    "base": {
+      "background": {
+        "value": "#FFFFFF",
+        "type": "color",
+        "comment": "Base background color"
+      },
+      "foreground": {
+        "value": "#09090B",
+        "type": "color",
+        "comment": "Base text color"
+      }
+    },
+    "primary": {
+      "value": "#18181B",
+      "type": "color",
+      "comment": "Primary brand color"
+    },
+    "primary-foreground": {
+      "value": "#FAFAFA",
+      "type": "color",
+      "comment": "Text on primary color"
+    },
+    "secondary": {
+      "value": "#F4F4F5",
+      "type": "color",
+      "comment": "Secondary background"
+    },
+    "secondary-foreground": {
+      "value": "#18181B",
+      "type": "color",
+      "comment": "Text on secondary"
+    },
+    "border": {
+      "value": "#E4E4E7",
+      "type": "color",
+      "comment": "Border color"
+    },
+    "muted": {
+      "value": "#F4F4F5",
+      "type": "color",
+      "comment": "Muted backgrounds"
+    },
+    "muted-foreground": {
+      "value": "#71717A",
+      "type": "color",
+      "comment": "Muted text"
+    },
+    "destructive": {
+      "value": "#EF4444",
+      "type": "color",
+      "comment": "Destructive/error color"
+    },
+    "destructive-foreground": {
+      "value": "#FFFFFF",
+      "type": "color",
+      "comment": "Text on destructive"
+    }
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "shadow": {
+    "none": {
+      "value": "none",
+      "type": "shadow",
+      "comment": "No shadow"
+    },
+    "xs": {
+      "value": "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+      "type": "shadow",
+      "comment": "Extra small shadow"
+    },
+    "sm": {
+      "value": "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)",
+      "type": "shadow",
+      "comment": "Small shadow"
+    },
+    "md": {
+      "value": "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)",
+      "type": "shadow",
+      "comment": "Medium shadow"
+    },
+    "lg": {
+      "value": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)",
+      "type": "shadow",
+      "comment": "Large shadow"
+    },
+    "xl": {
+      "value": "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)",
+      "type": "shadow",
+      "comment": "Extra large shadow"
+    },
+    "2xl": {
+      "value": "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+      "type": "shadow",
+      "comment": "2X large shadow"
+    },
+    "inner": {
+      "sm": {
+        "value": "inset 0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+        "type": "shadow",
+        "comment": "Small inner shadow"
+      },
+      "default": {
+        "value": "inset 0 2px 4px 0 rgba(0, 0, 0, 0.05)",
+        "type": "shadow",
+        "comment": "Default inner shadow"
+      },
+      "md": {
+        "value": "inset 0 2px 4px 0 rgba(0, 0, 0, 0.1)",
+        "type": "shadow",
+        "comment": "Medium inner shadow"
+      },
+      "lg": {
+        "value": "inset 0 4px 6px 0 rgba(0, 0, 0, 0.15)",
+        "type": "shadow",
+        "comment": "Large inner shadow"
+      }
+    },
+    "focus": {
+      "value": "0 0 0 2px var(--color-background), 0 0 0 4px var(--color-primary)",
+      "type": "shadow",
+      "comment": "Focus ring shadow"
+    },
+    "glow": {
+      "sm": {
+        "value": "0 0 10px rgba(0, 0, 0, 0.1)",
+        "type": "shadow",
+        "comment": "Small glow effect"
+      },
+      "md": {
+        "value": "0 0 20px rgba(0, 0, 0, 0.15)",
+        "type": "shadow",
+        "comment": "Medium glow effect"
+      },
+      "lg": {
+        "value": "0 0 30px rgba(0, 0, 0, 0.2)",
+        "type": "shadow",
+        "comment": "Large glow effect"
+      }
+    }
+  }
+}
