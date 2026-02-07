@@ -1,43 +1,47 @@
 /**
- * BUTTON COMPONENT
+ * BUTTON COMPONENT - COMPLETE VERSION
  * 
- * A flexible button component with multiple variants.
+ * A production-ready button component with all features.
+ * 
+ * Features:
+ * - 6 variants (primary, secondary, outline, ghost, soft, destructive)
+ * - 3 sizes (small, default, large)
+ * - Icon support (left, right, icon-only)
+ * - Loading state with spinner
+ * - Active/pressed states
+ * - Button groups (horizontal, vertical)
+ * - Split buttons
+ * - Badges and notification dots
+ * - Full accessibility (ARIA, focus, keyboard)
+ * - Tooltips
+ * - Full-width option
+ * - Link support
  * 
  * Dependencies:
  *   - tokens/tokens.css
- * 
- * Usage:
- *   <button class="btn btn-primary">Click me</button>
- * 
- * Variants:
- *   .btn-primary    - Main action button
- *   .btn-secondary  - Secondary actions
- *   .btn-outline    - Outlined style
- *   .btn-ghost      - Minimal style
- *   .btn-destructive - Delete/danger actions
- * 
- * Sizes:
- *   .btn-sm  - Small button
- *   .btn-lg  - Large button
  */
 
-/* Base Button Styles */
+/* ========================================
+   BASE BUTTON STYLES
+   ======================================== */
+
 .btn {
   /* Layout */
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--spacing-2);
+  position: relative;
   
   /* Sizing */
-  height: 2.5rem;
-  padding: 0 var(--spacing-4);
+  padding: var(--spacing-2) var(--spacing-6);
+  min-height: var(--component-height-default);
   
   /* Typography */
   font-family: var(--font-sans);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
-  line-height: 1;
+  line-height: var(--line-height-normal);
   text-decoration: none;
   
   /* Visual */
@@ -46,20 +50,38 @@
   cursor: pointer;
   
   /* Interaction */
-  transition: all 0.2s ease;
+  transition: var(--transition-all);
   user-select: none;
   white-space: nowrap;
 }
 
+/* Focus State - FIXED: Visible on all variants */
 .btn:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
+  box-shadow: var(--shadow-focus);
 }
 
+.btn-primary:focus-visible,
+.btn-destructive:focus-visible {
+  outline-color: var(--color-primary-foreground);
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
+}
+
+/* Active/Pressed State - NEW: Visual feedback on click */
+.btn:active:not(:disabled):not(.btn-loading) {
+  transform: scale(0.98);
+}
+
+/* Disabled State */
 .btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+/* ========================================
+   VARIANTS
+   ======================================== */
 
 /* Primary Variant */
 .btn-primary {
@@ -69,10 +91,6 @@
 
 .btn-primary:hover:not(:disabled) {
   opacity: 0.9;
-}
-
-.btn-primary:active:not(:disabled) {
-  opacity: 0.8;
 }
 
 /* Secondary Variant */
@@ -96,13 +114,30 @@
   background: var(--color-secondary);
 }
 
-/* Ghost Variant */
+/* Ghost Variant - IMPROVED: Subtle background for visibility */
 .btn-ghost {
-  background: transparent;
+  background: rgba(0, 0, 0, 0.02);
   color: var(--color-foreground);
 }
 
 .btn-ghost:hover:not(:disabled) {
+  background: var(--color-secondary);
+}
+
+@media (prefers-color-scheme: dark) {
+  .btn-ghost {
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* Soft Variant - NEW: Subtle colored background */
+.btn-soft {
+  background: var(--color-muted);
+  color: var(--color-primary);
+  border-color: transparent;
+}
+
+.btn-soft:hover:not(:disabled) {
   background: var(--color-secondary);
 }
 
@@ -116,29 +151,486 @@
   opacity: 0.9;
 }
 
-/* Size Variants */
+/* ========================================
+   SIZE VARIANTS
+   ======================================== */
+
 .btn-sm {
-  height: 2rem;
-  padding: 0 var(--spacing-3);
+  padding: var(--spacing-1) var(--spacing-4);
+  min-height: var(--component-height-sm);
   font-size: var(--font-size-xs);
 }
 
 .btn-lg {
-  height: 3rem;
-  padding: 0 var(--spacing-6);
+  padding: var(--spacing-3) var(--spacing-8);
+  min-height: var(--component-height-lg);
   font-size: var(--font-size-base);
 }
 
-/* Icon buttons */
+/* ========================================
+   ICON SUPPORT
+   ======================================== */
+
+/* Icon-only buttons */
 .btn-icon {
-  width: 2.5rem;
-  padding: 0;
+  width: var(--component-height-default);
+  min-width: var(--component-height-default);
+  padding: var(--spacing-2);
+  flex-shrink: 0;
 }
 
 .btn-icon.btn-sm {
-  width: 2rem;
+  width: var(--component-height-sm);
+  min-width: var(--component-height-sm);
+  padding: var(--spacing-1);
 }
 
 .btn-icon.btn-lg {
-  width: 3rem;
+  width: var(--component-height-lg);
+  min-width: var(--component-height-lg);
+  padding: var(--spacing-3);
+}
+
+/* Icon sizing */
+.btn svg {
+  width: var(--icon-size-default);
+  height: var(--icon-size-default);
+  flex-shrink: 0;
+}
+
+.btn-sm svg {
+  width: var(--icon-size-sm);
+  height: var(--icon-size-sm);
+}
+
+.btn-lg svg {
+  width: var(--icon-size-lg);
+  height: var(--icon-size-lg);
+}
+
+/* Icon with text */
+.btn-with-icon {
+  gap: var(--spacing-2);
+}
+
+/* Icon on right - NEW */
+.btn-icon-right {
+  flex-direction: row-reverse;
+}
+
+/* ========================================
+   LOADING STATE
+   ======================================== */
+
+.btn-loading {
+  position: relative;
+  color: transparent !important;
+  pointer-events: none;
+}
+
+.btn-loading:disabled {
+  opacity: 1;
+}
+
+/* Modern three-dot loading animation */
+.btn-loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.25rem;
+  height: 0.25rem;
+  margin-top: -0.125rem;
+  margin-left: -0.125rem;
+  border-radius: 50%;
+  background: var(--dot-color);
+  --dot-spacing: 0.5rem;
+  animation: dotPulse 1s ease-in-out infinite;
+}
+
+.btn-loading.btn-sm::after {
+  width: 0.1875rem;
+  height: 0.1875rem;
+  margin-top: -0.09375rem;
+  margin-left: -0.09375rem;
+  --dot-spacing: 0.375rem;
+}
+
+.btn-loading.btn-lg::after {
+  width: 0.3125rem;
+  height: 0.3125rem;
+  margin-top: -0.15625rem;
+  margin-left: -0.15625rem;
+  --dot-spacing: 0.625rem;
+}
+
+/* Loading dot colors */
+.btn-primary.btn-loading::after,
+.btn-destructive.btn-loading::after {
+  --dot-color: var(--color-primary-foreground);
+}
+
+.btn-secondary.btn-loading::after,
+.btn-soft.btn-loading::after {
+  --dot-color: var(--color-secondary-foreground);
+}
+
+.btn-outline.btn-loading::after,
+.btn-ghost.btn-loading::after {
+  --dot-color: var(--color-foreground);
+}
+
+/* ========================================
+   BADGES & NOTIFICATIONS - NEW
+   ======================================== */
+
+.btn-has-badge {
+  position: relative;
+}
+
+/* Notification count badge */
+.btn-badge {
+  position: absolute;
+  top: -0.375rem;
+  right: -0.375rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  padding: 0 0.375rem;
+  font-size: 0.625rem;
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+  background: var(--color-destructive);
+  color: var(--color-destructive-foreground);
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-background);
+  white-space: nowrap;
+}
+
+/* Simple notification dot */
+.btn-badge-dot {
+  position: absolute;
+  top: 0.375rem;
+  right: 0.375rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--color-destructive);
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-background);
+}
+
+.btn-icon .btn-badge-dot {
+  top: 0.25rem;
+  right: 0.25rem;
+}
+
+/* ========================================
+   TOOLTIPS - NEW
+   ======================================== */
+
+.btn[data-tooltip] {
+  position: relative;
+}
+
+.btn[data-tooltip]::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 0.5rem);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: var(--spacing-2) var(--spacing-3);
+  background: var(--color-foreground);
+  color: var(--color-background);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-tight);
+  white-space: nowrap;
+  border-radius: var(--radius-sm);
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition-opacity);
+  z-index: var(--z-index-tooltip);
+}
+
+.btn[data-tooltip]:hover::before,
+.btn[data-tooltip]:focus::before {
+  opacity: 1;
+}
+
+/* Tooltip arrow */
+.btn[data-tooltip]::after {
+  content: "";
+  position: absolute;
+  bottom: calc(100% + 0.125rem);
+  left: 50%;
+  transform: translateX(-50%);
+  border: 0.25rem solid transparent;
+  border-top-color: var(--color-foreground);
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition-opacity);
+}
+
+.btn[data-tooltip]:hover::after,
+.btn[data-tooltip]:focus::after {
+  opacity: 1;
+}
+
+/* ========================================
+   FULL WIDTH
+   ======================================== */
+
+.btn-block {
+  width: 100%;
+  justify-content: center;
+}
+
+/* ========================================
+   LINK AS BUTTON
+   ======================================== */
+
+a.btn {
+  text-decoration: none;
+  display: inline-flex;
+}
+
+/* Ensure proper text colors for link variants */
+a.btn-primary,
+a.btn-primary:visited,
+a.btn-primary:hover {
+  color: var(--color-primary-foreground);
+}
+
+a.btn-secondary,
+a.btn-secondary:visited,
+a.btn-secondary:hover {
+  color: var(--color-secondary-foreground);
+}
+
+a.btn-destructive,
+a.btn-destructive:visited,
+a.btn-destructive:hover {
+  color: var(--color-destructive-foreground);
+}
+
+a.btn-outline,
+a.btn-outline:visited,
+a.btn-ghost,
+a.btn-ghost:visited,
+a.btn-soft,
+a.btn-soft:visited {
+  color: var(--color-foreground);
+}
+
+/* ========================================
+   BUTTON GROUPS - FIXED Z-INDEX
+   ======================================== */
+
+.btn-group {
+  display: inline-flex;
+  position: relative;
+  vertical-align: middle;
+}
+
+/* Active state - outline/ghost get full color change */
+.btn-group > .btn-outline.btn-active,
+.btn-group > .btn-ghost.btn-active,
+.btn-group > .btn-outline[aria-pressed="true"],
+.btn-group > .btn-ghost[aria-pressed="true"] {
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+  border-color: var(--color-primary);
+  z-index: var(--z-index-button-active);
+}
+
+/* Inactive primary buttons in groups use lighter background for contrast */
+.btn-group > .btn-primary {
+  background: var(--color-secondary);
+  color: var(--color-secondary-foreground);
+  border-color: var(--color-border);
+}
+
+/* Active state - secondary/soft get dark background like outline */
+.btn-group > .btn-secondary.btn-active,
+.btn-group > .btn-soft.btn-active,
+.btn-group > .btn-secondary[aria-pressed="true"],
+.btn-group > .btn-soft[aria-pressed="true"] {
+  background: var(--color-foreground);
+  color: var(--color-background);
+  border-color: var(--color-foreground);
+  z-index: var(--z-index-button-active);
+}
+
+/* Active state - primary gets solid black background */
+.btn-group > .btn-primary.btn-active,
+.btn-group > .btn-primary[aria-pressed="true"] {
+  background: var(--color-foreground);
+  color: var(--color-background);
+  border-color: var(--color-foreground);
+  z-index: var(--z-index-button-active);
+}
+
+/* Active state - destructive gets subtle shadow */
+.btn-group > .btn-destructive.btn-active,
+.btn-group > .btn-destructive[aria-pressed="true"] {
+  box-shadow: var(--shadow-inner-md);
+  filter: brightness(0.9);
+  border-color: rgba(0, 0, 0, 0.1);
+  z-index: var(--z-index-button-active);
+}
+
+/* Remove corners on middle buttons */
+.btn-group > .btn:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+
+.btn-group > .btn:first-child:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.btn-group > .btn:last-child:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* Border overlap */
+.btn-group > .btn:not(:first-child) {
+  margin-left: -1px;
+}
+
+/* Z-index layering - FIXED */
+.btn-group > .btn:hover {
+  z-index: var(--z-index-button-hover);
+}
+
+.btn-group > .btn:focus {
+  z-index: var(--z-index-button-focus);
+}
+
+/* ========================================
+   VERTICAL BUTTON GROUPS
+   ======================================== */
+
+.btn-group-vertical {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.btn-group-vertical > .btn-outline.btn-active,
+.btn-group-vertical > .btn-ghost.btn-active,
+.btn-group-vertical > .btn-outline[aria-pressed="true"],
+.btn-group-vertical > .btn-ghost[aria-pressed="true"] {
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+  border-color: var(--color-primary);
+  z-index: var(--z-index-button-active);
+}
+
+/* Inactive primary buttons in groups use lighter background for contrast */
+.btn-group-vertical > .btn-primary {
+  background: var(--color-secondary);
+  color: var(--color-secondary-foreground);
+  border-color: var(--color-border);
+}
+
+/* Active state - secondary/soft get dark background like outline */
+.btn-group-vertical > .btn-secondary.btn-active,
+.btn-group-vertical > .btn-soft.btn-active,
+.btn-group-vertical > .btn-secondary[aria-pressed="true"],
+.btn-group-vertical > .btn-soft[aria-pressed="true"] {
+  background: var(--color-foreground);
+  color: var(--color-background);
+  border-color: var(--color-foreground);
+  z-index: var(--z-index-button-active);
+}
+
+/* Active state - primary gets solid black background */
+.btn-group-vertical > .btn-primary.btn-active,
+.btn-group-vertical > .btn-primary[aria-pressed="true"] {
+  background: var(--color-foreground);
+  color: var(--color-background);
+  border-color: var(--color-foreground);
+  z-index: var(--z-index-button-active);
+}
+
+/* Active state - destructive gets subtle shadow */
+.btn-group-vertical > .btn-destructive.btn-active,
+.btn-group-vertical > .btn-destructive[aria-pressed="true"] {
+  box-shadow: var(--shadow-inner-md);
+  filter: brightness(0.9);
+  border-color: rgba(0, 0, 0, 0.1);
+  z-index: var(--z-index-button-active);
+}
+
+.btn-group-vertical > .btn:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+
+.btn-group-vertical > .btn:first-child:not(:last-child) {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.btn-group-vertical > .btn:last-child:not(:first-child) {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.btn-group-vertical > .btn:not(:first-child) {
+  margin-top: -1px;
+  margin-left: 0;
+}
+
+.btn-group-vertical > .btn:hover {
+  z-index: var(--z-index-button-hover);
+}
+
+.btn-group-vertical > .btn:focus {
+  z-index: var(--z-index-button-focus);
+}
+
+/* ========================================
+   SPLIT BUTTONS - NEW
+   ======================================== */
+
+.btn-split {
+  display: inline-flex;
+  position: relative;
+}
+
+.btn-split > .btn:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.btn-split > .btn:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-left: -1px;
+}
+
+.btn-split > .btn:hover,
+.btn-split > .btn:focus {
+  z-index: var(--z-index-button-hover);
+}
+
+/* Divider in split button */
+.btn-split > .btn:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 25%;
+  right: 0;
+  width: 1px;
+  height: 50%;
+  background: currentColor;
+  opacity: 0.2;
+}
+
+.btn-split > .btn-primary:not(:last-child)::after,
+.btn-split > .btn-destructive:not(:last-child)::after {
+  background: var(--color-primary-foreground);
 }

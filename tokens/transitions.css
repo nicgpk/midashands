@@ -1,0 +1,50 @@
+/**
+ * DESIGN TOKENS - TRANSITIONS
+ * 
+ * Consistent animation timing for interactions.
+ * 
+ * Usage:
+ *   transition: all var(--transition-normal);
+ */
+
+:root {
+  /* Transition Durations */
+  --transition-fast: 0.1s ease;
+  --transition-normal: 0.2s ease;
+  --transition-slow: 0.3s ease;
+  
+  /* Specific Transitions */
+  --transition-colors: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+  --transition-opacity: opacity 0.2s ease;
+  --transition-transform: transform 0.2s ease;
+  --transition-all: all 0.2s ease;
+}
+
+/* Animations */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dotPulse {
+  0% {
+    opacity: 1;
+    box-shadow: var(--dot-spacing) 0 0 transparent, calc(var(--dot-spacing) * -1) 0 0 transparent;
+  }
+  33% {
+    opacity: 1;
+    box-shadow: var(--dot-spacing) 0 0 transparent, calc(var(--dot-spacing) * -1) 0 0 var(--dot-color);
+  }
+  66% {
+    opacity: 1;
+    box-shadow: var(--dot-spacing) 0 0 var(--dot-color), calc(var(--dot-spacing) * -1) 0 0 var(--dot-color);
+  }
+  100% {
+    opacity: 1;
+    box-shadow: var(--dot-spacing) 0 0 transparent, calc(var(--dot-spacing) * -1) 0 0 transparent;
+  }
+}

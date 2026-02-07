@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Button Component - Examples</title>
+  <title>Button Component - Complete Examples</title>
   
   <!-- Import tokens and button component -->
   <link rel="stylesheet" href="../../tokens/tokens.css">
@@ -18,6 +18,12 @@
     
     .section {
       margin-bottom: var(--spacing-12);
+      padding-bottom: var(--spacing-8);
+      border-bottom: 1px solid var(--color-border);
+    }
+    
+    .section:last-child {
+      border-bottom: none;
     }
     
     .section h2 {
@@ -50,13 +56,27 @@
       font-size: var(--font-size-sm);
       overflow-x: auto;
     }
+    
+    .feature-tag {
+      display: inline-block;
+      padding: 0.125rem 0.5rem;
+      background: var(--color-primary);
+      color: var(--color-primary-foreground);
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-medium);
+      border-radius: var(--radius-sm);
+      margin-left: var(--spacing-2);
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1 style="margin-bottom: var(--spacing-8); font-size: var(--font-size-4xl);">
+    <h1 style="margin-bottom: var(--spacing-2); font-size: var(--font-size-4xl);">
       Button Component
     </h1>
+    <p style="margin-bottom: var(--spacing-8); color: var(--color-muted-foreground);">
+      Complete, production-ready button system with all features
+    </p>
     
     <!-- Variants Section -->
     <section class="section">
@@ -67,17 +87,11 @@
         <button class="btn btn-primary">Primary Button</button>
         <button class="btn btn-primary" disabled>Disabled</button>
       </div>
-      <div class="code-block">
-        &lt;button class="btn btn-primary"&gt;Primary Button&lt;/button&gt;
-      </div>
       
       <h3>Secondary</h3>
       <div class="button-grid">
         <button class="btn btn-secondary">Secondary Button</button>
         <button class="btn btn-secondary" disabled>Disabled</button>
-      </div>
-      <div class="code-block">
-        &lt;button class="btn btn-secondary"&gt;Secondary Button&lt;/button&gt;
       </div>
       
       <h3>Outline</h3>
@@ -85,26 +99,29 @@
         <button class="btn btn-outline">Outline Button</button>
         <button class="btn btn-outline" disabled>Disabled</button>
       </div>
-      <div class="code-block">
-        &lt;button class="btn btn-outline"&gt;Outline Button&lt;/button&gt;
-      </div>
       
-      <h3>Ghost</h3>
+      <h3>Ghost <span class="feature-tag">IMPROVED</span></h3>
       <div class="button-grid">
         <button class="btn btn-ghost">Ghost Button</button>
         <button class="btn btn-ghost" disabled>Disabled</button>
       </div>
       <div class="code-block">
-        &lt;button class="btn btn-ghost"&gt;Ghost Button&lt;/button&gt;
+        Now has subtle background for better visibility
+      </div>
+      
+      <h3>Soft <span class="feature-tag">NEW</span></h3>
+      <div class="button-grid">
+        <button class="btn btn-soft">Soft Button</button>
+        <button class="btn btn-soft" disabled>Disabled</button>
+      </div>
+      <div class="code-block">
+        &lt;button class="btn btn-soft"&gt;Soft Button&lt;/button&gt;
       </div>
       
       <h3>Destructive</h3>
       <div class="button-grid">
         <button class="btn btn-destructive">Delete</button>
         <button class="btn btn-destructive" disabled>Disabled</button>
-      </div>
-      <div class="code-block">
-        &lt;button class="btn btn-destructive"&gt;Delete&lt;/button&gt;
       </div>
     </section>
     
@@ -117,14 +134,315 @@
         <button class="btn btn-primary">Default</button>
         <button class="btn btn-primary btn-lg">Large</button>
       </div>
+    </section>
+    
+    <!-- Icon Buttons Section -->
+    <section class="section">
+      <h2>Icon Buttons</h2>
+      
+      <h3>Icon Only</h3>
+      <div class="button-grid">
+        <button class="btn btn-primary btn-icon" aria-label="Edit">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+          </svg>
+        </button>
+        
+        <button class="btn btn-secondary btn-icon" aria-label="Edit document">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+            <path d="M18.375 2.625a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4Z"/>
+          </svg>
+        </button>
+        
+        <button class="btn btn-outline btn-icon" aria-label="Search">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.3-4.3"/>
+          </svg>
+        </button>
+        
+        <button class="btn btn-destructive btn-icon" aria-label="Delete">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 6h18"/>
+            <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+            <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
+          </svg>
+        </button>
+      </div>
+      
+      <h3>Icon + Text (Left)</h3>
+      <div class="button-grid">
+        <button class="btn btn-primary btn-with-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"/>
+            <path d="M12 5v14"/>
+          </svg>
+          Add Item
+        </button>
+        
+        <button class="btn btn-secondary btn-with-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" x2="12" y1="15" y2="3"/>
+          </svg>
+          Download
+        </button>
+      </div>
+      
+      <h3>Icon + Text (Right) <span class="feature-tag">NEW</span></h3>
+      <div class="button-grid">
+        <button class="btn btn-primary btn-with-icon btn-icon-right">
+          Continue
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"/>
+            <path d="m12 5 7 7-7 7"/>
+          </svg>
+        </button>
+        
+        <button class="btn btn-outline btn-with-icon btn-icon-right">
+          Next Step
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </button>
+      </div>
       <div class="code-block">
-        &lt;button class="btn btn-primary btn-sm"&gt;Small&lt;/button&gt;<br>
-        &lt;button class="btn btn-primary"&gt;Default&lt;/button&gt;<br>
-        &lt;button class="btn btn-primary btn-lg"&gt;Large&lt;/button&gt;
+        &lt;button class="btn btn-primary btn-with-icon btn-icon-right"&gt;<br>
+        &nbsp;&nbsp;Continue<br>
+        &nbsp;&nbsp;&lt;svg&gt;...&lt;/svg&gt;<br>
+        &lt;/button&gt;
       </div>
     </section>
     
-    <!-- Combinations Section -->
+    <!-- Loading State Section -->
+    <section class="section">
+      <h2>Loading State <span class="feature-tag">IMPROVED</span></h2>
+      
+      <div class="button-grid">
+        <button class="btn btn-primary btn-loading" disabled aria-busy="true">
+          Loading...
+        </button>
+        
+        <button class="btn btn-secondary btn-loading" disabled aria-busy="true">
+          Processing...
+        </button>
+        
+        <button class="btn btn-outline btn-loading" disabled aria-busy="true">
+          Saving...
+        </button>
+        
+        <button class="btn btn-destructive btn-loading" disabled aria-busy="true">
+          Deleting...
+        </button>
+      </div>
+      
+      <h3>Loading Sizes</h3>
+      <div class="button-grid">
+        <button class="btn btn-primary btn-sm btn-loading" disabled aria-busy="true">Small</button>
+        <button class="btn btn-primary btn-loading" disabled aria-busy="true">Default</button>
+        <button class="btn btn-primary btn-lg btn-loading" disabled aria-busy="true">Large</button>
+      </div>
+      <div class="code-block">
+        Note: aria-busy="true" for screen reader support
+      </div>
+    </section>
+    
+    <!-- Button Groups Section -->
+    <section class="section">
+      <h2>Button Groups <span class="feature-tag">IMPROVED</span></h2>
+      
+      <h3>Horizontal Group</h3>
+      <div class="button-grid">
+        <div class="btn-group">
+          <button class="btn btn-outline btn-active" aria-pressed="true">Left</button>
+          <button class="btn btn-outline" aria-pressed="false">Center</button>
+          <button class="btn btn-outline" aria-pressed="false">Right</button>
+        </div>
+        
+        <div class="btn-group">
+          <button class="btn btn-outline" aria-pressed="false">Week</button>
+          <button class="btn btn-outline btn-active" aria-pressed="true">Month</button>
+          <button class="btn btn-outline" aria-pressed="false">Year</button>
+        </div>
+      </div>
+      <div class="code-block">
+        Note: aria-pressed for toggle button semantics
+      </div>
+
+      <h3>Vertical Group</h3>
+      <div class="button-grid">
+        <div class="btn-group-vertical">
+          <button class="btn btn-outline">Option 1</button>
+          <button class="btn btn-outline btn-active">Option 2</button>
+          <button class="btn btn-outline">Option 3</button>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Split Buttons Section -->
+    <section class="section">
+      <h2>Split Buttons <span class="feature-tag">NEW</span></h2>
+      
+      <div class="button-grid">
+        <div class="btn-split">
+          <button class="btn btn-primary">Save</button>
+          <button class="btn btn-primary btn-icon" aria-label="More save options">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+        </div>
+        
+        <div class="btn-split">
+          <button class="btn btn-outline">Export</button>
+          <button class="btn btn-outline btn-icon" aria-label="Export options">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="code-block">
+        &lt;div class="btn-split"&gt;<br>
+        &nbsp;&nbsp;&lt;button class="btn btn-primary"&gt;Save&lt;/button&gt;<br>
+        &nbsp;&nbsp;&lt;button class="btn btn-primary btn-icon"&gt;▼&lt;/button&gt;<br>
+        &lt;/div&gt;
+      </div>
+    </section>
+    
+    <!-- Badges Section -->
+    <section class="section">
+      <h2>Badges & Notifications <span class="feature-tag">NEW</span></h2>
+      
+      <h3>Notification Count</h3>
+      <div class="button-grid">
+        <button class="btn btn-primary btn-has-badge">
+          Messages
+          <span class="btn-badge">3</span>
+        </button>
+        
+        <button class="btn btn-outline btn-has-badge">
+          Notifications
+          <span class="btn-badge">12</span>
+        </button>
+        
+        <button class="btn btn-ghost btn-icon btn-has-badge" aria-label="Shopping cart">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="8" cy="21" r="1"/>
+            <circle cx="19" cy="21" r="1"/>
+            <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+          </svg>
+          <span class="btn-badge">5</span>
+        </button>
+      </div>
+      <div class="code-block">
+        &lt;button class="btn btn-primary btn-has-badge"&gt;<br>
+        &nbsp;&nbsp;Messages<br>
+        &nbsp;&nbsp;&lt;span class="btn-badge"&gt;3&lt;/span&gt;<br>
+        &lt;/button&gt;
+      </div>
+      
+      <h3>Notification Dot</h3>
+      <div class="button-grid">
+        <button class="btn btn-outline btn-has-badge">
+          Updates
+          <span class="btn-badge-dot"></span>
+        </button>
+        
+        <button class="btn btn-ghost btn-icon btn-has-badge" aria-label="Notifications">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+          </svg>
+          <span class="btn-badge-dot"></span>
+        </button>
+      </div>
+      <div class="code-block">
+        &lt;span class="btn-badge-dot"&gt;&lt;/span&gt;
+      </div>
+    </section>
+    
+    <!-- Tooltips Section -->
+    <section class="section">
+      <h2>Tooltips <span class="feature-tag">NEW</span></h2>
+      
+      <div class="button-grid">
+        <button class="btn btn-ghost btn-icon" data-tooltip="Edit document" aria-label="Edit">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+          </svg>
+        </button>
+        
+        <button class="btn btn-ghost btn-icon" data-tooltip="Delete permanently" aria-label="Delete">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 6h18"/>
+            <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+            <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
+          </svg>
+        </button>
+        
+        <button class="btn btn-outline" data-tooltip="Save your changes">
+          Save
+        </button>
+      </div>
+      <div class="code-block">
+        &lt;button class="btn btn-ghost btn-icon" data-tooltip="Edit document"&gt;<br>
+        &nbsp;&nbsp;&lt;svg&gt;...&lt;/svg&gt;<br>
+        &lt;/button&gt;
+      </div>
+      <p style="margin-top: var(--spacing-2); color: var(--color-muted-foreground); font-size: var(--font-size-sm);">
+        Hover over the buttons above to see tooltips
+      </p>
+    </section>
+    
+    <!-- Full Width Section -->
+    <section class="section">
+      <h2>Full Width Buttons</h2>
+      
+      <div style="max-width: 400px;">
+        <button class="btn btn-primary btn-block" style="margin-bottom: var(--spacing-2);">
+          Sign Up
+        </button>
+        
+        <button class="btn btn-secondary btn-block" style="margin-bottom: var(--spacing-2);">
+          Learn More
+        </button>
+        
+        <button class="btn btn-outline btn-block">
+          Cancel
+        </button>
+      </div>
+    </section>
+    
+    <!-- Links Section -->
+    <section class="section">
+      <h2>Links Styled as Buttons</h2>
+      
+      <div class="button-grid">
+        <a href="#" class="btn btn-primary">Link Primary</a>
+        <a href="#" class="btn btn-secondary">Link Secondary</a>
+        <a href="#" class="btn btn-outline">Link Outline</a>
+        <a href="#" class="btn btn-ghost">Link Ghost</a>
+      </div>
+    </section>
+    
+    <!-- Focus States Section -->
+    <section class="section">
+      <h2>Focus States <span class="feature-tag">IMPROVED</span></h2>
+      
+      <div class="button-grid">
+        <button class="btn btn-primary">Primary (Tab to me)</button>
+        <button class="btn btn-outline">Outline (Tab to me)</button>
+        <button class="btn btn-ghost">Ghost (Tab to me)</button>
+      </div>
+      <div class="code-block">
+        Focus rings are now visible on ALL variants, including primary buttons
+      </div>
+    </section>
+    
+    <!-- Real-World Examples -->
     <section class="section">
       <h2>Real-World Examples</h2>
       
@@ -134,18 +452,87 @@
         <button class="btn btn-outline">Cancel</button>
       </div>
       
-      <h3>Danger Zone</h3>
+      <h3>E-commerce</h3>
       <div class="button-grid">
-        <button class="btn btn-destructive">Delete Account</button>
-        <button class="btn btn-outline">Keep Account</button>
+        <button class="btn btn-primary btn-with-icon btn-has-badge">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="8" cy="21" r="1"/>
+            <circle cx="19" cy="21" r="1"/>
+            <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+          </svg>
+          View Cart
+          <span class="btn-badge">3</span>
+        </button>
+        <button class="btn btn-primary btn-lg">Add to Cart</button>
+      </div>
+      
+      <h3>Toolbar</h3>
+      <div style="padding: var(--spacing-2); background: var(--color-muted); border-radius: var(--radius-md); display: inline-flex; gap: var(--spacing-2);">
+        <div class="btn-group">
+          <button class="btn btn-ghost btn-sm btn-icon btn-active" data-tooltip="Bold" aria-label="Bold">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 12h9a4 4 0 0 1 0 8H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a4 4 0 0 1 0 8"/>
+            </svg>
+          </button>
+          <button class="btn btn-ghost btn-sm btn-icon" data-tooltip="Italic" aria-label="Italic">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" x2="10" y1="4" y2="4"/>
+              <line x1="14" x2="5" y1="20" y2="20"/>
+              <line x1="15" x2="9" y1="4" y2="20"/>
+            </svg>
+          </button>
+          <button class="btn btn-ghost btn-sm btn-icon" data-tooltip="Underline" aria-label="Underline">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 4v6a6 6 0 0 0 12 0V4"/>
+              <line x1="4" x2="20" y1="20" y2="20"/>
+            </svg>
+          </button>
+        </div>
       </div>
       
       <h3>Navigation</h3>
       <div class="button-grid">
         <button class="btn btn-ghost">← Back</button>
-        <button class="btn btn-primary">Continue →</button>
+        <button class="btn btn-primary btn-icon-right">
+          Continue
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"/>
+            <path d="m12 5 7 7-7 7"/>
+          </svg>
+        </button>
       </div>
     </section>
   </div>
+
+  <script>
+    // Button Group Toggle Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      // Handle horizontal button groups
+      const buttonGroups = document.querySelectorAll('.btn-group, .btn-group-vertical');
+
+      buttonGroups.forEach(group => {
+        const buttons = group.querySelectorAll('.btn');
+
+        buttons.forEach(button => {
+          button.addEventListener('click', function(e) {
+            // Don't toggle if button is disabled or loading
+            if (this.disabled || this.classList.contains('btn-loading')) {
+              return;
+            }
+
+            // Remove active state from all buttons in this group
+            buttons.forEach(btn => {
+              btn.classList.remove('btn-active');
+              btn.setAttribute('aria-pressed', 'false');
+            });
+
+            // Add active state to clicked button
+            this.classList.add('btn-active');
+            this.setAttribute('aria-pressed', 'true');
+          });
+        });
+      });
+    });
+  </script>
 </body>
 </html>

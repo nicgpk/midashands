@@ -1,0 +1,26 @@
+/**
+ * DESIGN TOKENS - Z-INDEX
+ * 
+ * Layering system for stacking elements.
+ * 
+ * Usage:
+ *   z-index: var(--z-index-dropdown);
+ */
+
+:root {
+  /* Base Layers */
+  --z-index-base: 0;
+  --z-index-elevated: 10;
+  --z-index-sticky: 100;
+  --z-index-fixed: 200;
+  --z-index-overlay: 300;
+  --z-index-modal: 400;
+  --z-index-popover: 500;
+  --z-index-tooltip: 600;
+  
+  /* Component Specific */
+  --z-index-dropdown: 50;
+  --z-index-button-hover: 10;
+  --z-index-button-active: 15;
+  --z-index-button-focus: 20;
+}

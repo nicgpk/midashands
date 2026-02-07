@@ -1,150 +1,276 @@
 # Button Component
 
-A flexible, accessible button component with multiple variants and sizes.
+A fully-featured, production-ready button component with multiple variants, sizes, states, and configurations.
 
 ## Installation
 
-1. Import the tokens:
+### Step 1: Import Tokens
 ```html
 <link rel="stylesheet" href="path/to/tokens/tokens.css">
 ```
 
-2. Import the button component:
+### Step 2: Import Button Component
 ```html
 <link rel="stylesheet" href="path/to/components/button/button.css">
 ```
 
-## Basic Usage
+### Step 3: Use It
 ```html
 <button class="btn btn-primary">Click me</button>
 ```
 
-## Variants
+## Features
 
-- **Primary** (`.btn-primary`) - Main action buttons
-- **Secondary** (`.btn-secondary`) - Secondary actions
-- **Outline** (`.btn-outline`) - Less prominent actions
-- **Ghost** (`.btn-ghost`) - Minimal style
-- **Destructive** (`.btn-destructive`) - Delete/danger actions
+- ✓ 6 visual variants (Primary, Secondary, Outline, Ghost, Soft, Destructive)
+- ✓ 3 sizes (Small, Default, Large)
+- ✓ Icon support (icon-only, left, and right positions)
+- ✓ Modern loading state with animated dots
+- ✓ Badge and notification indicators
+- ✓ Tooltips (CSS-only)
+- ✓ Split buttons
+- ✓ Full-width option
+- ✓ Button groups with active states (horizontal and vertical)
+- ✓ Works with `<button>`, `<a>`, and `<input>` elements
+- ✓ Fully accessible (ARIA, focus states, keyboard navigation)
+- ✓ Dark mode support (automatic)
+- ✓ Fully tokenized (customizable via design tokens)
 
-## Sizes
+## Basic Usage
 
-- **Small** (`.btn-sm`) - Compact spaces
-- **Default** - Standard size
-- **Large** (`.btn-lg`) - Prominent actions
+### Variants
+```html
+<!-- Primary - Main actions -->
+<button class="btn btn-primary">Primary</button>
 
-## Examples
+<!-- Secondary - Less prominent actions -->
+<button class="btn btn-secondary">Secondary</button>
 
-### Primary button
+<!-- Outline - Bordered style -->
+<button class="btn btn-outline">Outline</button>
+
+<!-- Ghost - Minimal style -->
+<button class="btn btn-ghost">Ghost</button>
+
+<!-- Soft - Subtle colored background -->
+<button class="btn btn-soft">Soft</button>
+
+<!-- Destructive - Delete/danger actions -->
+<button class="btn btn-destructive">Delete</button>
+```
+
+### Sizes
+```html
+<button class="btn btn-primary btn-sm">Small</button>
+<button class="btn btn-primary">Default</button>
+<button class="btn btn-primary btn-lg">Large</button>
+```
+
+### States
+```html
+<!-- Disabled -->
+<button class="btn btn-primary" disabled>Disabled</button>
+
+<!-- Loading -->
+<button class="btn btn-primary btn-loading" disabled>Loading...</button>
+```
+
+## Advanced Usage
+
+### Icon-Only Buttons
+```html
+<button class="btn btn-primary btn-icon" aria-label="Edit">
+  <svg><!-- icon --></svg>
+</button>
+```
+
+**Important:** Always include `aria-label` for accessibility!
+
+### Buttons with Icon + Text
+```html
+<button class="btn btn-primary btn-with-icon">
+  <svg><!-- icon --></svg>
+  Button Text
+</button>
+```
+
+### Full-Width Buttons
+
+Perfect for mobile layouts and forms:
+```html
+<button class="btn btn-primary btn-block">Sign Up</button>
+```
+
+### Links Styled as Buttons
+```html
+<a href="/signup" class="btn btn-primary">Get Started</a>
+```
+
+### Button Groups
+
+**Horizontal:**
+```html
+<div class="btn-group">
+  <button class="btn btn-outline">Left</button>
+  <button class="btn btn-outline">Center</button>
+  <button class="btn btn-outline">Right</button>
+</div>
+```
+
+**Vertical:**
+```html
+<div class="btn-group-vertical">
+  <button class="btn btn-outline">Option 1</button>
+  <button class="btn btn-outline">Option 2</button>
+  <button class="btn btn-outline">Option 3</button>
+</div>
+```
+
+## Real-World Examples
+
+### Form Actions
 ```html
 <button class="btn btn-primary">Save Changes</button>
+<button class="btn btn-outline">Cancel</button>
 ```
 
-### Small outline button
+### Call-to-Action
 ```html
-<button class="btn btn-outline btn-sm">Cancel</button>
+<a href="/signup" class="btn btn-primary btn-lg btn-block">
+  Start Free Trial
+</a>
 ```
 
-### Large destructive button
+### Toolbar
 ```html
-<button class="btn btn-destructive btn-lg">Delete Account</button>
+<div class="btn-group">
+  <button class="btn btn-ghost btn-sm btn-icon" aria-label="Undo">
+    <svg><!-- undo icon --></svg>
+  </button>
+  <button class="btn btn-ghost btn-sm btn-icon" aria-label="Redo">
+    <svg><!-- redo icon --></svg>
+  </button>
+</div>
+```
+
+### Loading State (Form Submit)
+```html
+<button class="btn btn-primary btn-loading" disabled aria-busy="true">
+  Submitting...
+</button>
+```
+
+### Badges & Notifications
+```html
+<!-- Notification count -->
+<button class="btn btn-primary btn-has-badge">
+  Messages
+  <span class="btn-badge">3</span>
+</button>
+
+<!-- Notification dot -->
+<button class="btn btn-outline btn-has-badge">
+  Updates
+  <span class="btn-badge-dot"></span>
+</button>
+```
+
+### Tooltips
+```html
+<button class="btn btn-ghost btn-icon" data-tooltip="Edit document" aria-label="Edit">
+  <svg><!-- icon --></svg>
+</button>
+```
+
+### Split Buttons
+```html
+<div class="btn-split">
+  <button class="btn btn-primary">Save</button>
+  <button class="btn btn-primary btn-icon" aria-label="More options">
+    <svg><!-- dropdown icon --></svg>
+  </button>
+</div>
+```
+
+## Customization
+
+All button styles use design tokens. To customize globally:
+```css
+/* In your tokens/colors.css */
+:root {
+  --color-primary: #your-brand-color;
+  --color-primary-foreground: #ffffff;
+}
+```
+
+To create a custom variant:
+```css
+.btn-custom {
+  background: var(--color-accent);
+  color: var(--color-accent-foreground);
+}
 ```
 
 ## Accessibility
 
-- Buttons include focus-visible states
-- Disabled state prevents interaction
-- Semantic HTML button elements
+- All interactive states (hover, focus, active) have visual feedback
+- Focus states use visible outlines for keyboard navigation
+- Icon-only buttons require `aria-label` attributes
+- Disabled buttons are not keyboard-focusable
+- Loading state maintains button dimensions (no layout shift)
+
+## Browser Support
+
+Works in all modern browsers:
+- Chrome/Edge (latest)
+- Firefox (latest)
+- Safari (latest)
+- Mobile browsers
 
 ## Dependencies
 
-- `tokens/tokens.css` - Design tokens
+- `tokens/tokens.css` - Design tokens (required)
+- Modern browser with CSS custom properties support
+
+## Getting Icons
+
+We use [Lucide Icons](https://lucide.dev) (same as shadcn/ui):
+1. Browse icons at https://lucide.dev/icons
+2. Click an icon
+3. Copy the SVG code
+4. Paste into your button
+
+## Common Issues
+
+### Icons not sizing correctly
+Make sure your SVG has `width="24" height="24"` attributes. The CSS will scale them appropriately.
+
+### Loading dots not showing
+Ensure the button has both `btn-loading` class AND `disabled` attribute. Loading uses a modern three-dot animation.
+
+### Button groups have gaps
+Check that there's no whitespace between `</button>` and `<button>` tags in your HTML.
+
+## Framework Integration
+
+### React
+```jsx
+<button className="btn btn-primary">Click me</button>
 ```
 
-3. Save
-
----
-
-## **4. Test Your Button!**
-
-1. Right-click on **`components/button/button.html`**
-2. Click **"Open with Live Server"**
-3. See all your beautiful buttons! 🎉
-
----
-
-# **Part C: Push to GitHub**
-
-Now let's share your work with the world!
-
----
-
-## **1. Check What Changed**
-
-In VS Code, look at the left sidebar. You should see a number on the **Source Control** icon (looks like a branching tree).
-
-Click on **Source Control**.
-
-You'll see all the files you created listed.
-
-**What this shows:** All the new files you created that aren't on GitHub yet.
-
----
-
-## **2. Stage Your Changes**
-
-1. In the Source Control panel, click the **"+"** (plus) icon next to "Changes"
-   - This stages ALL your files at once
-
-**What this does:** Tells Git "yes, I want to save all these files"
-
----
-
-## **3. Commit Your Changes**
-
-1. At the top of the Source Control panel, there's a text box that says "Message"
-2. Type: `Add design tokens and button component`
-3. Click the **checkmark** ✓ above the message box
-
-**What this does:** Saves a snapshot of your work with a description
-
----
-
-## **4. Push to GitHub**
-
-1. Click the **"..."** (three dots) at the top of Source Control panel
-2. Click **"Push"**
-
-**If this is your first time:**
-- VS Code might ask you to log in to GitHub
-- Follow the prompts to authorize VS Code
-- Then click Push again
-
-**What this does:** Uploads your code to GitHub!
-
----
-
-## **5. View Your Work on GitHub**
-
-1. Go to your GitHub repo in your browser
-2. Refresh the page
-3. You should see all your folders and files! 🎉
-
-**Your repo now has:**
+### Vue
+```vue
+<button class="btn btn-primary">Click me</button>
 ```
-my-design-system/
-├── README.md
-├── tokens/
-│   ├── colors.css
-│   ├── spacing.css
-│   ├── typography.css
-│   ├── border-radius.css
-│   └── tokens.css
-├── components/
-│   └── button/
-│       ├── button.css
-│       ├── button.html
-│       └── README.md
-├── examples/
-│   └── test.html
-└── docs/
+
+### Vanilla JS
+```javascript
+const btn = document.querySelector('.btn');
+btn.addEventListener('click', () => {
+  btn.classList.add('btn-loading');
+  btn.disabled = true;
+});
+```
+
+## License
+
+MIT - Free to use in personal and commercial projects

@@ -12,6 +12,10 @@
 @import './spacing.css';
 @import './typography.css';
 @import './border-radius.css';
+@import './component-sizes.css';
+@import './transitions.css';
+@import './shadows.css';
+@import './z-index.css';
 
 /* Base styles */
 * {

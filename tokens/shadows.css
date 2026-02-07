@@ -1,0 +1,53 @@
+/**
+ * DESIGN TOKENS - SHADOWS
+ * 
+ * Consistent shadow system for depth and elevation.
+ * Based on shadcn/ui shadow scale.
+ * 
+ * Usage:
+ *   box-shadow: var(--shadow-sm);
+ */
+
+:root {
+  /* Elevation Shadows */
+  --shadow-none: none;
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  
+  /* Inner Shadows (for pressed/inset effects) */
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+  --shadow-inner-sm: inset 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-inner-md: inset 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  --shadow-inner-lg: inset 0 4px 6px 0 rgba(0, 0, 0, 0.15);
+  
+  /* Focus Ring (outline shadow) */
+  --shadow-focus: 0 0 0 2px var(--color-background), 0 0 0 4px var(--color-primary);
+  
+  /* Glow Effects (for interactive elements) */
+  --shadow-glow-sm: 0 0 10px rgba(0, 0, 0, 0.1);
+  --shadow-glow-md: 0 0 20px rgba(0, 0, 0, 0.15);
+  --shadow-glow-lg: 0 0 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark Mode Adjustments */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Stronger shadows in dark mode for better visibility */
+    --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px -1px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    
+    /* Inner shadows for dark mode */
+    --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+    --shadow-inner-sm: inset 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    --shadow-inner-md: inset 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+    --shadow-inner-lg: inset 0 4px 6px 0 rgba(0, 0, 0, 0.5);
+  }
+}
