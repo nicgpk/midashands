@@ -2,60 +2,100 @@
   "color": {
     "base": {
       "background": {
-        "value": "#FFFFFF",
+        "value": "#0A0A0A",
         "type": "color",
-        "comment": "Base background color"
+        "comment": "Base background color - dark mode"
       },
       "foreground": {
-        "value": "#09090B",
+        "value": "#FAFAFA",
         "type": "color",
-        "comment": "Base text color"
+        "comment": "Base text color - light on dark"
       }
     },
-    "primary": {
-      "value": "#18181B",
+    "card": {
+      "value": "#0A0A0A",
       "type": "color",
-      "comment": "Primary brand color"
+      "comment": "Card background"
     },
-    "primary-foreground": {
+    "card-foreground": {
       "value": "#FAFAFA",
       "type": "color",
-      "comment": "Text on primary color"
+      "comment": "Card text"
+    },
+    "popover": {
+      "value": "#0A0A0A",
+      "type": "color",
+      "comment": "Popover background"
+    },
+    "popover-foreground": {
+      "value": "#FAFAFA",
+      "type": "color",
+      "comment": "Popover text"
+    },
+    "primary": {
+      "value": "#FAFAFA",
+      "type": "color",
+      "comment": "Primary brand color - light button on dark"
+    },
+    "primary-foreground": {
+      "value": "#0A0A0A",
+      "type": "color",
+      "comment": "Text on primary - dark on light"
     },
     "secondary": {
-      "value": "#F4F4F5",
+      "value": "#262626",
       "type": "color",
-      "comment": "Secondary background"
+      "comment": "Secondary background - subtle dark"
     },
     "secondary-foreground": {
-      "value": "#18181B",
+      "value": "#FAFAFA",
       "type": "color",
-      "comment": "Text on secondary"
-    },
-    "border": {
-      "value": "#E4E4E7",
-      "type": "color",
-      "comment": "Border color"
+      "comment": "Text on secondary - light on dark"
     },
     "muted": {
-      "value": "#F4F4F5",
+      "value": "#262626",
       "type": "color",
-      "comment": "Muted backgrounds"
+      "comment": "Muted backgrounds - subtle dark"
     },
     "muted-foreground": {
-      "value": "#71717A",
+      "value": "#A1A1A1",
       "type": "color",
-      "comment": "Muted text"
+      "comment": "Muted text - medium gray"
+    },
+    "accent": {
+      "value": "#262626",
+      "type": "color",
+      "comment": "Accent background"
+    },
+    "accent-foreground": {
+      "value": "#FAFAFA",
+      "type": "color",
+      "comment": "Accent text"
     },
     "destructive": {
-      "value": "#EF4444",
+      "value": "#991B1B",
       "type": "color",
-      "comment": "Destructive/error color"
+      "comment": "Destructive/error color - dark mode red"
     },
     "destructive-foreground": {
-      "value": "#FFFFFF",
+      "value": "#FAFAFA",
       "type": "color",
       "comment": "Text on destructive"
+    },
+    "border": {
+      "value": "#262626",
+      "type": "color",
+      "comment": "Border color - subtle dark"
+    },
+    "input": {
+      "value": "#262626",
+      "type": "color",
+      "comment": "Input border/background"
+    },
+    "ring": {
+      "value": "#D4D4D4",
+      "type": "color",
+      "comment": "Focus ring color"
     }
   }
 }

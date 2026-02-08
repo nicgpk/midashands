@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design System Preview - All Components</title>
+
+  <!-- Import tokens and all component styles -->
+  <link rel="stylesheet" href="../tokens/tokens.css">
+  <link rel="stylesheet" href="../components/button/button.css">
+  <link rel="stylesheet" href="../components/button-group/button-group.css">
+  <link rel="stylesheet" href="../components/input/input.css">
+
+  <style>
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: var(--spacing-8);
+    }
+
+    .header {
+      margin-bottom: var(--spacing-12);
+      padding-bottom: var(--spacing-8);
+      border-bottom: 2px solid var(--color-border);
+    }
+
+    .header h1 {
+      font-size: var(--font-size-4xl);
+      margin-bottom: var(--spacing-2);
+    }
+
+    .header p {
+      color: var(--color-muted-foreground);
+      font-size: var(--font-size-lg);
+    }
+
+    .component-section {
+      margin-bottom: var(--spacing-16);
+      padding: var(--spacing-8);
+      background: var(--color-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+    }
+
+    .component-section h2 {
+      font-size: var(--font-size-3xl);
+      margin-bottom: var(--spacing-6);
+      color: var(--color-foreground);
+    }
+
+    .subsection {
+      margin-bottom: var(--spacing-8);
+    }
+
+    .subsection:last-child {
+      margin-bottom: 0;
+    }
+
+    .subsection h3 {
+      font-size: var(--font-size-xl);
+      margin-bottom: var(--spacing-4);
+      color: var(--color-muted-foreground);
+      font-weight: var(--font-weight-semibold);
+    }
+
+    .showcase {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-4);
+      align-items: center;
+      padding: var(--spacing-6);
+      background: var(--color-background);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+    }
+
+    .showcase-vertical {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .color-tokens {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--spacing-4);
+      margin-bottom: var(--spacing-8);
+    }
+
+    .color-box {
+      padding: var(--spacing-6);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      text-align: center;
+    }
+
+    .color-box-primary {
+      background: var(--color-primary);
+      color: var(--color-primary-foreground);
+    }
+
+    .color-box-secondary {
+      background: var(--color-secondary);
+      color: var(--color-secondary-foreground);
+    }
+
+    .color-box-accent {
+      background: var(--color-accent);
+      color: var(--color-accent-foreground);
+    }
+
+    .color-box-muted {
+      background: var(--color-muted);
+      color: var(--color-muted-foreground);
+    }
+
+    .color-box-destructive {
+      background: var(--color-destructive);
+      color: var(--color-destructive-foreground);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--spacing-4);
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.125rem 0.5rem;
+      background: var(--color-primary);
+      color: var(--color-primary-foreground);
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-medium);
+      border-radius: var(--radius-sm);
+      margin-left: var(--spacing-2);
+    }
+
+    /* Accordion Styles */
+    .accordion-trigger {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--spacing-4) 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--color-foreground);
+      font-family: inherit;
+      text-align: left;
+      transition: var(--transition-all);
+    }
+
+    .accordion-trigger:hover {
+      opacity: 0.8;
+    }
+
+    .accordion-trigger-title {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-3);
+      font-size: var(--font-size-3xl);
+      font-weight: var(--font-weight-bold);
+    }
+
+    .accordion-icon {
+      width: 24px;
+      height: 24px;
+      transition: transform 0.2s ease;
+      color: var(--color-muted-foreground);
+      flex-shrink: 0;
+    }
+
+    .accordion-trigger[aria-expanded="true"] .accordion-icon {
+      transform: rotate(180deg);
+    }
+
+    .accordion-content {
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .accordion-content[data-state="closed"] {
+      max-height: 0;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .accordion-content[data-state="open"] {
+      max-height: 10000px;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .accordion-content-inner {
+      padding-bottom: var(--spacing-6);
+    }
+
+    .component-count {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      background: var(--color-muted);
+      color: var(--color-muted-foreground);
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-medium);
+      border-radius: var(--radius-full);
+      margin-left: var(--spacing-2);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1>🎨 Design System Preview</h1>
+      <p>Complete component library with shadcn/ui dark mode styling</p>
+      <div style="margin-top: var(--spacing-4); display: flex; gap: var(--spacing-2);">
+        <button id="expand-all" class="btn btn-outline btn-sm">Expand All</button>
+        <button id="collapse-all" class="btn btn-outline btn-sm">Collapse All</button>
+      </div>
+    </div>
+
+    <!-- Color Tokens Section -->
+    <section class="component-section">
+      <button class="accordion-trigger" aria-expanded="true" aria-controls="accordion-colors">
+        <span class="accordion-trigger-title">
+          Color Tokens
+          <span class="component-count">5 colors</span>
+        </span>
+        <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <div id="accordion-colors" class="accordion-content" data-state="open">
+        <div class="accordion-content-inner">
+      <div class="color-tokens">
+        <div class="color-box color-box-primary">
+          <strong>Primary</strong>
+          <div style="margin-top: var(--spacing-2); font-size: var(--font-size-xs);">#FAFAFA</div>
+        </div>
+        <div class="color-box color-box-secondary">
+          <strong>Secondary</strong>
+          <div style="margin-top: var(--spacing-2); font-size: var(--font-size-xs);">#262626</div>
+        </div>
+        <div class="color-box color-box-accent">
+          <strong>Accent</strong>
+          <div style="margin-top: var(--spacing-2); font-size: var(--font-size-xs);">#262626</div>
+        </div>
+        <div class="color-box color-box-muted">
+          <strong>Muted</strong>
+          <div style="margin-top: var(--spacing-2); font-size: var(--font-size-xs);">#262626</div>
+        </div>
+        <div class="color-box color-box-destructive">
+          <strong>Destructive</strong>
+          <div style="margin-top: var(--spacing-2); font-size: var(--font-size-xs);">#991B1B</div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Button Component Section -->
+    <section class="component-section">
+      <button class="accordion-trigger" aria-expanded="true" aria-controls="accordion-button">
+        <span class="accordion-trigger-title">
+          Button Component
+          <span class="component-count">6 variants</span>
+        </span>
+        <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <div id="accordion-button" class="accordion-content" data-state="open">
+        <div class="accordion-content-inner">
+
+      <div class="subsection">
+        <h3>Variants</h3>
+        <div class="showcase">
+          <button class="btn btn-primary">Primary</button>
+          <button class="btn btn-secondary">Secondary</button>
+          <button class="btn btn-outline">Outline</button>
+          <button class="btn btn-ghost">Ghost</button>
+          <button class="btn btn-soft">Soft</button>
+          <button class="btn btn-destructive">Destructive</button>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>Sizes</h3>
+        <div class="showcase">
+          <button class="btn btn-primary btn-sm">Small</button>
+          <button class="btn btn-primary">Default</button>
+          <button class="btn btn-primary btn-lg">Large</button>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>With Icons</h3>
+        <div class="showcase">
+          <button class="btn btn-primary btn-with-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"/>
+              <path d="M12 5v14"/>
+            </svg>
+            Add Item
+          </button>
+          <button class="btn btn-outline btn-icon" aria-label="Search">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="m21 21-4.3-4.3"/>
+            </svg>
+          </button>
+          <button class="btn btn-secondary btn-icon-right">
+            Continue
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"/>
+              <path d="m12 5 7 7-7 7"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>Loading State <span class="tag">ANIMATED</span></h3>
+        <div class="showcase">
+          <button class="btn btn-primary btn-loading" disabled aria-busy="true">Loading...</button>
+          <button class="btn btn-secondary btn-loading" disabled aria-busy="true">Processing...</button>
+          <button class="btn btn-outline btn-loading" disabled aria-busy="true">Saving...</button>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>With Badges <span class="tag">NEW</span></h3>
+        <div class="showcase">
+          <button class="btn btn-primary btn-has-badge">
+            Messages
+            <span class="btn-badge">3</span>
+          </button>
+          <button class="btn btn-outline btn-has-badge">
+            Notifications
+            <span class="btn-badge">12</span>
+          </button>
+          <button class="btn btn-ghost btn-icon btn-has-badge" aria-label="Updates">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+              <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+            </svg>
+            <span class="btn-badge-dot"></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>Disabled State</h3>
+        <div class="showcase">
+          <button class="btn btn-primary" disabled>Primary</button>
+          <button class="btn btn-secondary" disabled>Secondary</button>
+          <button class="btn btn-outline" disabled>Outline</button>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Button Group Component Section -->
+    <section class="component-section">
+      <button class="accordion-trigger" aria-expanded="true" aria-controls="accordion-button-group">
+        <span class="accordion-trigger-title">
+          Button Group Component
+          <span class="component-count">3 types</span>
+        </span>
+        <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <div id="accordion-button-group" class="accordion-content" data-state="open">
+        <div class="accordion-content-inner">
+
+      <div class="subsection">
+        <h3>Horizontal Groups</h3>
+        <div class="showcase">
+          <div class="btn-group">
+            <button class="btn btn-outline btn-active" aria-pressed="true">Left</button>
+            <button class="btn btn-outline" aria-pressed="false">Center</button>
+            <button class="btn btn-outline" aria-pressed="false">Right</button>
+          </div>
+
+          <div class="btn-group">
+            <button class="btn btn-ghost" aria-pressed="false">Day</button>
+            <button class="btn btn-ghost btn-active" aria-pressed="true">Week</button>
+            <button class="btn btn-ghost" aria-pressed="false">Month</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>Vertical Groups</h3>
+        <div class="showcase">
+          <div class="btn-group-vertical">
+            <button class="btn btn-outline">Option 1</button>
+            <button class="btn btn-outline btn-active" aria-pressed="true">Option 2</button>
+            <button class="btn btn-outline">Option 3</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>Split Buttons <span class="tag">NEW</span></h3>
+        <div class="showcase">
+          <div class="btn-split">
+            <button class="btn btn-primary">Save</button>
+            <button class="btn btn-primary btn-icon" aria-label="More options">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+          </div>
+
+          <div class="btn-split">
+            <button class="btn btn-outline">Export</button>
+            <button class="btn btn-outline btn-icon" aria-label="Export options">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Input Component Section -->
+    <section class="component-section">
+      <button class="accordion-trigger" aria-expanded="true" aria-controls="accordion-input">
+        <span class="accordion-trigger-title">
+          Input Component
+          <span class="component-count">Multiple types</span>
+        </span>
+        <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <div id="accordion-input" class="accordion-content" data-state="open">
+        <div class="accordion-content-inner">
+
+      <div class="subsection">
+        <h3>Basic Inputs</h3>
+        <div class="showcase showcase-vertical" style="width: 100%;">
+          <div style="width: 100%; max-width: 400px;">
+            <label class="form-label" for="preview-email">Email</label>
+            <input type="email" id="preview-email" class="input" placeholder="email@example.com">
+          </div>
+
+          <div style="width: 100%; max-width: 400px;">
+            <label class="form-label" for="preview-password">Password</label>
+            <input type="password" id="preview-password" class="input" placeholder="Enter your password">
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>Input Sizes</h3>
+        <div class="showcase showcase-vertical" style="width: 100%;">
+          <div style="width: 100%; max-width: 400px;">
+            <label class="form-label" for="preview-sm">Small</label>
+            <input type="text" id="preview-sm" class="input input-sm" placeholder="Small input">
+          </div>
+
+          <div style="width: 100%; max-width: 400px;">
+            <label class="form-label" for="preview-default">Default</label>
+            <input type="text" id="preview-default" class="input" placeholder="Default input">
+          </div>
+
+          <div style="width: 100%; max-width: 400px;">
+            <label class="form-label" for="preview-lg">Large</label>
+            <input type="text" id="preview-lg" class="input input-lg" placeholder="Large input">
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>With Icons</h3>
+        <div class="showcase showcase-vertical" style="width: 100%;">
+          <div style="width: 100%; max-width: 400px;">
+            <label class="form-label" for="preview-search">Search</label>
+            <div class="input-group">
+              <span class="input-group-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"/>
+                  <path d="m21 21-4.3-4.3"/>
+                </svg>
+              </span>
+              <input type="text" id="preview-search" class="input" placeholder="Search...">
+            </div>
+          </div>
+
+          <div style="width: 100%; max-width: 400px;">
+            <label class="form-label" for="preview-date">Date</label>
+            <div class="input-group input-group-right">
+              <input type="text" id="preview-date" class="input" placeholder="Select date">
+              <span class="input-group-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+                  <line x1="16" x2="16" y1="2" y2="6"/>
+                  <line x1="8" x2="8" y1="2" y2="6"/>
+                  <line x1="3" x2="21" y1="10" y2="10"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>Validation States</h3>
+        <div class="showcase showcase-vertical" style="width: 100%;">
+          <div style="width: 100%; max-width: 400px;">
+            <label class="form-label" for="preview-error">Email (Error)</label>
+            <input type="email" id="preview-error" class="input input-error" value="invalid-email">
+            <p class="form-error">Please enter a valid email address</p>
+          </div>
+
+          <div style="width: 100%; max-width: 400px;">
+            <label class="form-label" for="preview-success">Username (Success)</label>
+            <input type="text" id="preview-success" class="input input-success" value="johndoe">
+            <p class="form-description" style="color: #22c55e;">Username is available!</p>
+          </div>
+
+          <div style="width: 100%; max-width: 400px;">
+            <label class="form-label" for="preview-disabled">Disabled</label>
+            <input type="text" id="preview-disabled" class="input" disabled value="Cannot edit">
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>Textarea</h3>
+        <div class="showcase showcase-vertical" style="width: 100%;">
+          <div style="width: 100%; max-width: 600px;">
+            <label class="form-label" for="preview-textarea">Message</label>
+            <textarea id="preview-textarea" class="input textarea" placeholder="Enter your message here..." rows="4"></textarea>
+            <p class="form-description">Your message will be sent to our support team</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>File Input</h3>
+        <div class="showcase showcase-vertical" style="width: 100%;">
+          <div style="width: 100%; max-width: 600px;">
+            <label class="form-label" for="preview-file">Upload File</label>
+            <input type="file" id="preview-file" class="input">
+            <p class="form-description">Supported formats: JPG, PNG, PDF (max 10MB)</p>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <div style="margin-top: var(--spacing-16); padding-top: var(--spacing-8); border-top: 1px solid var(--color-border); text-align: center; color: var(--color-muted-foreground);">
+      <p>Design System Preview - shadcn/ui Dark Mode Style</p>
+      <p style="margin-top: var(--spacing-2); font-size: var(--font-size-sm);">
+        Components: Button • Button Group • Input
+      </p>
+    </div>
+  </div>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Accordion functionality
+      const accordionTriggers = document.querySelectorAll('.accordion-trigger');
+
+      accordionTriggers.forEach(trigger => {
+        trigger.addEventListener('click', function() {
+          const contentId = this.getAttribute('aria-controls');
+          const content = document.getElementById(contentId);
+          const isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+          // Toggle state
+          this.setAttribute('aria-expanded', !isExpanded);
+          content.setAttribute('data-state', isExpanded ? 'closed' : 'open');
+        });
+      });
+
+      // Button group toggle functionality
+      const buttonGroups = document.querySelectorAll('.btn-group, .btn-group-vertical');
+
+      buttonGroups.forEach(group => {
+        const buttons = group.querySelectorAll('.btn');
+
+        buttons.forEach(button => {
+          button.addEventListener('click', function(e) {
+            if (this.disabled || this.classList.contains('btn-loading')) {
+              return;
+            }
+
+            buttons.forEach(btn => {
+              btn.classList.remove('btn-active');
+              btn.setAttribute('aria-pressed', 'false');
+            });
+
+            this.classList.add('btn-active');
+            this.setAttribute('aria-pressed', 'true');
+          });
+        });
+      });
+
+      // Collapse all button
+      const collapseAllBtn = document.getElementById('collapse-all');
+      const expandAllBtn = document.getElementById('expand-all');
+
+      if (collapseAllBtn) {
+        collapseAllBtn.addEventListener('click', function() {
+          accordionTriggers.forEach(trigger => {
+            const contentId = trigger.getAttribute('aria-controls');
+            const content = document.getElementById(contentId);
+            trigger.setAttribute('aria-expanded', 'false');
+            content.setAttribute('data-state', 'closed');
+          });
+        });
+      }
+
+      if (expandAllBtn) {
+        expandAllBtn.addEventListener('click', function() {
+          accordionTriggers.forEach(trigger => {
+            const contentId = trigger.getAttribute('aria-controls');
+            const content = document.getElementById(contentId);
+            trigger.setAttribute('aria-expanded', 'true');
+            content.setAttribute('data-state', 'open');
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>

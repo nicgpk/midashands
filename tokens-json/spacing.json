@@ -30,6 +30,11 @@
       "type": "dimension",
       "comment": "32px"
     },
+    "10": {
+      "value": "2.5rem",
+      "type": "dimension",
+      "comment": "40px"
+    },
     "12": {
       "value": "3rem",
       "type": "dimension",

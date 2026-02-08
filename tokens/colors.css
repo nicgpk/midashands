@@ -9,26 +9,42 @@
  */
 
 :root {
-  /* Base background color */
-  --color-background: #ffffff;
-  /* Base text color */
-  --color-foreground: #09090b;
-  /* Primary brand color */
-  --color-primary: #18181b;
-  /* Text on primary color */
-  --color-primary-foreground: #fafafa;
-  /* Secondary background */
-  --color-secondary: #f4f4f5;
-  /* Text on secondary */
-  --color-secondary-foreground: #18181b;
-  /* Border color */
-  --color-border: #e4e4e7;
-  /* Muted backgrounds */
-  --color-muted: #f4f4f5;
-  /* Muted text */
-  --color-muted-foreground: #71717a;
-  /* Destructive/error color */
-  --color-destructive: #ef4444;
+  /* Base background color - dark mode */
+  --color-background: #0a0a0a;
+  /* Base text color - light on dark */
+  --color-foreground: #fafafa;
+  /* Card background */
+  --color-card: #0a0a0a;
+  /* Card text */
+  --color-card-foreground: #fafafa;
+  /* Popover background */
+  --color-popover: #0a0a0a;
+  /* Popover text */
+  --color-popover-foreground: #fafafa;
+  /* Primary brand color - light button on dark */
+  --color-primary: #fafafa;
+  /* Text on primary - dark on light */
+  --color-primary-foreground: #0a0a0a;
+  /* Secondary background - subtle dark */
+  --color-secondary: #262626;
+  /* Text on secondary - light on dark */
+  --color-secondary-foreground: #fafafa;
+  /* Muted backgrounds - subtle dark */
+  --color-muted: #262626;
+  /* Muted text - medium gray */
+  --color-muted-foreground: #a1a1a1;
+  /* Accent background */
+  --color-accent: #262626;
+  /* Accent text */
+  --color-accent-foreground: #fafafa;
+  /* Destructive/error color - dark mode red */
+  --color-destructive: #991b1b;
   /* Text on destructive */
-  --color-destructive-foreground: #ffffff;
+  --color-destructive-foreground: #fafafa;
+  /* Border color - subtle dark */
+  --color-border: #262626;
+  /* Input border/background */
+  --color-input: #262626;
+  /* Focus ring color */
+  --color-ring: #d4d4d4;
 }

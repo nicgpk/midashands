@@ -1,0 +1,231 @@
+/**
+ * BUTTON GROUP COMPONENT
+ *
+ * Groups of buttons with connected borders and toggle states.
+ *
+ * Features:
+ * - Horizontal and vertical layouts
+ * - Active/pressed states with aria-pressed
+ * - Split button support
+ * - Z-index layering for hover/focus
+ * - Works with all button variants
+ *
+ * Dependencies:
+ *   - tokens/tokens.css
+ *   - components/button/button.css
+ */
+
+/* ========================================
+   HORIZONTAL BUTTON GROUPS
+   ======================================== */
+
+.btn-group {
+  display: inline-flex;
+  position: relative;
+  vertical-align: middle;
+}
+
+/* Active state - outline/ghost get accent background (shadcn style) */
+.btn-group > .btn-outline.btn-active,
+.btn-group > .btn-ghost.btn-active,
+.btn-group > .btn-outline[aria-pressed="true"],
+.btn-group > .btn-ghost[aria-pressed="true"] {
+  background: var(--color-accent);
+  color: var(--color-accent-foreground);
+  border-color: var(--color-border);
+  z-index: var(--z-index-button-active);
+}
+
+/* Inactive primary buttons in groups use lighter background for contrast */
+.btn-group > .btn-primary {
+  background: var(--color-secondary);
+  color: var(--color-secondary-foreground);
+  border-color: var(--color-border);
+}
+
+/* Active state - secondary/soft get slightly lighter (shadcn style) */
+.btn-group > .btn-secondary.btn-active,
+.btn-group > .btn-soft.btn-active,
+.btn-group > .btn-secondary[aria-pressed="true"],
+.btn-group > .btn-soft[aria-pressed="true"] {
+  background: var(--color-muted);
+  color: var(--color-foreground);
+  border-color: var(--color-border);
+  opacity: 1;
+  z-index: var(--z-index-button-active);
+}
+
+/* Active state - primary stays light but slightly dimmed */
+.btn-group > .btn-primary.btn-active,
+.btn-group > .btn-primary[aria-pressed="true"] {
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+  border-color: var(--color-border);
+  opacity: 0.9;
+  z-index: var(--z-index-button-active);
+}
+
+/* Active state - destructive gets subtle shadow */
+.btn-group > .btn-destructive.btn-active,
+.btn-group > .btn-destructive[aria-pressed="true"] {
+  box-shadow: var(--shadow-inner-md);
+  filter: brightness(0.9);
+  border-color: rgba(0, 0, 0, 0.1);
+  z-index: var(--z-index-button-active);
+}
+
+/* Remove corners on middle buttons */
+.btn-group > .btn:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+
+.btn-group > .btn:first-child:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.btn-group > .btn:last-child:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* Border overlap */
+.btn-group > .btn:not(:first-child) {
+  margin-left: -1px;
+}
+
+/* Z-index layering */
+.btn-group > .btn:hover {
+  z-index: var(--z-index-button-hover);
+}
+
+.btn-group > .btn:focus {
+  z-index: var(--z-index-button-focus);
+}
+
+/* ========================================
+   VERTICAL BUTTON GROUPS
+   ======================================== */
+
+.btn-group-vertical {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.btn-group-vertical > .btn-outline.btn-active,
+.btn-group-vertical > .btn-ghost.btn-active,
+.btn-group-vertical > .btn-outline[aria-pressed="true"],
+.btn-group-vertical > .btn-ghost[aria-pressed="true"] {
+  background: var(--color-accent);
+  color: var(--color-accent-foreground);
+  border-color: var(--color-border);
+  z-index: var(--z-index-button-active);
+}
+
+/* Inactive primary buttons in groups use lighter background for contrast */
+.btn-group-vertical > .btn-primary {
+  background: var(--color-secondary);
+  color: var(--color-secondary-foreground);
+  border-color: var(--color-border);
+}
+
+/* Active state - secondary/soft get slightly lighter */
+.btn-group-vertical > .btn-secondary.btn-active,
+.btn-group-vertical > .btn-soft.btn-active,
+.btn-group-vertical > .btn-secondary[aria-pressed="true"],
+.btn-group-vertical > .btn-soft[aria-pressed="true"] {
+  background: var(--color-muted);
+  color: var(--color-foreground);
+  border-color: var(--color-border);
+  opacity: 1;
+  z-index: var(--z-index-button-active);
+}
+
+/* Active state - primary stays light but slightly dimmed */
+.btn-group-vertical > .btn-primary.btn-active,
+.btn-group-vertical > .btn-primary[aria-pressed="true"] {
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+  border-color: var(--color-border);
+  opacity: 0.9;
+  z-index: var(--z-index-button-active);
+}
+
+/* Active state - destructive gets subtle shadow */
+.btn-group-vertical > .btn-destructive.btn-active,
+.btn-group-vertical > .btn-destructive[aria-pressed="true"] {
+  box-shadow: var(--shadow-inner-md);
+  filter: brightness(0.9);
+  border-color: rgba(0, 0, 0, 0.1);
+  z-index: var(--z-index-button-active);
+}
+
+.btn-group-vertical > .btn:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+
+.btn-group-vertical > .btn:first-child:not(:last-child) {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.btn-group-vertical > .btn:last-child:not(:first-child) {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.btn-group-vertical > .btn:not(:first-child) {
+  margin-top: -1px;
+  margin-left: 0;
+}
+
+.btn-group-vertical > .btn:hover {
+  z-index: var(--z-index-button-hover);
+}
+
+.btn-group-vertical > .btn:focus {
+  z-index: var(--z-index-button-focus);
+}
+
+/* ========================================
+   SPLIT BUTTONS
+   ======================================== */
+
+.btn-split {
+  display: inline-flex;
+  position: relative;
+}
+
+.btn-split > .btn:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.btn-split > .btn:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-left: -1px;
+}
+
+.btn-split > .btn:hover,
+.btn-split > .btn:focus {
+  z-index: var(--z-index-button-hover);
+}
+
+/* Divider in split button */
+.btn-split > .btn:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 25%;
+  right: 0;
+  width: 1px;
+  height: 50%;
+  background: currentColor;
+  opacity: 0.2;
+}
+
+.btn-split > .btn-primary:not(:last-child)::after,
+.btn-split > .btn-destructive:not(:last-child)::after {
+  background: var(--color-primary-foreground);
+}

@@ -1,15 +1,17 @@
 # Midas Hands Design System
 
-A shadcn-inspired design system built with JSON-based design tokens and vanilla CSS. Clean, modern, and ready to use in any project.
+A modern design system inspired by shadcn/ui, built with JSON-based design tokens and vanilla CSS. Features dark mode styling, comprehensive components, and a token-driven architecture.
 
 ## 🎨 Features
 
-- **JSON-Based Tokens** - Single source of truth for design tokens
-- **Multi-Platform Export** - Generate CSS, JavaScript, and more from JSON
-- **Components** - Pre-built, customizable UI components
-- **Dark Mode** - Automatic dark mode support
-- **Framework Agnostic** - Works with vanilla HTML, React, Vue, or any framework
-- **Well Documented** - Clear examples and usage guides
+- **🌙 Dark Mode First** - shadcn/ui inspired dark theme as primary
+- **🎯 JSON-Based Tokens** - Single source of truth for all design decisions
+- **🚀 Multi-Platform Export** - Generate CSS, JavaScript, and more from JSON
+- **📦 Production-Ready Components** - Button, Input, Button Groups, and more
+- **♿ Fully Accessible** - ARIA attributes, keyboard navigation, screen reader support
+- **🎭 Framework Agnostic** - Works with vanilla HTML, React, Vue, or any framework
+- **📖 Well Documented** - Clear examples, demos, and usage guides
+- **🔄 Auto-Generation** - CSS tokens automatically built from JSON source
 
 ## 🚀 Quick Start
 
@@ -19,9 +21,11 @@ A shadcn-inspired design system built with JSON-based design tokens and vanilla 
 <!-- Import tokens and components -->
 <link rel="stylesheet" href="tokens/tokens.css">
 <link rel="stylesheet" href="components/button/button.css">
+<link rel="stylesheet" href="components/input/input.css">
 
 <!-- Use components -->
 <button class="btn btn-primary">Click me</button>
+<input type="email" class="input" placeholder="email@example.com">
 ```
 
 ### For Developers (With Token Building)
@@ -33,40 +37,131 @@ npm install
 # Build tokens from JSON
 npm run build:tokens
 
-# Watch for changes
+# Watch for changes (auto-rebuild on save)
 npm run watch:tokens
 
 # Generate Figma-compatible tokens
 npm run build:figma
 ```
 
-## 📚 Documentation
+## 📦 Components
 
-### Design Tokens (JSON-Based)
+### Button Component
+**6 variants • 3 sizes • Icons • Loading states • Badges**
 
-This design system uses a **hybrid approach** - JSON tokens as the source of truth, with auto-generated CSS:
+```html
+<!-- Variants -->
+<button class="btn btn-primary">Primary</button>
+<button class="btn btn-secondary">Secondary</button>
+<button class="btn btn-outline">Outline</button>
+<button class="btn btn-ghost">Ghost</button>
+<button class="btn btn-soft">Soft</button>
+<button class="btn btn-destructive">Delete</button>
 
-#### Token Categories
+<!-- With Icon -->
+<button class="btn btn-primary btn-with-icon">
+  <svg>...</svg>
+  Save
+</button>
 
-- **Colors** - Brand colors, semantic colors, state colors ([colors.json](./tokens-json/colors.json))
-- **Spacing** - Consistent spacing scale, 4px baseline ([spacing.json](./tokens-json/spacing.json))
-- **Typography** - Font families, sizes, weights, line heights ([typography.json](./tokens-json/typography.json))
-- **Border Radius** - Corner rounding from subtle to full ([border-radius.json](./tokens-json/border-radius.json))
-- **Component Sizes** - Standard heights for buttons, inputs ([component-sizes.json](./tokens-json/component-sizes.json))
-- **Shadows** - Elevation system with dark mode support ([shadows.json](./tokens-json/shadows.json))
-- **Z-Index** - Layering system for stacking ([z-index.json](./tokens-json/z-index.json))
-- **Transitions** - Animation timing presets ([transitions.json](./tokens-json/transitions.json))
+<!-- Loading State -->
+<button class="btn btn-primary btn-loading" disabled aria-busy="true">
+  Saving...
+</button>
 
-#### Editing Tokens
+<!-- With Badge -->
+<button class="btn btn-primary btn-has-badge">
+  Messages
+  <span class="btn-badge">3</span>
+</button>
+```
 
-**Edit JSON files in `tokens-json/`** (not CSS files):
+[View Button Docs →](./components/button/)
+
+### Button Group Component
+**Horizontal • Vertical • Split buttons • Toggle states**
+
+```html
+<!-- Horizontal Group -->
+<div class="btn-group">
+  <button class="btn btn-outline btn-active" aria-pressed="true">Left</button>
+  <button class="btn btn-outline">Center</button>
+  <button class="btn btn-outline">Right</button>
+</div>
+
+<!-- Split Button -->
+<div class="btn-split">
+  <button class="btn btn-primary">Save</button>
+  <button class="btn btn-primary btn-icon" aria-label="Options">▼</button>
+</div>
+```
+
+[View Button Group Docs →](./components/button-group/)
+
+### Input Component
+**Multiple types • Icons • Validation • Textarea • File upload**
+
+```html
+<!-- Basic Input -->
+<label class="form-label" for="email">Email</label>
+<input type="email" id="email" class="input" placeholder="email@example.com">
+
+<!-- With Icon -->
+<div class="input-group">
+  <span class="input-group-icon"><svg>...</svg></span>
+  <input type="text" class="input" placeholder="Search...">
+</div>
+
+<!-- Validation States -->
+<input type="email" class="input input-error" value="invalid">
+<p class="form-error">Please enter a valid email</p>
+
+<!-- Textarea -->
+<textarea class="input textarea" placeholder="Your message..."></textarea>
+```
+
+[View Input Docs →](./components/input/)
+
+## 🎯 Design Tokens
+
+All design tokens are defined in JSON and automatically compiled to CSS, JavaScript, and other formats.
+
+### Token Categories
+
+| Category | Location | Description |
+|----------|----------|-------------|
+| **Colors** | [colors.json](./tokens-json/colors.json) | Brand colors, semantic colors, dark mode palette |
+| **Spacing** | [spacing.json](./tokens-json/spacing.json) | 4px baseline scale (4px to 48px) |
+| **Typography** | [typography.json](./tokens-json/typography.json) | Fonts, sizes, weights, line heights |
+| **Border Radius** | [border-radius.json](./tokens-json/border-radius.json) | Corner rounding (none to full) |
+| **Component Sizes** | [component-sizes.json](./tokens-json/component-sizes.json) | Standard heights for UI elements |
+| **Shadows** | [shadows.json](./tokens-json/shadows.json) | Elevation system + focus rings |
+| **Z-Index** | [z-index.json](./tokens-json/z-index.json) | Layering system for stacking |
+| **Transitions** | [transitions.json](./tokens-json/transitions.json) | Animation timing presets |
+
+### Color System (Dark Mode)
+
+```css
+--color-background: #0A0A0A;      /* Deep dark background */
+--color-foreground: #FAFAFA;      /* Light text */
+--color-primary: #FAFAFA;         /* Light buttons on dark */
+--color-secondary: #262626;       /* Subtle dark */
+--color-accent: #262626;          /* Accent elements */
+--color-muted: #262626;           /* Muted backgrounds */
+--color-destructive: #991B1B;     /* Dark mode red */
+--color-border: #262626;          /* Subtle borders */
+--color-ring: #D4D4D4;            /* Focus rings */
+```
+
+### Editing Tokens
+
+**✅ DO: Edit JSON files in `tokens-json/`**
 
 ```json
-// tokens-json/colors.json
 {
   "color": {
     "primary": {
-      "value": "#18181B",
+      "value": "#FAFAFA",
       "type": "color",
       "comment": "Primary brand color"
     }
@@ -76,72 +171,45 @@ This design system uses a **hybrid approach** - JSON tokens as the source of tru
 
 Then rebuild: `npm run build:tokens`
 
-[Learn more about tokens →](./TOKENS-README.md)
+**❌ DON'T: Edit CSS files in `tokens/`** (they're auto-generated and will be overwritten)
 
-### Components
+## 👀 Preview All Components
 
-Currently available components:
+Open **[examples/preview.html](./examples/preview.html)** in your browser to see all components in one place:
 
-- **[Button](./components/button/)** - 6 variants, 3 sizes, loading states, icons, badges, groups
-  - Primary, Secondary, Outline, Ghost, Soft, Destructive
-  - Small, Default, Large sizes
-  - Modern dot loading animation
-  - Icon support (left, right, icon-only)
-  - Button groups with toggle functionality
-  - Full accessibility (ARIA, keyboard navigation)
+- ✨ Interactive accordion sections
+- 🎨 Color token showcase
+- 🔘 All button variants and states
+- 📝 Input types and validation
+- 🎮 Live component examples
 
-More components coming soon!
+**Features:**
+- Expand/Collapse All buttons
+- Component counts
+- Dark mode optimized
+- Copy-paste ready code
 
-## 🎯 Usage Examples
+## 📐 Spacing Scale
 
-### Basic HTML
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <link rel="stylesheet" href="tokens/tokens.css">
-  <link rel="stylesheet" href="components/button/button.css">
-</head>
-<body>
-  <h1>My App</h1>
-  <button class="btn btn-primary">Get Started</button>
-  <button class="btn btn-secondary">Learn More</button>
-</body>
-</html>
+```css
+--spacing-1: 0.25rem;  /* 4px */
+--spacing-2: 0.5rem;   /* 8px */
+--spacing-3: 0.75rem;  /* 12px */
+--spacing-4: 1rem;     /* 16px */
+--spacing-6: 1.5rem;   /* 24px */
+--spacing-8: 2rem;     /* 32px */
+--spacing-10: 2.5rem;  /* 40px */
+--spacing-12: 3rem;    /* 48px */
 ```
 
-### Using JavaScript Tokens
-```javascript
-import tokens from './dist/tokens.js';
+## 🎭 Shadow System
 
-const primaryColor = tokens.colorPrimary; // "#18181B"
-const spacing = tokens.spacing4; // "1rem"
-```
+**Standard Shadows:** xs, sm, md, lg, xl, 2xl
+**Inner Shadows:** inner-sm, inner, inner-md, inner-lg
+**Focus Rings:** focus-ring, focus-destructive, focus-success
+**Glow Effects:** glow-sm, glow-md, glow-lg
 
-### Button Variants
-```html
-<button class="btn btn-primary">Primary</button>
-<button class="btn btn-secondary">Secondary</button>
-<button class="btn btn-outline">Outline</button>
-<button class="btn btn-ghost">Ghost</button>
-<button class="btn btn-soft">Soft</button>
-<button class="btn btn-destructive">Delete</button>
-```
-
-### Button with Icon
-```html
-<button class="btn btn-primary">
-  <svg width="16" height="16"><!-- icon --></svg>
-  Save
-</button>
-```
-
-### Loading State
-```html
-<button class="btn btn-primary btn-loading" disabled>
-  Saving...
-</button>
-```
+All shadows automatically adjust for dark mode!
 
 ## 🎨 Figma Integration
 
@@ -152,10 +220,6 @@ Sync your design tokens with Figma using the Tokens Studio plugin:
 npm run build:figma
 ```
 
-This creates `figma-tokens.json` that you can import into Figma via the **Tokens Studio** plugin.
-
-**[Read the full Figma sync guide →](./FIGMA-SYNC.md)**
-
 ### Quick Figma Setup
 1. Install **Tokens Studio for Figma** plugin
 2. Run `npm run build:figma`
@@ -163,37 +227,107 @@ This creates `figma-tokens.json` that you can import into Figma via the **Tokens
 4. Select `figma-tokens.json`
 5. Apply tokens to your components!
 
-## 🤝 Contributing
-
-Contributions are welcome! Feel free to:
-
-- Report bugs
-- Suggest new components
-- Improve documentation
-- Submit pull requests
-
 ## 📁 Project Structure
 
 ```
 midashands/
-├── tokens-json/          # Source JSON tokens (edit these!)
+├── tokens-json/          # 📝 Source JSON tokens (EDIT THESE!)
 │   ├── colors.json
 │   ├── spacing.json
+│   ├── shadows.json
 │   └── ...
-├── tokens/               # Generated CSS (auto-generated)
+├── tokens/               # 🤖 Generated CSS (auto-generated, don't edit)
 │   ├── tokens.css       # Master import file
 │   ├── colors.css
+│   ├── spacing.css
 │   └── ...
-├── components/           # Component library
+├── components/           # 📦 Component library
 │   ├── button/
+│   │   ├── button.css
+│   │   ├── button.html  # Examples
+│   │   └── README.md
+│   ├── button-group/
+│   │   ├── button-group.css
+│   │   ├── button-group.html
+│   │   └── README.md
+│   ├── input/
+│   │   ├── input.css
+│   │   ├── input.html
+│   │   └── README.md
 │   └── ...
-├── dist/                 # Generated outputs
+├── examples/
+│   └── preview.html     # 👀 All components demo
+├── dist/                # 📦 Build outputs
 │   ├── tokens.json      # Flat JSON
 │   └── tokens.js        # ES6 module
-├── build-tokens.js       # Token build script
+├── build-tokens.js      # Build script
 ├── config.json          # Style Dictionary config
 └── package.json
 ```
+
+## 🎯 Usage Examples
+
+### Complete HTML Example
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My App</title>
+
+  <!-- Import design system -->
+  <link rel="stylesheet" href="tokens/tokens.css">
+  <link rel="stylesheet" href="components/button/button.css">
+  <link rel="stylesheet" href="components/input/input.css">
+</head>
+<body>
+  <h1>My Application</h1>
+
+  <!-- Form with components -->
+  <form>
+    <label class="form-label" for="email">Email</label>
+    <input type="email" id="email" class="input" placeholder="you@example.com">
+
+    <div style="margin-top: 1rem; display: flex; gap: 0.5rem;">
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="reset" class="btn btn-secondary">Reset</button>
+    </div>
+  </form>
+</body>
+</html>
+```
+
+### Using JavaScript Tokens
+
+```javascript
+import tokens from './dist/tokens.js';
+
+// Access any token value
+const primaryColor = tokens.colorPrimary;     // "#FAFAFA"
+const spacing = tokens.spacing4;              // "1rem"
+const shadowFocus = tokens.shadowFocusRing;   // "0 0 0 2px..."
+```
+
+## ♿ Accessibility
+
+All components follow WCAG 2.1 AA standards:
+
+- ✅ Proper ARIA attributes (`aria-label`, `aria-pressed`, `aria-busy`)
+- ✅ Keyboard navigation support
+- ✅ Focus visible indicators (shadcn-style rings)
+- ✅ Screen reader friendly
+- ✅ Color contrast ratios meet standards
+- ✅ Semantic HTML elements
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to:
+
+- 🐛 Report bugs
+- 💡 Suggest new components
+- 📝 Improve documentation
+- 🔧 Submit pull requests
 
 ## 📄 License
 
@@ -201,8 +335,16 @@ ISC License - feel free to use this in your projects!
 
 ## 🙏 Inspiration
 
-This design system is inspired by [shadcn/ui](https://ui.shadcn.com) and follows modern design principles.
+This design system is inspired by [shadcn/ui](https://ui.shadcn.com) and follows modern design principles:
+
+- Dark mode first approach
+- Token-driven architecture
+- Accessible by default
+- Copy-paste ready components
+- No framework lock-in
 
 ---
 
-Built with ❤️ for designers and developers
+**Built with ❤️ for designers and developers**
+
+**View the [live preview](./examples/preview.html) to see all components in action!**

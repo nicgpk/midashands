@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button Group Component</title>
+
+  <!-- Import tokens, button component, and button-group component -->
+  <link rel="stylesheet" href="../../tokens/tokens.css">
+  <link rel="stylesheet" href="../button/button.css">
+  <link rel="stylesheet" href="./button-group.css">
+
+  <style>
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--spacing-8);
+    }
+
+    .section {
+      margin-bottom: var(--spacing-12);
+      padding-bottom: var(--spacing-8);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .section:last-child {
+      border-bottom: none;
+    }
+
+    .section h2 {
+      margin-bottom: var(--spacing-4);
+      font-size: var(--font-size-2xl);
+      font-weight: var(--font-weight-bold);
+    }
+
+    .section h3 {
+      margin-top: var(--spacing-8);
+      margin-bottom: var(--spacing-4);
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-muted-foreground);
+    }
+
+    .button-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-4);
+      align-items: center;
+    }
+
+    .code-block {
+      background: var(--color-muted);
+      padding: var(--spacing-4);
+      border-radius: var(--radius-md);
+      margin-top: var(--spacing-2);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-sm);
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 style="margin-bottom: var(--spacing-2); font-size: var(--font-size-4xl);">
+      Button Group Component
+    </h1>
+    <p style="margin-bottom: var(--spacing-8); color: var(--color-muted-foreground);">
+      Groups of buttons with connected borders and toggle states
+    </p>
+
+    <!-- Horizontal Groups Section -->
+    <section class="section">
+      <h2>Horizontal Button Groups</h2>
+
+      <h3>Outline Variant</h3>
+      <div class="button-grid">
+        <div class="btn-group">
+          <button class="btn btn-outline btn-active" aria-pressed="true">Left</button>
+          <button class="btn btn-outline" aria-pressed="false">Center</button>
+          <button class="btn btn-outline" aria-pressed="false">Right</button>
+        </div>
+
+        <div class="btn-group">
+          <button class="btn btn-outline" aria-pressed="false">Week</button>
+          <button class="btn btn-outline btn-active" aria-pressed="true">Month</button>
+          <button class="btn btn-outline" aria-pressed="false">Year</button>
+        </div>
+      </div>
+      <div class="code-block">
+&lt;div class="btn-group"&gt;
+  &lt;button class="btn btn-outline btn-active" aria-pressed="true"&gt;Left&lt;/button&gt;
+  &lt;button class="btn btn-outline" aria-pressed="false"&gt;Center&lt;/button&gt;
+  &lt;button class="btn btn-outline" aria-pressed="false"&gt;Right&lt;/button&gt;
+&lt;/div&gt;
+      </div>
+
+      <h3>Ghost Variant</h3>
+      <div class="button-grid">
+        <div class="btn-group">
+          <button class="btn btn-ghost btn-active" aria-pressed="true">Day</button>
+          <button class="btn btn-ghost" aria-pressed="false">Week</button>
+          <button class="btn btn-ghost" aria-pressed="false">Month</button>
+        </div>
+      </div>
+
+      <h3>Primary Variant</h3>
+      <div class="button-grid">
+        <div class="btn-group">
+          <button class="btn btn-primary" aria-pressed="false">Option 1</button>
+          <button class="btn btn-primary btn-active" aria-pressed="true">Option 2</button>
+          <button class="btn btn-primary" aria-pressed="false">Option 3</button>
+        </div>
+      </div>
+
+      <h3>Secondary Variant</h3>
+      <div class="button-grid">
+        <div class="btn-group">
+          <button class="btn btn-secondary" aria-pressed="false">Small</button>
+          <button class="btn btn-secondary btn-active" aria-pressed="true">Medium</button>
+          <button class="btn btn-secondary" aria-pressed="false">Large</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vertical Groups Section -->
+    <section class="section">
+      <h2>Vertical Button Groups</h2>
+
+      <div class="button-grid">
+        <div class="btn-group-vertical">
+          <button class="btn btn-outline">Option 1</button>
+          <button class="btn btn-outline btn-active" aria-pressed="true">Option 2</button>
+          <button class="btn btn-outline">Option 3</button>
+        </div>
+
+        <div class="btn-group-vertical">
+          <button class="btn btn-ghost btn-active" aria-pressed="true">Profile</button>
+          <button class="btn btn-ghost">Settings</button>
+          <button class="btn btn-ghost">Logout</button>
+        </div>
+      </div>
+      <div class="code-block">
+&lt;div class="btn-group-vertical"&gt;
+  &lt;button class="btn btn-outline"&gt;Option 1&lt;/button&gt;
+  &lt;button class="btn btn-outline btn-active"&gt;Option 2&lt;/button&gt;
+  &lt;button class="btn btn-outline"&gt;Option 3&lt;/button&gt;
+&lt;/div&gt;
+      </div>
+    </section>
+
+    <!-- Split Buttons Section -->
+    <section class="section">
+      <h2>Split Buttons</h2>
+
+      <div class="button-grid">
+        <div class="btn-split">
+          <button class="btn btn-primary">Save</button>
+          <button class="btn btn-primary btn-icon" aria-label="More save options">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="btn-split">
+          <button class="btn btn-outline">Export</button>
+          <button class="btn btn-outline btn-icon" aria-label="Export options">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="btn-split">
+          <button class="btn btn-secondary">Download</button>
+          <button class="btn btn-secondary btn-icon" aria-label="Download options">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="code-block">
+&lt;div class="btn-split"&gt;
+  &lt;button class="btn btn-primary"&gt;Save&lt;/button&gt;
+  &lt;button class="btn btn-primary btn-icon"&gt;▼&lt;/button&gt;
+&lt;/div&gt;
+      </div>
+    </section>
+
+    <!-- Real-World Examples -->
+    <section class="section">
+      <h2>Real-World Examples</h2>
+
+      <h3>Toolbar with Icon Buttons</h3>
+      <div style="padding: var(--spacing-2); background: var(--color-muted); border-radius: var(--radius-md); display: inline-flex; gap: var(--spacing-2);">
+        <div class="btn-group">
+          <button class="btn btn-ghost btn-sm btn-icon btn-active" data-tooltip="Bold" aria-label="Bold">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 12h9a4 4 0 0 1 0 8H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a4 4 0 0 1 0 8"/>
+            </svg>
+          </button>
+          <button class="btn btn-ghost btn-sm btn-icon" data-tooltip="Italic" aria-label="Italic">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" x2="10" y1="4" y2="4"/>
+              <line x1="14" x2="5" y1="20" y2="20"/>
+              <line x1="15" x2="9" y1="4" y2="20"/>
+            </svg>
+          </button>
+          <button class="btn btn-ghost btn-sm btn-icon" data-tooltip="Underline" aria-label="Underline">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 4v6a6 6 0 0 0 12 0V4"/>
+              <line x1="4" x2="20" y1="20" y2="20"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <h3>Alignment Controls</h3>
+      <div class="button-grid">
+        <div class="btn-group">
+          <button class="btn btn-outline btn-icon btn-active" aria-label="Align left">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="21" x2="3" y1="6" y2="6"/>
+              <line x1="15" x2="3" y1="12" y2="12"/>
+              <line x1="17" x2="3" y1="18" y2="18"/>
+            </svg>
+          </button>
+          <button class="btn btn-outline btn-icon" aria-label="Align center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="21" x2="3" y1="6" y2="6"/>
+              <line x1="17" x2="7" y1="12" y2="12"/>
+              <line x1="19" x2="5" y1="18" y2="18"/>
+            </svg>
+          </button>
+          <button class="btn btn-outline btn-icon" aria-label="Align right">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="21" x2="3" y1="6" y2="6"/>
+              <line x1="21" x2="9" y1="12" y2="12"/>
+              <line x1="21" x2="7" y1="18" y2="18"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <h3>View Switcher</h3>
+      <div class="button-grid">
+        <div class="btn-group">
+          <button class="btn btn-outline btn-icon btn-active" aria-label="Grid view">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="7" height="7" x="3" y="3" rx="1"/>
+              <rect width="7" height="7" x="14" y="3" rx="1"/>
+              <rect width="7" height="7" x="14" y="14" rx="1"/>
+              <rect width="7" height="7" x="3" y="14" rx="1"/>
+            </svg>
+          </button>
+          <button class="btn btn-outline btn-icon" aria-label="List view">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="8" x2="21" y1="6" y2="6"/>
+              <line x1="8" x2="21" y1="12" y2="12"/>
+              <line x1="8" x2="21" y1="18" y2="18"/>
+              <line x1="3" x2="3.01" y1="6" y2="6"/>
+              <line x1="3" x2="3.01" y1="12" y2="12"/>
+              <line x1="3" x2="3.01" y1="18" y2="18"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Usage Notes -->
+    <section class="section">
+      <h2>Usage Notes</h2>
+      <ul style="list-style: disc; padding-left: var(--spacing-6); color: var(--color-muted-foreground);">
+        <li style="margin-bottom: var(--spacing-2);">Use <code>btn-active</code> class and <code>aria-pressed="true"</code> for toggle states</li>
+        <li style="margin-bottom: var(--spacing-2);">Button groups work with all button variants (primary, secondary, outline, ghost, etc.)</li>
+        <li style="margin-bottom: var(--spacing-2);">Split buttons are perfect for dropdown menus attached to primary actions</li>
+        <li style="margin-bottom: var(--spacing-2);">Vertical groups are great for sidebars and narrow layouts</li>
+        <li style="margin-bottom: var(--spacing-2);">All groups maintain proper z-index layering for hover and focus states</li>
+      </ul>
+    </section>
+  </div>
+
+  <script>
+    // Button Group Toggle Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      // Handle horizontal and vertical button groups
+      const buttonGroups = document.querySelectorAll('.btn-group, .btn-group-vertical');
+
+      buttonGroups.forEach(group => {
+        const buttons = group.querySelectorAll('.btn');
+
+        buttons.forEach(button => {
+          button.addEventListener('click', function(e) {
+            // Don't toggle if button is disabled or loading
+            if (this.disabled || this.classList.contains('btn-loading')) {
+              return;
+            }
+
+            // Remove active state from all buttons in this group
+            buttons.forEach(btn => {
+              btn.classList.remove('btn-active');
+              btn.setAttribute('aria-pressed', 'false');
+            });
+
+            // Add active state to clicked button
+            this.classList.add('btn-active');
+            this.setAttribute('aria-pressed', 'true');
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

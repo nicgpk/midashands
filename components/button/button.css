@@ -9,13 +9,13 @@
  * - Icon support (left, right, icon-only)
  * - Loading state with spinner
  * - Active/pressed states
- * - Button groups (horizontal, vertical)
- * - Split buttons
  * - Badges and notification dots
  * - Full accessibility (ARIA, focus, keyboard)
  * - Tooltips
  * - Full-width option
  * - Link support
+ *
+ * Note: Button groups and split buttons have been moved to button-group component
  * 
  * Dependencies:
  *   - tokens/tokens.css
@@ -34,7 +34,7 @@
   position: relative;
   
   /* Sizing */
-  padding: var(--spacing-2) var(--spacing-6);
+  padding: var(--spacing-1) var(--spacing-3);
   min-height: var(--component-height-default);
   
   /* Typography */
@@ -55,17 +55,10 @@
   white-space: nowrap;
 }
 
-/* Focus State - FIXED: Visible on all variants */
+/* Focus State - shadcn style with ring */
 .btn:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-  box-shadow: var(--shadow-focus);
-}
-
-.btn-primary:focus-visible,
-.btn-destructive:focus-visible {
-  outline-color: var(--color-primary-foreground);
-  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
+  outline: none;
+  box-shadow: var(--shadow-focus-ring);
 }
 
 /* Active/Pressed State - NEW: Visual feedback on click */
@@ -83,62 +76,61 @@
    VARIANTS
    ======================================== */
 
-/* Primary Variant */
+/* Primary Variant - shadcn style (light on dark) */
 .btn-primary {
   background: var(--color-primary);
   color: var(--color-primary-foreground);
 }
 
 .btn-primary:hover:not(:disabled) {
+  background: var(--color-primary);
   opacity: 0.9;
 }
 
-/* Secondary Variant */
+/* Secondary Variant - shadcn style (subtle dark) */
 .btn-secondary {
   background: var(--color-secondary);
   color: var(--color-secondary-foreground);
 }
 
 .btn-secondary:hover:not(:disabled) {
+  background: var(--color-secondary);
   opacity: 0.8;
 }
 
-/* Outline Variant */
+/* Outline Variant - shadcn style */
 .btn-outline {
   background: transparent;
   color: var(--color-foreground);
-  border-color: var(--color-border);
+  border-color: var(--color-input);
 }
 
 .btn-outline:hover:not(:disabled) {
-  background: var(--color-secondary);
+  background: var(--color-accent);
+  color: var(--color-accent-foreground);
 }
 
-/* Ghost Variant - IMPROVED: Subtle background for visibility */
+/* Ghost Variant - shadcn style (transparent with hover) */
 .btn-ghost {
-  background: rgba(0, 0, 0, 0.02);
+  background: transparent;
   color: var(--color-foreground);
 }
 
 .btn-ghost:hover:not(:disabled) {
-  background: var(--color-secondary);
+  background: var(--color-accent);
+  color: var(--color-accent-foreground);
 }
 
-@media (prefers-color-scheme: dark) {
-  .btn-ghost {
-    background: rgba(255, 255, 255, 0.05);
-  }
-}
-
-/* Soft Variant - NEW: Subtle colored background */
+/* Soft Variant - shadcn accent style */
 .btn-soft {
-  background: var(--color-muted);
-  color: var(--color-primary);
+  background: var(--color-accent);
+  color: var(--color-accent-foreground);
   border-color: transparent;
 }
 
 .btn-soft:hover:not(:disabled) {
-  background: var(--color-secondary);
+  background: var(--color-accent);
+  opacity: 0.8;
 }
 
 /* Destructive Variant */
@@ -424,213 +416,3 @@ a.btn-soft:visited {
   color: var(--color-foreground);
 }
 
-/* ========================================
-   BUTTON GROUPS - FIXED Z-INDEX
-   ======================================== */
-
-.btn-group {
-  display: inline-flex;
-  position: relative;
-  vertical-align: middle;
-}
-
-/* Active state - outline/ghost get full color change */
-.btn-group > .btn-outline.btn-active,
-.btn-group > .btn-ghost.btn-active,
-.btn-group > .btn-outline[aria-pressed="true"],
-.btn-group > .btn-ghost[aria-pressed="true"] {
-  background: var(--color-primary);
-  color: var(--color-primary-foreground);
-  border-color: var(--color-primary);
-  z-index: var(--z-index-button-active);
-}
-
-/* Inactive primary buttons in groups use lighter background for contrast */
-.btn-group > .btn-primary {
-  background: var(--color-secondary);
-  color: var(--color-secondary-foreground);
-  border-color: var(--color-border);
-}
-
-/* Active state - secondary/soft get dark background like outline */
-.btn-group > .btn-secondary.btn-active,
-.btn-group > .btn-soft.btn-active,
-.btn-group > .btn-secondary[aria-pressed="true"],
-.btn-group > .btn-soft[aria-pressed="true"] {
-  background: var(--color-foreground);
-  color: var(--color-background);
-  border-color: var(--color-foreground);
-  z-index: var(--z-index-button-active);
-}
-
-/* Active state - primary gets solid black background */
-.btn-group > .btn-primary.btn-active,
-.btn-group > .btn-primary[aria-pressed="true"] {
-  background: var(--color-foreground);
-  color: var(--color-background);
-  border-color: var(--color-foreground);
-  z-index: var(--z-index-button-active);
-}
-
-/* Active state - destructive gets subtle shadow */
-.btn-group > .btn-destructive.btn-active,
-.btn-group > .btn-destructive[aria-pressed="true"] {
-  box-shadow: var(--shadow-inner-md);
-  filter: brightness(0.9);
-  border-color: rgba(0, 0, 0, 0.1);
-  z-index: var(--z-index-button-active);
-}
-
-/* Remove corners on middle buttons */
-.btn-group > .btn:not(:first-child):not(:last-child) {
-  border-radius: 0;
-}
-
-.btn-group > .btn:first-child:not(:last-child) {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.btn-group > .btn:last-child:not(:first-child) {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-/* Border overlap */
-.btn-group > .btn:not(:first-child) {
-  margin-left: -1px;
-}
-
-/* Z-index layering - FIXED */
-.btn-group > .btn:hover {
-  z-index: var(--z-index-button-hover);
-}
-
-.btn-group > .btn:focus {
-  z-index: var(--z-index-button-focus);
-}
-
-/* ========================================
-   VERTICAL BUTTON GROUPS
-   ======================================== */
-
-.btn-group-vertical {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: stretch;
-}
-
-.btn-group-vertical > .btn-outline.btn-active,
-.btn-group-vertical > .btn-ghost.btn-active,
-.btn-group-vertical > .btn-outline[aria-pressed="true"],
-.btn-group-vertical > .btn-ghost[aria-pressed="true"] {
-  background: var(--color-primary);
-  color: var(--color-primary-foreground);
-  border-color: var(--color-primary);
-  z-index: var(--z-index-button-active);
-}
-
-/* Inactive primary buttons in groups use lighter background for contrast */
-.btn-group-vertical > .btn-primary {
-  background: var(--color-secondary);
-  color: var(--color-secondary-foreground);
-  border-color: var(--color-border);
-}
-
-/* Active state - secondary/soft get dark background like outline */
-.btn-group-vertical > .btn-secondary.btn-active,
-.btn-group-vertical > .btn-soft.btn-active,
-.btn-group-vertical > .btn-secondary[aria-pressed="true"],
-.btn-group-vertical > .btn-soft[aria-pressed="true"] {
-  background: var(--color-foreground);
-  color: var(--color-background);
-  border-color: var(--color-foreground);
-  z-index: var(--z-index-button-active);
-}
-
-/* Active state - primary gets solid black background */
-.btn-group-vertical > .btn-primary.btn-active,
-.btn-group-vertical > .btn-primary[aria-pressed="true"] {
-  background: var(--color-foreground);
-  color: var(--color-background);
-  border-color: var(--color-foreground);
-  z-index: var(--z-index-button-active);
-}
-
-/* Active state - destructive gets subtle shadow */
-.btn-group-vertical > .btn-destructive.btn-active,
-.btn-group-vertical > .btn-destructive[aria-pressed="true"] {
-  box-shadow: var(--shadow-inner-md);
-  filter: brightness(0.9);
-  border-color: rgba(0, 0, 0, 0.1);
-  z-index: var(--z-index-button-active);
-}
-
-.btn-group-vertical > .btn:not(:first-child):not(:last-child) {
-  border-radius: 0;
-}
-
-.btn-group-vertical > .btn:first-child:not(:last-child) {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.btn-group-vertical > .btn:last-child:not(:first-child) {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
-
-.btn-group-vertical > .btn:not(:first-child) {
-  margin-top: -1px;
-  margin-left: 0;
-}
-
-.btn-group-vertical > .btn:hover {
-  z-index: var(--z-index-button-hover);
-}
-
-.btn-group-vertical > .btn:focus {
-  z-index: var(--z-index-button-focus);
-}
-
-/* ========================================
-   SPLIT BUTTONS - NEW
-   ======================================== */
-
-.btn-split {
-  display: inline-flex;
-  position: relative;
-}
-
-.btn-split > .btn:not(:last-child) {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.btn-split > .btn:not(:first-child) {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  margin-left: -1px;
-}
-
-.btn-split > .btn:hover,
-.btn-split > .btn:focus {
-  z-index: var(--z-index-button-hover);
-}
-
-/* Divider in split button */
-.btn-split > .btn:not(:last-child)::after {
-  content: "";
-  position: absolute;
-  top: 25%;
-  right: 0;
-  width: 1px;
-  height: 50%;
-  background: currentColor;
-  opacity: 0.2;
-}
-
-.btn-split > .btn-primary:not(:last-child)::after,
-.btn-split > .btn-destructive:not(:last-child)::after {
-  background: var(--color-primary-foreground);
-}

@@ -5,7 +5,8 @@
       "Bash(Format-Hex)",
       "Bash(npm install:*)",
       "Bash(npm run build:tokens:*)",
-      "Bash(npm run build:figma:*)"
+      "Bash(npm run build:figma:*)",
+      "Bash(ls:*)"
     ]
   }
 }

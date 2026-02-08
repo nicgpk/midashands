@@ -1,6 +1,8 @@
 # Button Component
 
-A fully-featured, production-ready button component with multiple variants, sizes, states, and configurations.
+A fully-featured, production-ready button component with shadcn/ui dark mode styling. Multiple variants, sizes, states, and configurations included.
+
+**Note:** Button groups and split buttons have been moved to the [button-group](../button-group/) component.
 
 ## Installation
 
@@ -21,19 +23,19 @@ A fully-featured, production-ready button component with multiple variants, size
 
 ## Features
 
-- ✓ 6 visual variants (Primary, Secondary, Outline, Ghost, Soft, Destructive)
-- ✓ 3 sizes (Small, Default, Large)
-- ✓ Icon support (icon-only, left, and right positions)
-- ✓ Modern loading state with animated dots
-- ✓ Badge and notification indicators
-- ✓ Tooltips (CSS-only)
-- ✓ Split buttons
-- ✓ Full-width option
-- ✓ Button groups with active states (horizontal and vertical)
-- ✓ Works with `<button>`, `<a>`, and `<input>` elements
-- ✓ Fully accessible (ARIA, focus states, keyboard navigation)
-- ✓ Dark mode support (automatic)
-- ✓ Fully tokenized (customizable via design tokens)
+- ✅ **6 visual variants** - Primary, Secondary, Outline, Ghost, Soft, Destructive
+- ✅ **3 sizes** - Small, Default, Large
+- ✅ **Icon support** - Icon-only, left, and right positions
+- ✅ **Loading states** - Modern animated dot spinner
+- ✅ **Badges** - Notification counts and dots
+- ✅ **Tooltips** - Pure CSS hover tooltips
+- ✅ **Full-width** - `btn-block` for responsive layouts
+- ✅ **Link support** - Works with `<button>`, `<a>`, and `<input>`
+- ✅ **shadcn/ui styling** - Dark mode first with focus rings
+- ✅ **Fully accessible** - ARIA, focus states, keyboard navigation
+- ✅ **Token-driven** - All styles use design tokens
+
+**See also:** [Button Group Component](../button-group/) for button groups and split buttons
 
 ## Basic Usage
 
@@ -107,23 +109,13 @@ Perfect for mobile layouts and forms:
 
 ### Button Groups
 
-**Horizontal:**
-```html
-<div class="btn-group">
-  <button class="btn btn-outline">Left</button>
-  <button class="btn btn-outline">Center</button>
-  <button class="btn btn-outline">Right</button>
-</div>
-```
+**Note:** Button groups have been moved to their own component for better organization.
 
-**Vertical:**
-```html
-<div class="btn-group-vertical">
-  <button class="btn btn-outline">Option 1</button>
-  <button class="btn btn-outline">Option 2</button>
-  <button class="btn btn-outline">Option 3</button>
-</div>
-```
+See the **[Button Group Component](../button-group/)** for:
+- Horizontal button groups
+- Vertical button groups
+- Split buttons
+- Toggle states
 
 ## Real-World Examples
 
@@ -182,14 +174,8 @@ Perfect for mobile layouts and forms:
 ```
 
 ### Split Buttons
-```html
-<div class="btn-split">
-  <button class="btn btn-primary">Save</button>
-  <button class="btn btn-primary btn-icon" aria-label="More options">
-    <svg><!-- dropdown icon --></svg>
-  </button>
-</div>
-```
+
+Split buttons have been moved to the [Button Group Component](../button-group/).
 
 ## Customization
 
@@ -212,11 +198,13 @@ To create a custom variant:
 
 ## Accessibility
 
-- All interactive states (hover, focus, active) have visual feedback
-- Focus states use visible outlines for keyboard navigation
-- Icon-only buttons require `aria-label` attributes
-- Disabled buttons are not keyboard-focusable
-- Loading state maintains button dimensions (no layout shift)
+- ✅ All interactive states (hover, focus, active) have visual feedback
+- ✅ shadcn-style focus rings using `--shadow-focus-ring` token
+- ✅ Icon-only buttons require `aria-label` attributes
+- ✅ Disabled buttons are not keyboard-focusable
+- ✅ Loading state maintains button dimensions (no layout shift)
+- ✅ `aria-busy="true"` for loading states
+- ✅ Proper color contrast ratios (WCAG AA compliant)
 
 ## Browser Support
 

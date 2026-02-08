@@ -31,8 +31,14 @@
   --shadow-inner-md: inset 0 2px 4px 0 rgba(0, 0, 0, 0.1);
   /* Large inner shadow */
   --shadow-inner-lg: inset 0 4px 6px 0 rgba(0, 0, 0, 0.15);
-  /* Focus ring shadow */
+  /* Focus ring shadow - primary */
   --shadow-focus: 0 0 0 2px var(--color-background), 0 0 0 4px var(--color-primary);
+  /* Focus ring shadow - default ring color */
+  --shadow-focus-ring: 0 0 0 2px var(--color-background), 0 0 0 4px var(--color-ring);
+  /* Focus ring shadow - destructive/error */
+  --shadow-focus-destructive: 0 0 0 2px var(--color-background), 0 0 0 4px var(--color-destructive);
+  /* Focus ring shadow - success */
+  --shadow-focus-success: 0 0 0 2px var(--color-background), 0 0 0 4px #22c55e;
   /* Small glow effect */
   --shadow-glow-sm: 0 0 10px rgba(0, 0, 0, 0.1);
   /* Medium glow effect */

@@ -60,7 +60,22 @@
     "focus": {
       "value": "0 0 0 2px var(--color-background), 0 0 0 4px var(--color-primary)",
       "type": "shadow",
-      "comment": "Focus ring shadow"
+      "comment": "Focus ring shadow - primary"
+    },
+    "focus-ring": {
+      "value": "0 0 0 2px var(--color-background), 0 0 0 4px var(--color-ring)",
+      "type": "shadow",
+      "comment": "Focus ring shadow - default ring color"
+    },
+    "focus-destructive": {
+      "value": "0 0 0 2px var(--color-background), 0 0 0 4px var(--color-destructive)",
+      "type": "shadow",
+      "comment": "Focus ring shadow - destructive/error"
+    },
+    "focus-success": {
+      "value": "0 0 0 2px var(--color-background), 0 0 0 4px #22c55e",
+      "type": "shadow",
+      "comment": "Focus ring shadow - success"
     },
     "glow": {
       "sm": {
