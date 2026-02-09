@@ -1,0 +1,181 @@
+/* ======== TOGGLE COMPONENT ======== */
+/*
+ * Dependencies: tokens/tokens.css
+ * Shadcn-style toggle switch with accessible markup
+ */
+
+/* ======== BASE TOGGLE STYLES ======== */
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Hide native checkbox */
+.toggle-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* Toggle track/background */
+.toggle-switch {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  background: var(--color-input);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-full);
+  transition: var(--transition-all);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+/* Toggle thumb/circle */
+.toggle-switch::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background: var(--color-foreground);
+  border-radius: var(--radius-full);
+  transition: var(--transition-all);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Optional label text */
+.toggle-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-foreground);
+  line-height: var(--line-height-normal);
+}
+
+/* ======== CHECKED STATE ======== */
+.toggle-input:checked + .toggle-switch {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.toggle-input:checked + .toggle-switch::after {
+  left: 22px;
+  background: var(--color-primary-foreground);
+}
+
+/* ======== HOVER STATE ======== */
+.toggle:hover .toggle-switch {
+  border-color: var(--color-primary);
+}
+
+.toggle-input:checked + .toggle-switch:hover {
+  background: var(--color-primary);
+  opacity: 0.9;
+}
+
+/* ======== FOCUS STATE ======== */
+.toggle-input:focus-visible + .toggle-switch {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 2px;
+}
+
+/* ======== DISABLED STATE ======== */
+.toggle-input:disabled + .toggle-switch {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--color-muted);
+  border-color: var(--color-border);
+}
+
+.toggle-input:disabled ~ .toggle-label {
+  opacity: 0.5;
+  cursor: not-allowed;
+  color: var(--color-muted-foreground);
+}
+
+.toggle-input:disabled:checked + .toggle-switch {
+  background: var(--color-muted);
+  border-color: var(--color-border);
+}
+
+/* ======== SIZES ======== */
+.toggle-sm .toggle-switch {
+  width: 36px;
+  height: 20px;
+}
+
+.toggle-sm .toggle-switch::after {
+  width: 12px;
+  height: 12px;
+  top: 2px;
+  left: 2px;
+}
+
+.toggle-sm .toggle-input:checked + .toggle-switch::after {
+  left: 18px;
+}
+
+.toggle-sm .toggle-label {
+  font-size: var(--font-size-xs);
+}
+
+.toggle-lg .toggle-switch {
+  width: 52px;
+  height: 28px;
+}
+
+.toggle-lg .toggle-switch::after {
+  width: 20px;
+  height: 20px;
+  top: 2px;
+  left: 2px;
+}
+
+.toggle-lg .toggle-input:checked + .toggle-switch::after {
+  left: 26px;
+}
+
+.toggle-lg .toggle-label {
+  font-size: var(--font-size-base);
+}
+
+/* ======== WITH ICONS ======== */
+.toggle-switch-with-icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px;
+}
+
+.toggle-icon {
+  width: 12px;
+  height: 12px;
+  color: var(--color-muted-foreground);
+  transition: var(--transition-all);
+  z-index: 1;
+}
+
+.toggle-input:checked ~ .toggle-switch-with-icons .toggle-icon-off {
+  color: var(--color-primary-foreground);
+}
+
+.toggle-input:not(:checked) ~ .toggle-switch-with-icons .toggle-icon-on {
+  color: var(--color-background);
+}
+
+/* ======== VARIANTS ======== */
+/* Success variant */
+.toggle-success .toggle-input:checked + .toggle-switch {
+  background: #22c55e;
+  border-color: #22c55e;
+}
+
+/* Destructive variant */
+.toggle-destructive .toggle-input:checked + .toggle-switch {
+  background: var(--color-destructive);
+  border-color: var(--color-destructive);
+}

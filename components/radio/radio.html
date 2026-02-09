@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radio Button Component - Complete Examples</title>
+
+  <!-- Import tokens and radio component -->
+  <link rel="stylesheet" href="../../tokens/tokens.css">
+  <link rel="stylesheet" href="./radio.css">
+
+  <style>
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--spacing-8);
+    }
+
+    .section {
+      margin-bottom: var(--spacing-12);
+      padding-bottom: var(--spacing-8);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .section:last-child {
+      border-bottom: none;
+    }
+
+    .section h2 {
+      margin-bottom: var(--spacing-4);
+      font-size: var(--font-size-2xl);
+      font-weight: var(--font-weight-bold);
+    }
+
+    .section h3 {
+      margin-top: var(--spacing-8);
+      margin-bottom: var(--spacing-4);
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-muted-foreground);
+    }
+
+    .example-box {
+      background: var(--color-card);
+      padding: var(--spacing-6);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      margin-bottom: var(--spacing-4);
+    }
+
+    .code-block {
+      background: var(--color-muted);
+      padding: var(--spacing-4);
+      border-radius: var(--radius-md);
+      margin-top: var(--spacing-4);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-sm);
+      overflow-x: auto;
+    }
+
+    .feature-tag {
+      display: inline-block;
+      padding: 0.125rem 0.5rem;
+      background: var(--color-primary);
+      color: var(--color-primary-foreground);
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-medium);
+      border-radius: var(--radius-sm);
+      margin-left: var(--spacing-2);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 style="margin-bottom: var(--spacing-2); font-size: var(--font-size-4xl);">
+      Radio Button Component
+    </h1>
+    <p style="margin-bottom: var(--spacing-8); color: var(--color-muted-foreground);">
+      Accessible radio buttons with shadcn/ui styling
+    </p>
+
+    <!-- Basic Radio Buttons -->
+    <section class="section">
+      <h2>Basic Radio Buttons</h2>
+
+      <div class="example-box">
+        <label class="form-label-radio">Select a notification method</label>
+        <div class="radio-group">
+          <label class="radio-item">
+            <input type="radio" name="notify" value="email" class="radio-input" checked>
+            <span class="radio-button"></span>
+            <span class="radio-label">Email</span>
+          </label>
+
+          <label class="radio-item">
+            <input type="radio" name="notify" value="sms" class="radio-input">
+            <span class="radio-button"></span>
+            <span class="radio-label">SMS</span>
+          </label>
+
+          <label class="radio-item">
+            <input type="radio" name="notify" value="push" class="radio-input">
+            <span class="radio-button"></span>
+            <span class="radio-label">Push Notification</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="code-block">
+&lt;div class="radio-group"&gt;
+  &lt;label class="radio-item"&gt;
+    &lt;input type="radio" name="notify" value="email" class="radio-input" checked&gt;
+    &lt;span class="radio-button"&gt;&lt;/span&gt;
+    &lt;span class="radio-label"&gt;Email&lt;/span&gt;
+  &lt;/label&gt;
+&lt;/div&gt;
+      </div>
+    </section>
+
+    <!-- Horizontal Layout -->
+    <section class="section">
+      <h2>Horizontal Layout</h2>
+
+      <div class="example-box">
+        <label class="form-label-radio">Select size</label>
+        <div class="radio-group radio-group-horizontal">
+          <label class="radio-item">
+            <input type="radio" name="size" value="small" class="radio-input">
+            <span class="radio-button"></span>
+            <span class="radio-label">Small</span>
+          </label>
+
+          <label class="radio-item">
+            <input type="radio" name="size" value="medium" class="radio-input" checked>
+            <span class="radio-button"></span>
+            <span class="radio-label">Medium</span>
+          </label>
+
+          <label class="radio-item">
+            <input type="radio" name="size" value="large" class="radio-input">
+            <span class="radio-button"></span>
+            <span class="radio-label">Large</span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- With Descriptions -->
+    <section class="section">
+      <h2>With Descriptions</h2>
+
+      <div class="example-box">
+        <label class="form-label-radio">Choose a plan</label>
+        <div class="radio-group">
+          <label class="radio-item radio-item-with-description">
+            <input type="radio" name="plan" value="free" class="radio-input" checked>
+            <span class="radio-button"></span>
+            <div class="radio-content">
+              <span class="radio-title">Free</span>
+              <span class="radio-description">Perfect for trying out our service with basic features</span>
+            </div>
+          </label>
+
+          <label class="radio-item radio-item-with-description">
+            <input type="radio" name="plan" value="pro" class="radio-input">
+            <span class="radio-button"></span>
+            <div class="radio-content">
+              <span class="radio-title">Pro</span>
+              <span class="radio-description">Advanced features and priority support for power users</span>
+            </div>
+          </label>
+
+          <label class="radio-item radio-item-with-description">
+            <input type="radio" name="plan" value="enterprise" class="radio-input">
+            <span class="radio-button"></span>
+            <div class="radio-content">
+              <span class="radio-title">Enterprise</span>
+              <span class="radio-description">Custom solutions with dedicated support and SLA</span>
+            </div>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- Card Style -->
+    <section class="section">
+      <h2>Card Style <span class="feature-tag">NEW</span></h2>
+
+      <div class="example-box">
+        <label class="form-label-radio">Select payment method</label>
+        <div class="radio-group">
+          <label class="radio-item">
+            <input type="radio" name="payment" value="card" class="radio-input" checked>
+            <div class="radio-card">
+              <div class="radio-card-header">
+                <div style="display: flex; align-items: center; gap: var(--spacing-3);">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <rect x="2" y="6" width="20" height="12" rx="2" fill="#1434CB"/>
+                    <rect x="2" y="9" width="20" height="2.5" fill="#0A1F5C"/>
+                    <rect x="4" y="13" width="3" height="2.2" rx="0.4" fill="#E8C547" opacity="0.9"/>
+                    <line x1="9" y1="15" x2="15" y2="15" stroke="#FFF" stroke-width="0.6" opacity="0.6"/>
+                    <circle cx="18" cy="14" r="1.2" fill="none" stroke="#F7B600" stroke-width="0.8" opacity="0.7"/>
+                  </svg>
+                  <span class="radio-card-title">Credit Card</span>
+                </div>
+                <span class="radio-button"></span>
+              </div>
+              <p class="radio-card-description">
+                Pay securely with your credit or debit card
+              </p>
+            </div>
+          </label>
+
+          <label class="radio-item">
+            <input type="radio" name="payment" value="paypal" class="radio-input">
+            <div class="radio-card">
+              <div class="radio-card-header">
+                <div style="display: flex; align-items: center; gap: var(--spacing-3);">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="#0070BA" d="M19.3 7.9c.4.9.5 2 .2 3.4-.8 4-3.5 5.4-6.8 5.4h-.5c-.4 0-.8.3-.9.7l-.7 4.5c-.1.3-.4.6-.8.6H7.5c-.3 0-.5-.2-.5-.5l2-14.4c.1-.4.5-.7.9-.7h3c1.8 0 3.5.3 4.6 1.3.4.3.7.7 1 1.1.2.4.4.7.5 1.1.1.4.2.8.3 1.2z"/>
+                    <path fill="#003087" d="M7.9 15.5L7 21.5c0 .3.2.5.5.5h3.3c.4 0 .7-.3.8-.6l.7-4.5c.1-.4.5-.7.9-.7h.5c3.3 0 6-1.4 6.8-5.4.3-1.4.2-2.5-.2-3.4a4.726 4.726 0 0 0-1.8-2.2C17.4 3.3 15.7 3 13.9 3h-3c-.4 0-.8.3-.9.8L7.9 15.5z" opacity="0.7"/>
+                  </svg>
+                  <span class="radio-card-title">PayPal</span>
+                </div>
+                <span class="radio-button"></span>
+              </div>
+              <p class="radio-card-description">
+                Fast and secure payment through PayPal
+              </p>
+            </div>
+          </label>
+
+          <label class="radio-item">
+            <input type="radio" name="payment" value="bank" class="radio-input">
+            <div class="radio-card">
+              <div class="radio-card-header">
+                <div style="display: flex; align-items: center; gap: var(--spacing-3);">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary);">
+                    <line x1="12" x2="12" y1="2" y2="22"/>
+                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                  </svg>
+                  <span class="radio-card-title">Bank Transfer</span>
+                </div>
+                <span class="radio-button"></span>
+              </div>
+              <p class="radio-card-description">
+                Direct bank transfer with 1-2 business days processing
+              </p>
+            </div>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sizes -->
+    <section class="section">
+      <h2>Sizes</h2>
+
+      <h3>Small</h3>
+      <div class="example-box">
+        <div class="radio-group radio-sm">
+          <label class="radio-item">
+            <input type="radio" name="size-sm" value="1" class="radio-input" checked>
+            <span class="radio-button"></span>
+            <span class="radio-label">Small radio button</span>
+          </label>
+
+          <label class="radio-item">
+            <input type="radio" name="size-sm" value="2" class="radio-input">
+            <span class="radio-button"></span>
+            <span class="radio-label">Another option</span>
+          </label>
+        </div>
+      </div>
+
+      <h3>Default</h3>
+      <div class="example-box">
+        <div class="radio-group">
+          <label class="radio-item">
+            <input type="radio" name="size-default" value="1" class="radio-input" checked>
+            <span class="radio-button"></span>
+            <span class="radio-label">Default radio button</span>
+          </label>
+
+          <label class="radio-item">
+            <input type="radio" name="size-default" value="2" class="radio-input">
+            <span class="radio-button"></span>
+            <span class="radio-label">Another option</span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- Disabled State -->
+    <section class="section">
+      <h2>Disabled State</h2>
+
+      <div class="example-box">
+        <div class="radio-group">
+          <label class="radio-item">
+            <input type="radio" name="disabled-demo" value="1" class="radio-input" checked disabled>
+            <span class="radio-button"></span>
+            <span class="radio-label">Checked and disabled</span>
+          </label>
+
+          <label class="radio-item">
+            <input type="radio" name="disabled-demo" value="2" class="radio-input" disabled>
+            <span class="radio-button"></span>
+            <span class="radio-label">Disabled option</span>
+          </label>
+
+          <label class="radio-item">
+            <input type="radio" name="disabled-demo" value="3" class="radio-input">
+            <span class="radio-button"></span>
+            <span class="radio-label">Enabled option</span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- Error State -->
+    <section class="section">
+      <h2>Error State</h2>
+
+      <div class="example-box">
+        <label class="form-label-radio">Select a delivery option</label>
+        <div class="radio-group radio-group-error">
+          <label class="radio-item">
+            <input type="radio" name="delivery-error" value="standard" class="radio-input">
+            <span class="radio-button"></span>
+            <span class="radio-label">Standard Delivery</span>
+          </label>
+
+          <label class="radio-item">
+            <input type="radio" name="delivery-error" value="express" class="radio-input">
+            <span class="radio-button"></span>
+            <span class="radio-label">Express Delivery</span>
+          </label>
+        </div>
+        <p class="radio-error-message">Please select a delivery option</p>
+      </div>
+    </section>
+
+    <!-- Real-World Example -->
+    <section class="section">
+      <h2>Real-World Example</h2>
+
+      <div class="example-box">
+        <form style="max-width: 600px;">
+          <label class="form-label-radio">Account Type</label>
+          <div class="radio-group" style="margin-bottom: var(--spacing-6);">
+            <label class="radio-item radio-item-with-description">
+              <input type="radio" name="account-type" value="personal" class="radio-input" checked>
+              <span class="radio-button"></span>
+              <div class="radio-content">
+                <span class="radio-title">Personal Account</span>
+                <span class="radio-description">For individual use with personal projects</span>
+              </div>
+            </label>
+
+            <label class="radio-item radio-item-with-description">
+              <input type="radio" name="account-type" value="business" class="radio-input">
+              <span class="radio-button"></span>
+              <div class="radio-content">
+                <span class="radio-title">Business Account</span>
+                <span class="radio-description">For teams and organizations with collaboration features</span>
+              </div>
+            </label>
+          </div>
+
+          <label class="form-label-radio">Newsletter Frequency</label>
+          <div class="radio-group radio-group-horizontal">
+            <label class="radio-item radio-sm">
+              <input type="radio" name="newsletter" value="daily" class="radio-input">
+              <span class="radio-button"></span>
+              <span class="radio-label">Daily</span>
+            </label>
+
+            <label class="radio-item radio-sm">
+              <input type="radio" name="newsletter" value="weekly" class="radio-input" checked>
+              <span class="radio-button"></span>
+              <span class="radio-label">Weekly</span>
+            </label>
+
+            <label class="radio-item radio-sm">
+              <input type="radio" name="newsletter" value="monthly" class="radio-input">
+              <span class="radio-button"></span>
+              <span class="radio-label">Monthly</span>
+            </label>
+
+            <label class="radio-item radio-sm">
+              <input type="radio" name="newsletter" value="never" class="radio-input">
+              <span class="radio-button"></span>
+              <span class="radio-label">Never</span>
+            </label>
+          </div>
+        </form>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

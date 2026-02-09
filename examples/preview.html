@@ -3,35 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Design System Preview - All Components</title>
+  <title>midashands preview</title>
 
   <!-- Import tokens and all component styles -->
   <link rel="stylesheet" href="../tokens/tokens.css">
   <link rel="stylesheet" href="../components/button/button.css">
   <link rel="stylesheet" href="../components/button-group/button-group.css">
   <link rel="stylesheet" href="../components/input/input.css">
+  <link rel="stylesheet" href="../components/radio/radio.css">
+  <link rel="stylesheet" href="../components/checkbox/checkbox.css">
+  <link rel="stylesheet" href="../components/toggle/toggle.css">
 
   <style>
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
+    /* Layout Structure */
+    .layout {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      width: 250px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      overflow-y: auto;
+      background: var(--color-card);
+      border-right: 1px solid var(--color-border);
+      padding: var(--spacing-6);
+      z-index: var(--zIndex-sticky);
+    }
+
+    .sidebar-header {
+      margin-bottom: var(--spacing-6);
+      padding-bottom: var(--spacing-4);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .nav-section {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-2);
+    }
+
+    .nav-btn {
+      width: 100%;
+      justify-content: space-between;
+      text-align: left;
+    }
+
+    .content {
+      flex: 1;
+      margin-left: 250px;
       padding: var(--spacing-8);
+      max-width: 1400px;
     }
 
-    .header {
-      margin-bottom: var(--spacing-12);
-      padding-bottom: var(--spacing-8);
-      border-bottom: 2px solid var(--color-border);
-    }
-
-    .header h1 {
-      font-size: var(--font-size-4xl);
-      margin-bottom: var(--spacing-2);
-    }
-
-    .header p {
-      color: var(--color-muted-foreground);
-      font-size: var(--font-size-lg);
+    .hidden {
+      display: none;
     }
 
     .component-section {
@@ -42,10 +71,12 @@
       border-radius: var(--radius-lg);
     }
 
-    .component-section h2 {
+    .component-section > h2 {
       font-size: var(--font-size-3xl);
       margin-bottom: var(--spacing-6);
+      margin-top: 0;
       color: var(--color-foreground);
+      font-weight: var(--font-weight-bold);
     }
 
     .subsection {
@@ -135,66 +166,6 @@
       margin-left: var(--spacing-2);
     }
 
-    /* Accordion Styles */
-    .accordion-trigger {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: var(--spacing-4) 0;
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: var(--color-foreground);
-      font-family: inherit;
-      text-align: left;
-      transition: var(--transition-all);
-    }
-
-    .accordion-trigger:hover {
-      opacity: 0.8;
-    }
-
-    .accordion-trigger-title {
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-3);
-      font-size: var(--font-size-3xl);
-      font-weight: var(--font-weight-bold);
-    }
-
-    .accordion-icon {
-      width: 24px;
-      height: 24px;
-      transition: transform 0.2s ease;
-      color: var(--color-muted-foreground);
-      flex-shrink: 0;
-    }
-
-    .accordion-trigger[aria-expanded="true"] .accordion-icon {
-      transform: rotate(180deg);
-    }
-
-    .accordion-content {
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .accordion-content[data-state="closed"] {
-      max-height: 0;
-      opacity: 0;
-      visibility: hidden;
-    }
-
-    .accordion-content[data-state="open"] {
-      max-height: 10000px;
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .accordion-content-inner {
-      padding-bottom: var(--spacing-6);
-    }
 
     .component-count {
       display: inline-block;
@@ -206,33 +177,93 @@
       border-radius: var(--radius-full);
       margin-left: var(--spacing-2);
     }
+
+    .theme-icon {
+      width: 14px;
+      height: 14px;
+      margin-right: var(--spacing-2);
+      color: var(--color-muted-foreground);
+      transition: var(--transition-all);
+      flex-shrink: 0;
+    }
+
+    .theme-icon.hidden {
+      display: none;
+    }
+
+    .toggle-sm .toggle-label {
+      display: inline-flex;
+      align-items: center;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Header -->
-    <div class="header">
-      <h1>🎨 Design System Preview</h1>
-      <p>Complete component library with shadcn/ui dark mode styling</p>
-      <div style="margin-top: var(--spacing-4); display: flex; gap: var(--spacing-2);">
-        <button id="expand-all" class="btn btn-outline btn-sm">Expand All</button>
-        <button id="collapse-all" class="btn btn-outline btn-sm">Collapse All</button>
+  <div class="layout">
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+      <div class="sidebar-header">
+        <h2 style="font-size: var(--font-size-xl); margin: 0; margin-bottom: var(--spacing-3);">Component Library</h2>
+        <label class="toggle toggle-sm">
+          <input type="checkbox" id="theme-toggle" class="toggle-input">
+          <span class="toggle-switch"></span>
+          <span class="toggle-label">
+            <svg id="sun-icon" class="theme-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M12 2v2"/>
+              <path d="M12 20v2"/>
+              <path d="m4.93 4.93 1.41 1.41"/>
+              <path d="m17.66 17.66 1.41 1.41"/>
+              <path d="M2 12h2"/>
+              <path d="M20 12h2"/>
+              <path d="m6.34 17.66-1.41 1.41"/>
+              <path d="m19.07 4.93-1.41 1.41"/>
+            </svg>
+            <svg id="moon-icon" class="theme-icon hidden" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+            </svg>
+            <span id="theme-label">Light mode</span>
+          </span>
+        </label>
       </div>
-    </div>
+
+      <div class="nav-section">
+        <button class="btn btn-ghost nav-btn" data-nav-section="colors">
+          <span>Color Tokens</span>
+          <span class="component-count">5</span>
+        </button>
+        <button class="btn btn-ghost nav-btn" data-nav-section="button">
+          <span>Button</span>
+          <span class="component-count">6</span>
+        </button>
+        <button class="btn btn-ghost nav-btn" data-nav-section="button-group">
+          <span>Button Group</span>
+          <span class="component-count">3</span>
+        </button>
+        <button class="btn btn-ghost nav-btn" data-nav-section="input">
+          <span>Input</span>
+          <span class="component-count">Multiple</span>
+        </button>
+        <button class="btn btn-ghost nav-btn" data-nav-section="radio">
+          <span>Radio</span>
+          <span class="component-count">5 styles</span>
+        </button>
+        <button class="btn btn-ghost nav-btn" data-nav-section="checkbox">
+          <span>Checkbox</span>
+          <span class="component-count">6 styles</span>
+        </button>
+        <button class="btn btn-ghost nav-btn" data-nav-section="toggle">
+          <span>Toggle</span>
+          <span class="component-count">3 sizes</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="content">
 
     <!-- Color Tokens Section -->
-    <section class="component-section">
-      <button class="accordion-trigger" aria-expanded="true" aria-controls="accordion-colors">
-        <span class="accordion-trigger-title">
-          Color Tokens
-          <span class="component-count">5 colors</span>
-        </span>
-        <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="6 9 12 15 18 9"/>
-        </svg>
-      </button>
-      <div id="accordion-colors" class="accordion-content" data-state="open">
-        <div class="accordion-content-inner">
+    <section class="component-section" data-section="colors">
+      <h2>Color Tokens</h2>
       <div class="color-tokens">
         <div class="color-box color-box-primary">
           <strong>Primary</strong>
@@ -254,23 +285,12 @@
           <strong>Destructive</strong>
           <div style="margin-top: var(--spacing-2); font-size: var(--font-size-xs);">#991B1B</div>
         </div>
-        </div>
       </div>
     </section>
 
     <!-- Button Component Section -->
-    <section class="component-section">
-      <button class="accordion-trigger" aria-expanded="true" aria-controls="accordion-button">
-        <span class="accordion-trigger-title">
-          Button Component
-          <span class="component-count">6 variants</span>
-        </span>
-        <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="6 9 12 15 18 9"/>
-        </svg>
-      </button>
-      <div id="accordion-button" class="accordion-content" data-state="open">
-        <div class="accordion-content-inner">
+    <section class="component-section" data-section="button">
+      <h2>Button Component</h2>
 
       <div class="subsection">
         <h3>Variants</h3>
@@ -356,23 +376,12 @@
           <button class="btn btn-secondary" disabled>Secondary</button>
           <button class="btn btn-outline" disabled>Outline</button>
         </div>
-        </div>
       </div>
     </section>
 
     <!-- Button Group Component Section -->
-    <section class="component-section">
-      <button class="accordion-trigger" aria-expanded="true" aria-controls="accordion-button-group">
-        <span class="accordion-trigger-title">
-          Button Group Component
-          <span class="component-count">3 types</span>
-        </span>
-        <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="6 9 12 15 18 9"/>
-        </svg>
-      </button>
-      <div id="accordion-button-group" class="accordion-content" data-state="open">
-        <div class="accordion-content-inner">
+    <section class="component-section" data-section="button-group">
+      <h2>Button Group Component</h2>
 
       <div class="subsection">
         <h3>Horizontal Groups</h3>
@@ -423,23 +432,12 @@
             </button>
           </div>
         </div>
-        </div>
       </div>
     </section>
 
     <!-- Input Component Section -->
-    <section class="component-section">
-      <button class="accordion-trigger" aria-expanded="true" aria-controls="accordion-input">
-        <span class="accordion-trigger-title">
-          Input Component
-          <span class="component-count">Multiple types</span>
-        </span>
-        <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="6 9 12 15 18 9"/>
-        </svg>
-      </button>
-      <div id="accordion-input" class="accordion-content" data-state="open">
-        <div class="accordion-content-inner">
+    <section class="component-section" data-section="input">
+      <h2>Input Component</h2>
 
       <div class="subsection">
         <h3>Basic Inputs</h3>
@@ -551,38 +549,647 @@
             <p class="form-description">Supported formats: JPG, PNG, PDF (max 10MB)</p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Radio Component Section -->
+    <section class="component-section" data-section="radio">
+      <h2>Radio Component</h2>
+
+      <div class="subsection">
+        <h3>Basic Radio Buttons</h3>
+        <div class="showcase showcase-vertical" style="width: 100%;">
+          <div style="width: 100%; max-width: 400px;">
+            <label class="form-label-radio">Select a notification method</label>
+            <div class="radio-group">
+              <label class="radio-item">
+                <input type="radio" name="notify-preview" value="email" class="radio-input" checked>
+                <span class="radio-button"></span>
+                <span class="radio-label">Email</span>
+              </label>
+
+              <label class="radio-item">
+                <input type="radio" name="notify-preview" value="sms" class="radio-input">
+                <span class="radio-button"></span>
+                <span class="radio-label">SMS</span>
+              </label>
+
+              <label class="radio-item">
+                <input type="radio" name="notify-preview" value="push" class="radio-input">
+                <span class="radio-button"></span>
+                <span class="radio-label">Push Notification</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>Sizes</h3>
+        <div class="showcase showcase-vertical" style="width: 100%; gap: var(--spacing-6);">
+          <div style="width: 100%; max-width: 400px;">
+            <label class="form-label-radio">Small</label>
+            <div class="radio-group radio-sm">
+              <label class="radio-item">
+                <input type="radio" name="size-small" value="1" class="radio-input" checked>
+                <span class="radio-button"></span>
+                <span class="radio-label">Small radio button</span>
+              </label>
+              <label class="radio-item">
+                <input type="radio" name="size-small" value="2" class="radio-input">
+                <span class="radio-button"></span>
+                <span class="radio-label">Another option</span>
+              </label>
+            </div>
+          </div>
+
+          <div style="width: 100%; max-width: 400px;">
+            <label class="form-label-radio">Default</label>
+            <div class="radio-group">
+              <label class="radio-item">
+                <input type="radio" name="size-default" value="1" class="radio-input" checked>
+                <span class="radio-button"></span>
+                <span class="radio-label">Default radio button</span>
+              </label>
+              <label class="radio-item">
+                <input type="radio" name="size-default" value="2" class="radio-input">
+                <span class="radio-button"></span>
+                <span class="radio-label">Another option</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>Horizontal Layout</h3>
+        <div class="showcase showcase-vertical" style="width: 100%;">
+          <div style="width: 100%; max-width: 600px;">
+            <label class="form-label-radio">Select a color</label>
+            <div class="radio-group radio-group-horizontal">
+              <label class="radio-item">
+                <input type="radio" name="color-preview" value="red" class="radio-input" checked>
+                <span class="radio-button"></span>
+                <span class="radio-label">Red</span>
+              </label>
+
+              <label class="radio-item">
+                <input type="radio" name="color-preview" value="blue" class="radio-input">
+                <span class="radio-button"></span>
+                <span class="radio-label">Blue</span>
+              </label>
+
+              <label class="radio-item">
+                <input type="radio" name="color-preview" value="green" class="radio-input">
+                <span class="radio-button"></span>
+                <span class="radio-label">Green</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>With Descriptions</h3>
+        <div class="showcase showcase-vertical" style="width: 100%;">
+          <div style="width: 100%; max-width: 600px;">
+            <label class="form-label-radio">Choose a plan</label>
+            <div class="radio-group">
+              <label class="radio-item radio-item-with-description">
+                <input type="radio" name="plan-preview" value="free" class="radio-input" checked>
+                <span class="radio-button"></span>
+                <div class="radio-content">
+                  <span class="radio-title">Free</span>
+                  <span class="radio-description">Perfect for trying out our service</span>
+                </div>
+              </label>
+
+              <label class="radio-item radio-item-with-description">
+                <input type="radio" name="plan-preview" value="pro" class="radio-input">
+                <span class="radio-button"></span>
+                <div class="radio-content">
+                  <span class="radio-title">Pro</span>
+                  <span class="radio-description">Advanced features for power users</span>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>Card Style</h3>
+        <div class="showcase showcase-vertical" style="width: 100%;">
+          <div style="width: 100%; max-width: 600px;">
+            <label class="form-label-radio">Select payment method</label>
+            <div class="radio-group">
+              <label class="radio-item">
+                <input type="radio" name="payment-preview" value="card" class="radio-input" checked>
+                <div class="radio-card">
+                  <div class="radio-card-header">
+                    <div style="display: flex; align-items: center; gap: var(--spacing-3);">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <rect x="2" y="6" width="20" height="12" rx="2" fill="#1434CB"/>
+                        <rect x="2" y="9" width="20" height="2.5" fill="#0A1F5C"/>
+                        <rect x="4" y="13" width="3" height="2.2" rx="0.4" fill="#E8C547" opacity="0.9"/>
+                        <line x1="9" y1="15" x2="15" y2="15" stroke="#FFF" stroke-width="0.6" opacity="0.6"/>
+                        <circle cx="18" cy="14" r="1.2" fill="none" stroke="#F7B600" stroke-width="0.8" opacity="0.7"/>
+                      </svg>
+                      <span class="radio-card-title">Credit Card</span>
+                    </div>
+                    <span class="radio-button"></span>
+                  </div>
+                  <p class="radio-card-description">
+                    Pay securely with your credit or debit card
+                  </p>
+                </div>
+              </label>
+
+              <label class="radio-item">
+                <input type="radio" name="payment-preview" value="paypal" class="radio-input">
+                <div class="radio-card">
+                  <div class="radio-card-header">
+                    <div style="display: flex; align-items: center; gap: var(--spacing-3);">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="#0070BA" d="M19.3 7.9c.4.9.5 2 .2 3.4-.8 4-3.5 5.4-6.8 5.4h-.5c-.4 0-.8.3-.9.7l-.7 4.5c-.1.3-.4.6-.8.6H7.5c-.3 0-.5-.2-.5-.5l2-14.4c.1-.4.5-.7.9-.7h3c1.8 0 3.5.3 4.6 1.3.4.3.7.7 1 1.1.2.4.4.7.5 1.1.1.4.2.8.3 1.2z"/>
+                        <path fill="#003087" d="M7.9 15.5L7 21.5c0 .3.2.5.5.5h3.3c.4 0 .7-.3.8-.6l.7-4.5c.1-.4.5-.7.9-.7h.5c3.3 0 6-1.4 6.8-5.4.3-1.4.2-2.5-.2-3.4a4.726 4.726 0 0 0-1.8-2.2C17.4 3.3 15.7 3 13.9 3h-3c-.4 0-.8.3-.9.8L7.9 15.5z" opacity="0.7"/>
+                      </svg>
+                      <span class="radio-card-title">PayPal</span>
+                    </div>
+                    <span class="radio-button"></span>
+                  </div>
+                  <p class="radio-card-description">
+                    Fast and secure payment through PayPal
+                  </p>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>Disabled State</h3>
+        <div class="showcase showcase-vertical" style="width: 100%;">
+          <div style="width: 100%; max-width: 400px;">
+            <div class="radio-group">
+              <label class="radio-item">
+                <input type="radio" name="disabled-preview" value="1" class="radio-input" checked disabled>
+                <span class="radio-button"></span>
+                <span class="radio-label">Checked and disabled</span>
+              </label>
+
+              <label class="radio-item">
+                <input type="radio" name="disabled-preview" value="2" class="radio-input" disabled>
+                <span class="radio-button"></span>
+                <span class="radio-label">Disabled option</span>
+              </label>
+
+              <label class="radio-item">
+                <input type="radio" name="disabled-preview" value="3" class="radio-input">
+                <span class="radio-button"></span>
+                <span class="radio-label">Enabled option</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Checkbox Component Section -->
+    <section class="component-section" data-section="checkbox">
+      <h2>Checkbox Component</h2>
+
+      <div class="subsection">
+        <h3>Basic Checkboxes</h3>
+        <div class="showcase showcase-vertical" style="width: 100%;">
+          <div style="width: 100%; max-width: 400px;">
+            <label class="form-label-checkbox">Select your interests</label>
+            <div class="checkbox-group">
+              <label class="checkbox-item">
+                <input type="checkbox" class="checkbox-input" checked>
+                <span class="checkbox-box"></span>
+                <span class="checkbox-label">Design</span>
+              </label>
+
+              <label class="checkbox-item">
+                <input type="checkbox" class="checkbox-input">
+                <span class="checkbox-box"></span>
+                <span class="checkbox-label">Development</span>
+              </label>
+
+              <label class="checkbox-item">
+                <input type="checkbox" class="checkbox-input" checked>
+                <span class="checkbox-box"></span>
+                <span class="checkbox-label">Marketing</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>Horizontal Layout</h3>
+        <div class="showcase showcase-vertical" style="width: 100%;">
+          <div style="width: 100%; max-width: 600px;">
+            <label class="form-label-checkbox">Available days</label>
+            <div class="checkbox-group checkbox-group-horizontal">
+              <label class="checkbox-item">
+                <input type="checkbox" class="checkbox-input" checked>
+                <span class="checkbox-box"></span>
+                <span class="checkbox-label">Mon</span>
+              </label>
+
+              <label class="checkbox-item">
+                <input type="checkbox" class="checkbox-input" checked>
+                <span class="checkbox-box"></span>
+                <span class="checkbox-label">Tue</span>
+              </label>
+
+              <label class="checkbox-item">
+                <input type="checkbox" class="checkbox-input">
+                <span class="checkbox-box"></span>
+                <span class="checkbox-label">Wed</span>
+              </label>
+
+              <label class="checkbox-item">
+                <input type="checkbox" class="checkbox-input" checked>
+                <span class="checkbox-box"></span>
+                <span class="checkbox-label">Thu</span>
+              </label>
+
+              <label class="checkbox-item">
+                <input type="checkbox" class="checkbox-input" checked>
+                <span class="checkbox-box"></span>
+                <span class="checkbox-label">Fri</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>With Descriptions</h3>
+        <div class="showcase showcase-vertical" style="width: 100%;">
+          <div style="width: 100%; max-width: 600px;">
+            <label class="form-label-checkbox">Notification preferences</label>
+            <div class="checkbox-group">
+              <label class="checkbox-item checkbox-item-with-description">
+                <input type="checkbox" class="checkbox-input" checked>
+                <span class="checkbox-box"></span>
+                <div class="checkbox-content">
+                  <span class="checkbox-title">Email Notifications</span>
+                  <span class="checkbox-description">Receive email updates about your account</span>
+                </div>
+              </label>
+
+              <label class="checkbox-item checkbox-item-with-description">
+                <input type="checkbox" class="checkbox-input">
+                <span class="checkbox-box"></span>
+                <div class="checkbox-content">
+                  <span class="checkbox-title">Push Notifications</span>
+                  <span class="checkbox-description">Get notifications on your device</span>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>Sizes</h3>
+        <div class="showcase showcase-vertical" style="width: 100%; gap: var(--spacing-6);">
+          <div style="width: 100%; max-width: 400px;">
+            <label class="form-label-checkbox">Small</label>
+            <div class="checkbox-group checkbox-sm">
+              <label class="checkbox-item">
+                <input type="checkbox" class="checkbox-input" checked>
+                <span class="checkbox-box"></span>
+                <span class="checkbox-label">Small checkbox</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" class="checkbox-input">
+                <span class="checkbox-box"></span>
+                <span class="checkbox-label">Another option</span>
+              </label>
+            </div>
+          </div>
+
+          <div style="width: 100%; max-width: 400px;">
+            <label class="form-label-checkbox">Default</label>
+            <div class="checkbox-group">
+              <label class="checkbox-item">
+                <input type="checkbox" class="checkbox-input" checked>
+                <span class="checkbox-box"></span>
+                <span class="checkbox-label">Default checkbox</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" class="checkbox-input">
+                <span class="checkbox-box"></span>
+                <span class="checkbox-label">Another option</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>Card Style</h3>
+        <div class="showcase showcase-vertical" style="width: 100%;">
+          <div style="width: 100%; max-width: 600px;">
+            <label class="form-label-checkbox">Select payment methods</label>
+            <div class="checkbox-group">
+              <label class="checkbox-item">
+                <input type="checkbox" class="checkbox-input" checked>
+                <div class="checkbox-card">
+                  <div class="checkbox-card-header">
+                    <div style="display: flex; align-items: center; gap: var(--spacing-3);">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <rect x="2" y="6" width="20" height="12" rx="2" fill="#1434CB"/>
+                        <rect x="2" y="9" width="20" height="2.5" fill="#0A1F5C"/>
+                        <rect x="4" y="13" width="3" height="2.2" rx="0.4" fill="#E8C547" opacity="0.9"/>
+                        <line x1="9" y1="15" x2="15" y2="15" stroke="#FFF" stroke-width="0.6" opacity="0.6"/>
+                        <circle cx="18" cy="14" r="1.2" fill="none" stroke="#F7B600" stroke-width="0.8" opacity="0.7"/>
+                      </svg>
+                      <span class="checkbox-card-title">Credit Card</span>
+                    </div>
+                    <span class="checkbox-box"></span>
+                  </div>
+                  <p class="checkbox-card-description">
+                    Pay securely with your credit or debit card
+                  </p>
+                </div>
+              </label>
+
+              <label class="checkbox-item">
+                <input type="checkbox" class="checkbox-input">
+                <div class="checkbox-card">
+                  <div class="checkbox-card-header">
+                    <div style="display: flex; align-items: center; gap: var(--spacing-3);">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="#0070BA" d="M19.3 7.9c.4.9.5 2 .2 3.4-.8 4-3.5 5.4-6.8 5.4h-.5c-.4 0-.8.3-.9.7l-.7 4.5c-.1.3-.4.6-.8.6H7.5c-.3 0-.5-.2-.5-.5l2-14.4c.1-.4.5-.7.9-.7h3c1.8 0 3.5.3 4.6 1.3.4.3.7.7 1 1.1.2.4.4.7.5 1.1.1.4.2.8.3 1.2z"/>
+                        <path fill="#003087" d="M7.9 15.5L7 21.5c0 .3.2.5.5.5h3.3c.4 0 .7-.3.8-.6l.7-4.5c.1-.4.5-.7.9-.7h.5c3.3 0 6-1.4 6.8-5.4.3-1.4.2-2.5-.2-3.4a4.726 4.726 0 0 0-1.8-2.2C17.4 3.3 15.7 3 13.9 3h-3c-.4 0-.8.3-.9.8L7.9 15.5z" opacity="0.7"/>
+                      </svg>
+                      <span class="checkbox-card-title">PayPal</span>
+                    </div>
+                    <span class="checkbox-box"></span>
+                  </div>
+                  <p class="checkbox-card-description">
+                    Fast and secure payment through PayPal
+                  </p>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>Todo List Style</h3>
+        <div class="showcase showcase-vertical" style="width: 100%;">
+          <div style="width: 100%; max-width: 500px;">
+            <label class="form-label-checkbox">My Tasks</label>
+            <ul class="checkbox-list">
+              <li class="checkbox-list-item">
+                <label class="checkbox-item checkbox-strikethrough">
+                  <input type="checkbox" class="checkbox-input" checked>
+                  <span class="checkbox-box"></span>
+                  <span class="checkbox-label">Review pull requests</span>
+                </label>
+              </li>
+
+              <li class="checkbox-list-item">
+                <label class="checkbox-item checkbox-strikethrough">
+                  <input type="checkbox" class="checkbox-input">
+                  <span class="checkbox-box"></span>
+                  <span class="checkbox-label">Update documentation</span>
+                </label>
+              </li>
+
+              <li class="checkbox-list-item">
+                <label class="checkbox-item checkbox-strikethrough">
+                  <input type="checkbox" class="checkbox-input" checked>
+                  <span class="checkbox-box"></span>
+                  <span class="checkbox-label">Fix bug in header</span>
+                </label>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>Disabled State</h3>
+        <div class="showcase showcase-vertical" style="width: 100%;">
+          <div style="width: 100%; max-width: 400px;">
+            <div class="checkbox-group">
+              <label class="checkbox-item">
+                <input type="checkbox" class="checkbox-input" checked disabled>
+                <span class="checkbox-box"></span>
+                <span class="checkbox-label">Checked and disabled</span>
+              </label>
+
+              <label class="checkbox-item">
+                <input type="checkbox" class="checkbox-input" disabled>
+                <span class="checkbox-box"></span>
+                <span class="checkbox-label">Disabled option</span>
+              </label>
+
+              <label class="checkbox-item">
+                <input type="checkbox" class="checkbox-input">
+                <span class="checkbox-box"></span>
+                <span class="checkbox-label">Enabled option</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Toggle Component Section -->
+    <section class="component-section" data-section="toggle">
+      <h2>Toggle Component</h2>
+
+      <div class="subsection">
+        <h3>Basic Toggles</h3>
+        <div class="showcase showcase-vertical" style="width: 100%;">
+          <div style="width: 100%; max-width: 400px;">
+            <div class="toggle-group" style="display: flex; flex-direction: column; gap: var(--spacing-4);">
+              <label class="toggle">
+                <input type="checkbox" class="toggle-input" checked>
+                <span class="toggle-switch"></span>
+                <span class="toggle-label">Enable notifications</span>
+              </label>
+
+              <label class="toggle">
+                <input type="checkbox" class="toggle-input">
+                <span class="toggle-switch"></span>
+                <span class="toggle-label">Auto-save changes</span>
+              </label>
+
+              <label class="toggle">
+                <input type="checkbox" class="toggle-input" checked>
+                <span class="toggle-switch"></span>
+                <span class="toggle-label">Dark mode</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>Sizes</h3>
+        <div class="showcase showcase-vertical" style="width: 100%; gap: var(--spacing-6);">
+          <div style="width: 100%; max-width: 400px;">
+            <label style="display: block; font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); margin-bottom: var(--spacing-2);">Small</label>
+            <label class="toggle toggle-sm">
+              <input type="checkbox" class="toggle-input" checked>
+              <span class="toggle-switch"></span>
+              <span class="toggle-label">Small toggle</span>
+            </label>
+          </div>
+
+          <div style="width: 100%; max-width: 400px;">
+            <label style="display: block; font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); margin-bottom: var(--spacing-2);">Default</label>
+            <label class="toggle">
+              <input type="checkbox" class="toggle-input" checked>
+              <span class="toggle-switch"></span>
+              <span class="toggle-label">Default toggle</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>Without Label</h3>
+        <div class="showcase showcase-vertical" style="width: 100%;">
+          <div style="width: 100%; max-width: 400px;">
+            <label class="toggle" aria-label="Toggle setting">
+              <input type="checkbox" class="toggle-input" checked>
+              <span class="toggle-switch"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>Disabled State</h3>
+        <div class="showcase showcase-vertical" style="width: 100%;">
+          <div style="width: 100%; max-width: 400px;">
+            <div style="display: flex; flex-direction: column; gap: var(--spacing-4);">
+              <label class="toggle">
+                <input type="checkbox" class="toggle-input" checked disabled>
+                <span class="toggle-switch"></span>
+                <span class="toggle-label">Checked and disabled</span>
+              </label>
+
+              <label class="toggle">
+                <input type="checkbox" class="toggle-input" disabled>
+                <span class="toggle-switch"></span>
+                <span class="toggle-label">Disabled</span>
+              </label>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Footer -->
     <div style="margin-top: var(--spacing-16); padding-top: var(--spacing-8); border-top: 1px solid var(--color-border); text-align: center; color: var(--color-muted-foreground);">
-      <p>Design System Preview - shadcn/ui Dark Mode Style</p>
+      <p>Design System Preview</p>
       <p style="margin-top: var(--spacing-2); font-size: var(--font-size-sm);">
-        Components: Button • Button Group • Input
+        Components: Button • Button Group • Input • Radio • Checkbox • Toggle
       </p>
     </div>
+    </main>
   </div>
 
   <!-- Interactive JavaScript -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Accordion functionality
-      const accordionTriggers = document.querySelectorAll('.accordion-trigger');
+      // Theme Toggle
+      const themeToggle = document.getElementById('theme-toggle');
+      const themeLabel = document.getElementById('theme-label');
+      const sunIcon = document.getElementById('sun-icon');
+      const moonIcon = document.getElementById('moon-icon');
+      const root = document.documentElement;
 
-      accordionTriggers.forEach(trigger => {
-        trigger.addEventListener('click', function() {
-          const contentId = this.getAttribute('aria-controls');
-          const content = document.getElementById(contentId);
-          const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      // Check for saved theme preference or default to dark mode
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      if (savedTheme === 'light') {
+        root.classList.add('light-mode');
+        themeToggle.checked = true;
+        themeLabel.textContent = 'Light mode';
+        sunIcon.classList.remove('hidden');
+        moonIcon.classList.add('hidden');
+      } else {
+        themeLabel.textContent = 'Dark mode';
+        sunIcon.classList.add('hidden');
+        moonIcon.classList.remove('hidden');
+      }
 
-          // Toggle state
-          this.setAttribute('aria-expanded', !isExpanded);
-          content.setAttribute('data-state', isExpanded ? 'closed' : 'open');
+      themeToggle.addEventListener('change', function() {
+        if (this.checked) {
+          // Switch to light mode
+          root.classList.add('light-mode');
+          themeLabel.textContent = 'Light mode';
+          sunIcon.classList.remove('hidden');
+          moonIcon.classList.add('hidden');
+          localStorage.setItem('theme', 'light');
+        } else {
+          // Switch to dark mode
+          root.classList.remove('light-mode');
+          themeLabel.textContent = 'Dark mode';
+          sunIcon.classList.add('hidden');
+          moonIcon.classList.remove('hidden');
+          localStorage.setItem('theme', 'dark');
+        }
+      });
+
+      // Navigation and section filtering
+      const navButtons = document.querySelectorAll('[data-nav-section]');
+      const sections = document.querySelectorAll('[data-section]');
+
+      // Function to show selected section
+      function showSection(sectionName) {
+        // Hide all sections
+        sections.forEach(section => {
+          section.classList.add('hidden');
+        });
+
+        // Show selected section
+        const targetSection = document.querySelector(`[data-section="${sectionName}"]`);
+        if (targetSection) {
+          targetSection.classList.remove('hidden');
+        }
+
+        // Update nav button states
+        navButtons.forEach(btn => {
+          if (btn.getAttribute('data-nav-section') === sectionName) {
+            btn.classList.add('btn-active');
+            btn.setAttribute('aria-pressed', 'true');
+          } else {
+            btn.classList.remove('btn-active');
+            btn.setAttribute('aria-pressed', 'false');
+          }
+        });
+      }
+
+      // Add click handlers to nav buttons
+      navButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const sectionName = this.getAttribute('data-nav-section');
+          showSection(sectionName);
         });
       });
 
-      // Button group toggle functionality
+      // Show first section by default
+      if (navButtons.length > 0) {
+        const firstSection = navButtons[0].getAttribute('data-nav-section');
+        showSection(firstSection);
+      }
+
+      // Button group toggle functionality (for component examples within sections)
       const buttonGroups = document.querySelectorAll('.btn-group, .btn-group-vertical');
 
       buttonGroups.forEach(group => {
@@ -604,32 +1211,6 @@
           });
         });
       });
-
-      // Collapse all button
-      const collapseAllBtn = document.getElementById('collapse-all');
-      const expandAllBtn = document.getElementById('expand-all');
-
-      if (collapseAllBtn) {
-        collapseAllBtn.addEventListener('click', function() {
-          accordionTriggers.forEach(trigger => {
-            const contentId = trigger.getAttribute('aria-controls');
-            const content = document.getElementById(contentId);
-            trigger.setAttribute('aria-expanded', 'false');
-            content.setAttribute('data-state', 'closed');
-          });
-        });
-      }
-
-      if (expandAllBtn) {
-        expandAllBtn.addEventListener('click', function() {
-          accordionTriggers.forEach(trigger => {
-            const contentId = trigger.getAttribute('aria-controls');
-            const content = document.getElementById(contentId);
-            trigger.setAttribute('aria-expanded', 'true');
-            content.setAttribute('data-state', 'open');
-          });
-        });
-      }
     });
   </script>
 </body>

@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkbox Component - Complete Examples</title>
+
+  <!-- Import tokens and checkbox component -->
+  <link rel="stylesheet" href="../../tokens/tokens.css">
+  <link rel="stylesheet" href="./checkbox.css">
+
+  <style>
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--spacing-8);
+    }
+
+    .section {
+      margin-bottom: var(--spacing-12);
+      padding-bottom: var(--spacing-8);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .section:last-child {
+      border-bottom: none;
+    }
+
+    .section h2 {
+      margin-bottom: var(--spacing-4);
+      font-size: var(--font-size-2xl);
+      font-weight: var(--font-weight-bold);
+    }
+
+    .section h3 {
+      margin-top: var(--spacing-8);
+      margin-bottom: var(--spacing-4);
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-muted-foreground);
+    }
+
+    .example-box {
+      background: var(--color-card);
+      padding: var(--spacing-6);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      margin-bottom: var(--spacing-4);
+    }
+
+    .code-block {
+      background: var(--color-muted);
+      padding: var(--spacing-4);
+      border-radius: var(--radius-md);
+      margin-top: var(--spacing-4);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-sm);
+      overflow-x: auto;
+    }
+
+    .feature-tag {
+      display: inline-block;
+      padding: 0.125rem 0.5rem;
+      background: var(--color-primary);
+      color: var(--color-primary-foreground);
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-medium);
+      border-radius: var(--radius-sm);
+      margin-left: var(--spacing-2);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 style="margin-bottom: var(--spacing-2); font-size: var(--font-size-4xl);">
+      Checkbox Component
+    </h1>
+    <p style="margin-bottom: var(--spacing-8); color: var(--color-muted-foreground);">
+      Accessible checkboxes with shadcn/ui styling
+    </p>
+
+    <!-- Basic Checkboxes -->
+    <section class="section">
+      <h2>Basic Checkboxes</h2>
+
+      <div class="example-box">
+        <label class="form-label-checkbox">Select your interests</label>
+        <div class="checkbox-group">
+          <label class="checkbox-item">
+            <input type="checkbox" class="checkbox-input" checked>
+            <span class="checkbox-box"></span>
+            <span class="checkbox-label">Design</span>
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" class="checkbox-input">
+            <span class="checkbox-box"></span>
+            <span class="checkbox-label">Development</span>
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" class="checkbox-input" checked>
+            <span class="checkbox-box"></span>
+            <span class="checkbox-label">Marketing</span>
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" class="checkbox-input">
+            <span class="checkbox-box"></span>
+            <span class="checkbox-label">Product Management</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="code-block">
+&lt;div class="checkbox-group"&gt;
+  &lt;label class="checkbox-item"&gt;
+    &lt;input type="checkbox" class="checkbox-input" checked&gt;
+    &lt;span class="checkbox-box"&gt;&lt;/span&gt;
+    &lt;span class="checkbox-label"&gt;Design&lt;/span&gt;
+  &lt;/label&gt;
+&lt;/div&gt;
+      </div>
+    </section>
+
+    <!-- Horizontal Layout -->
+    <section class="section">
+      <h2>Horizontal Layout</h2>
+
+      <div class="example-box">
+        <label class="form-label-checkbox">Available days</label>
+        <div class="checkbox-group checkbox-group-horizontal">
+          <label class="checkbox-item">
+            <input type="checkbox" class="checkbox-input" checked>
+            <span class="checkbox-box"></span>
+            <span class="checkbox-label">Mon</span>
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" class="checkbox-input" checked>
+            <span class="checkbox-box"></span>
+            <span class="checkbox-label">Tue</span>
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" class="checkbox-input">
+            <span class="checkbox-box"></span>
+            <span class="checkbox-label">Wed</span>
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" class="checkbox-input" checked>
+            <span class="checkbox-box"></span>
+            <span class="checkbox-label">Thu</span>
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" class="checkbox-input" checked>
+            <span class="checkbox-box"></span>
+            <span class="checkbox-label">Fri</span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- With Descriptions -->
+    <section class="section">
+      <h2>With Descriptions</h2>
+
+      <div class="example-box">
+        <label class="form-label-checkbox">Notification preferences</label>
+        <div class="checkbox-group">
+          <label class="checkbox-item checkbox-item-with-description">
+            <input type="checkbox" class="checkbox-input" checked>
+            <span class="checkbox-box"></span>
+            <div class="checkbox-content">
+              <span class="checkbox-title">Email Notifications</span>
+              <span class="checkbox-description">Receive email updates about your account activity</span>
+            </div>
+          </label>
+
+          <label class="checkbox-item checkbox-item-with-description">
+            <input type="checkbox" class="checkbox-input" checked>
+            <span class="checkbox-box"></span>
+            <div class="checkbox-content">
+              <span class="checkbox-title">Push Notifications</span>
+              <span class="checkbox-description">Get push notifications on your device</span>
+            </div>
+          </label>
+
+          <label class="checkbox-item checkbox-item-with-description">
+            <input type="checkbox" class="checkbox-input">
+            <span class="checkbox-box"></span>
+            <div class="checkbox-content">
+              <span class="checkbox-title">SMS Notifications</span>
+              <span class="checkbox-description">Receive important updates via SMS</span>
+            </div>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- Card Style -->
+    <section class="section">
+      <h2>Card Style <span class="feature-tag">NEW</span></h2>
+
+      <div class="example-box">
+        <label class="form-label-checkbox">Select payment methods</label>
+        <div class="checkbox-group">
+          <label class="checkbox-item">
+            <input type="checkbox" class="checkbox-input" checked>
+            <div class="checkbox-card">
+              <div class="checkbox-card-header">
+                <div style="display: flex; align-items: center; gap: var(--spacing-3);">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <rect x="2" y="6" width="20" height="12" rx="2" fill="#1434CB"/>
+                    <rect x="2" y="9" width="20" height="2.5" fill="#0A1F5C"/>
+                    <rect x="4" y="13" width="3" height="2.2" rx="0.4" fill="#E8C547" opacity="0.9"/>
+                    <line x1="9" y1="15" x2="15" y2="15" stroke="#FFF" stroke-width="0.6" opacity="0.6"/>
+                    <circle cx="18" cy="14" r="1.2" fill="none" stroke="#F7B600" stroke-width="0.8" opacity="0.7"/>
+                  </svg>
+                  <span class="checkbox-card-title">Credit Card</span>
+                </div>
+                <span class="checkbox-box"></span>
+              </div>
+              <p class="checkbox-card-description">
+                Pay securely with your credit or debit card
+              </p>
+            </div>
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" class="checkbox-input" checked>
+            <div class="checkbox-card">
+              <div class="checkbox-card-header">
+                <div style="display: flex; align-items: center; gap: var(--spacing-3);">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="#0070BA" d="M19.3 7.9c.4.9.5 2 .2 3.4-.8 4-3.5 5.4-6.8 5.4h-.5c-.4 0-.8.3-.9.7l-.7 4.5c-.1.3-.4.6-.8.6H7.5c-.3 0-.5-.2-.5-.5l2-14.4c.1-.4.5-.7.9-.7h3c1.8 0 3.5.3 4.6 1.3.4.3.7.7 1 1.1.2.4.4.7.5 1.1.1.4.2.8.3 1.2z"/>
+                    <path fill="#003087" d="M7.9 15.5L7 21.5c0 .3.2.5.5.5h3.3c.4 0 .7-.3.8-.6l.7-4.5c.1-.4.5-.7.9-.7h.5c3.3 0 6-1.4 6.8-5.4.3-1.4.2-2.5-.2-3.4a4.726 4.726 0 0 0-1.8-2.2C17.4 3.3 15.7 3 13.9 3h-3c-.4 0-.8.3-.9.8L7.9 15.5z" opacity="0.7"/>
+                  </svg>
+                  <span class="checkbox-card-title">PayPal</span>
+                </div>
+                <span class="checkbox-box"></span>
+              </div>
+              <p class="checkbox-card-description">
+                Fast and secure payment through PayPal
+              </p>
+            </div>
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" class="checkbox-input">
+            <div class="checkbox-card">
+              <div class="checkbox-card-header">
+                <div style="display: flex; align-items: center; gap: var(--spacing-3);">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary);">
+                    <line x1="12" x2="12" y1="2" y2="22"/>
+                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                  </svg>
+                  <span class="checkbox-card-title">Bank Transfer</span>
+                </div>
+                <span class="checkbox-box"></span>
+              </div>
+              <p class="checkbox-card-description">
+                Direct bank transfer with 1-2 business days processing
+              </p>
+            </div>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sizes -->
+    <section class="section">
+      <h2>Sizes</h2>
+
+      <h3>Small</h3>
+      <div class="example-box">
+        <div class="checkbox-group checkbox-sm">
+          <label class="checkbox-item">
+            <input type="checkbox" class="checkbox-input" checked>
+            <span class="checkbox-box"></span>
+            <span class="checkbox-label">Small checkbox</span>
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" class="checkbox-input">
+            <span class="checkbox-box"></span>
+            <span class="checkbox-label">Another option</span>
+          </label>
+        </div>
+      </div>
+
+      <h3>Default</h3>
+      <div class="example-box">
+        <div class="checkbox-group">
+          <label class="checkbox-item">
+            <input type="checkbox" class="checkbox-input" checked>
+            <span class="checkbox-box"></span>
+            <span class="checkbox-label">Default checkbox</span>
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" class="checkbox-input">
+            <span class="checkbox-box"></span>
+            <span class="checkbox-label">Another option</span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- Indeterminate State -->
+    <section class="section">
+      <h2>Indeterminate State <span class="feature-tag">NEW</span></h2>
+
+      <div class="example-box">
+        <div class="checkbox-group">
+          <label class="checkbox-item checkbox-select-all">
+            <input type="checkbox" class="checkbox-input" id="select-all">
+            <span class="checkbox-box"></span>
+            <span class="checkbox-label">Select All</span>
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" class="checkbox-input child-checkbox" checked>
+            <span class="checkbox-box"></span>
+            <span class="checkbox-label">Option 1</span>
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" class="checkbox-input child-checkbox">
+            <span class="checkbox-box"></span>
+            <span class="checkbox-label">Option 2</span>
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" class="checkbox-input child-checkbox">
+            <span class="checkbox-box"></span>
+            <span class="checkbox-label">Option 3</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="code-block">
+// Set indeterminate state with JavaScript
+checkbox.indeterminate = true;
+      </div>
+    </section>
+
+    <!-- Disabled State -->
+    <section class="section">
+      <h2>Disabled State</h2>
+
+      <div class="example-box">
+        <div class="checkbox-group">
+          <label class="checkbox-item">
+            <input type="checkbox" class="checkbox-input" checked disabled>
+            <span class="checkbox-box"></span>
+            <span class="checkbox-label">Checked and disabled</span>
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" class="checkbox-input" disabled>
+            <span class="checkbox-box"></span>
+            <span class="checkbox-label">Disabled option</span>
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" class="checkbox-input">
+            <span class="checkbox-box"></span>
+            <span class="checkbox-label">Enabled option</span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- Error State -->
+    <section class="section">
+      <h2>Error State</h2>
+
+      <div class="example-box">
+        <label class="form-label-checkbox">Terms and Conditions</label>
+        <div class="checkbox-group checkbox-group-error">
+          <label class="checkbox-item">
+            <input type="checkbox" class="checkbox-input">
+            <span class="checkbox-box"></span>
+            <span class="checkbox-label">I agree to the terms and conditions</span>
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" class="checkbox-input">
+            <span class="checkbox-box"></span>
+            <span class="checkbox-label">I agree to the privacy policy</span>
+          </label>
+        </div>
+        <p class="checkbox-error-message">You must accept the terms to continue</p>
+      </div>
+    </section>
+
+    <!-- Todo List Style -->
+    <section class="section">
+      <h2>Todo List Style <span class="feature-tag">POPULAR</span></h2>
+
+      <div class="example-box">
+        <label class="form-label-checkbox">My Tasks</label>
+        <ul class="checkbox-list">
+          <li class="checkbox-list-item">
+            <label class="checkbox-item checkbox-strikethrough">
+              <input type="checkbox" class="checkbox-input" checked>
+              <span class="checkbox-box"></span>
+              <span class="checkbox-label">Review pull requests</span>
+            </label>
+          </li>
+
+          <li class="checkbox-list-item">
+            <label class="checkbox-item checkbox-strikethrough">
+              <input type="checkbox" class="checkbox-input">
+              <span class="checkbox-box"></span>
+              <span class="checkbox-label">Update documentation</span>
+            </label>
+          </li>
+
+          <li class="checkbox-list-item">
+            <label class="checkbox-item checkbox-strikethrough">
+              <input type="checkbox" class="checkbox-input" checked>
+              <span class="checkbox-box"></span>
+              <span class="checkbox-label">Fix bug in header component</span>
+            </label>
+          </li>
+
+          <li class="checkbox-list-item">
+            <label class="checkbox-item checkbox-strikethrough">
+              <input type="checkbox" class="checkbox-input">
+              <span class="checkbox-box"></span>
+              <span class="checkbox-label">Deploy to staging</span>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Real-World Example -->
+    <section class="section">
+      <h2>Real-World Example</h2>
+
+      <div class="example-box">
+        <form style="max-width: 600px;">
+          <label class="form-label-checkbox">Account Settings</label>
+          <div class="checkbox-group" style="margin-bottom: var(--spacing-6);">
+            <label class="checkbox-item checkbox-item-with-description">
+              <input type="checkbox" class="checkbox-input" checked>
+              <span class="checkbox-box"></span>
+              <div class="checkbox-content">
+                <span class="checkbox-title">Email Notifications</span>
+                <span class="checkbox-description">Receive updates about your account via email</span>
+              </div>
+            </label>
+
+            <label class="checkbox-item checkbox-item-with-description">
+              <input type="checkbox" class="checkbox-input" checked>
+              <span class="checkbox-box"></span>
+              <div class="checkbox-content">
+                <span class="checkbox-title">Marketing Communications</span>
+                <span class="checkbox-description">Get news, updates, and special offers</span>
+              </div>
+            </label>
+
+            <label class="checkbox-item checkbox-item-with-description">
+              <input type="checkbox" class="checkbox-input">
+              <span class="checkbox-box"></span>
+              <div class="checkbox-content">
+                <span class="checkbox-title">Two-Factor Authentication</span>
+                <span class="checkbox-description">Add an extra layer of security to your account</span>
+              </div>
+            </label>
+          </div>
+
+          <label class="form-label-checkbox">Privacy Settings</label>
+          <div class="checkbox-group checkbox-group-horizontal checkbox-sm">
+            <label class="checkbox-item">
+              <input type="checkbox" class="checkbox-input" checked>
+              <span class="checkbox-box"></span>
+              <span class="checkbox-label">Public Profile</span>
+            </label>
+
+            <label class="checkbox-item">
+              <input type="checkbox" class="checkbox-input">
+              <span class="checkbox-box"></span>
+              <span class="checkbox-label">Show Email</span>
+            </label>
+
+            <label class="checkbox-item">
+              <input type="checkbox" class="checkbox-input" checked>
+              <span class="checkbox-box"></span>
+              <span class="checkbox-label">Show Activity</span>
+            </label>
+          </div>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Indeterminate checkbox functionality
+    const selectAll = document.getElementById('select-all');
+    const childCheckboxes = document.querySelectorAll('.child-checkbox');
+
+    if (selectAll && childCheckboxes.length > 0) {
+      // Update select all state when child checkboxes change
+      function updateSelectAll() {
+        const checkedCount = Array.from(childCheckboxes).filter(cb => cb.checked).length;
+        selectAll.checked = checkedCount === childCheckboxes.length;
+        selectAll.indeterminate = checkedCount > 0 && checkedCount < childCheckboxes.length;
+      }
+
+      // Select/deselect all when clicking the select all checkbox
+      selectAll.addEventListener('change', function() {
+        childCheckboxes.forEach(cb => {
+          cb.checked = this.checked;
+        });
+      });
+
+      // Update select all state when any child checkbox changes
+      childCheckboxes.forEach(cb => {
+        cb.addEventListener('change', updateSelectAll);
+      });
+
+      // Initialize state
+      updateSelectAll();
+    }
+  </script>
+</body>
+</html>

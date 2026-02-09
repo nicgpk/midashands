@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toggle Component - Complete Examples</title>
+
+  <!-- Import tokens and toggle component -->
+  <link rel="stylesheet" href="../../tokens/tokens.css">
+  <link rel="stylesheet" href="./toggle.css">
+
+  <style>
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--spacing-8);
+    }
+
+    .section {
+      margin-bottom: var(--spacing-12);
+      padding-bottom: var(--spacing-8);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .section:last-child {
+      border-bottom: none;
+    }
+
+    .section h2 {
+      margin-bottom: var(--spacing-4);
+      font-size: var(--font-size-2xl);
+      font-weight: var(--font-weight-bold);
+    }
+
+    .section h3 {
+      margin-top: var(--spacing-8);
+      margin-bottom: var(--spacing-4);
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-muted-foreground);
+    }
+
+    .example-box {
+      background: var(--color-card);
+      padding: var(--spacing-6);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      margin-bottom: var(--spacing-4);
+    }
+
+    .toggle-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-4);
+    }
+
+    .feature-tag {
+      display: inline-block;
+      padding: 0.125rem 0.5rem;
+      background: var(--color-primary);
+      color: var(--color-primary-foreground);
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-medium);
+      border-radius: var(--radius-sm);
+      margin-left: var(--spacing-2);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 style="margin-bottom: var(--spacing-2); font-size: var(--font-size-4xl);">
+      Toggle Component
+    </h1>
+    <p style="margin-bottom: var(--spacing-8); color: var(--color-muted-foreground);">
+      Accessible toggle switches with shadcn/ui styling
+    </p>
+
+    <!-- Basic Toggles -->
+    <section class="section">
+      <h2>Basic Toggles</h2>
+
+      <div class="example-box">
+        <div class="toggle-group">
+          <label class="toggle">
+            <input type="checkbox" class="toggle-input" checked>
+            <span class="toggle-switch"></span>
+            <span class="toggle-label">Enable notifications</span>
+          </label>
+
+          <label class="toggle">
+            <input type="checkbox" class="toggle-input">
+            <span class="toggle-switch"></span>
+            <span class="toggle-label">Auto-save changes</span>
+          </label>
+
+          <label class="toggle">
+            <input type="checkbox" class="toggle-input" checked>
+            <span class="toggle-switch"></span>
+            <span class="toggle-label">Dark mode</span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sizes -->
+    <section class="section">
+      <h2>Sizes</h2>
+
+      <h3>Small</h3>
+      <div class="example-box">
+        <label class="toggle toggle-sm">
+          <input type="checkbox" class="toggle-input" checked>
+          <span class="toggle-switch"></span>
+          <span class="toggle-label">Small toggle</span>
+        </label>
+      </div>
+
+      <h3>Default</h3>
+      <div class="example-box">
+        <label class="toggle">
+          <input type="checkbox" class="toggle-input" checked>
+          <span class="toggle-switch"></span>
+          <span class="toggle-label">Default toggle</span>
+        </label>
+      </div>
+
+      <h3>Large</h3>
+      <div class="example-box">
+        <label class="toggle toggle-lg">
+          <input type="checkbox" class="toggle-input" checked>
+          <span class="toggle-switch"></span>
+          <span class="toggle-label">Large toggle</span>
+        </label>
+      </div>
+    </section>
+
+    <!-- Without Label -->
+    <section class="section">
+      <h2>Without Label</h2>
+
+      <div class="example-box">
+        <label class="toggle" aria-label="Toggle setting">
+          <input type="checkbox" class="toggle-input" checked>
+          <span class="toggle-switch"></span>
+        </label>
+      </div>
+    </section>
+
+    <!-- Disabled State -->
+    <section class="section">
+      <h2>Disabled State</h2>
+
+      <div class="example-box">
+        <div class="toggle-group">
+          <label class="toggle">
+            <input type="checkbox" class="toggle-input" checked disabled>
+            <span class="toggle-switch"></span>
+            <span class="toggle-label">Checked and disabled</span>
+          </label>
+
+          <label class="toggle">
+            <input type="checkbox" class="toggle-input" disabled>
+            <span class="toggle-switch"></span>
+            <span class="toggle-label">Disabled</span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- Variants -->
+    <section class="section">
+      <h2>Variants</h2>
+
+      <h3>Success</h3>
+      <div class="example-box">
+        <label class="toggle toggle-success">
+          <input type="checkbox" class="toggle-input" checked>
+          <span class="toggle-switch"></span>
+          <span class="toggle-label">Active status</span>
+        </label>
+      </div>
+
+      <h3>Destructive</h3>
+      <div class="example-box">
+        <label class="toggle toggle-destructive">
+          <input type="checkbox" class="toggle-input" checked>
+          <span class="toggle-switch"></span>
+          <span class="toggle-label">Danger mode</span>
+        </label>
+      </div>
+    </section>
+
+    <!-- Real-World Example -->
+    <section class="section">
+      <h2>Real-World Example</h2>
+
+      <div class="example-box">
+        <h3 style="margin-top: 0;">Settings</h3>
+        <div class="toggle-group">
+          <label class="toggle">
+            <input type="checkbox" class="toggle-input" checked>
+            <span class="toggle-switch"></span>
+            <span class="toggle-label">Email notifications</span>
+          </label>
+
+          <label class="toggle">
+            <input type="checkbox" class="toggle-input" checked>
+            <span class="toggle-switch"></span>
+            <span class="toggle-label">Push notifications</span>
+          </label>
+
+          <label class="toggle">
+            <input type="checkbox" class="toggle-input">
+            <span class="toggle-switch"></span>
+            <span class="toggle-label">SMS notifications</span>
+          </label>
+
+          <label class="toggle">
+            <input type="checkbox" class="toggle-input" checked>
+            <span class="toggle-switch"></span>
+            <span class="toggle-label">Marketing emails</span>
+          </label>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

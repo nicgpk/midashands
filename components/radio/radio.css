@@ -1,0 +1,284 @@
+/* ======== RADIO BUTTON COMPONENT ======== */
+/*
+ * Dependencies: tokens/tokens.css
+ * Shadcn-style radio buttons with accessible markup
+ */
+
+/* ======== BASE RADIO STYLES ======== */
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.radio-item {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Hide native radio input */
+.radio-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* Custom radio button */
+.radio-button {
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-border);
+  background: var(--color-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-all);
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Inner circle indicator */
+.radio-button::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary-foreground);
+  opacity: 0;
+  transform: scale(0);
+  transition: var(--transition-all);
+}
+
+/* Label styling */
+.radio-label {
+  margin-left: var(--spacing-2);
+  font-size: var(--font-size-base);
+  color: var(--color-foreground);
+  cursor: pointer;
+  user-select: none;
+  line-height: var(--line-height-normal);
+}
+
+/* ======== CHECKED STATE ======== */
+.radio-input:checked + .radio-button {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.radio-input:checked + .radio-button::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ======== HOVER STATE ======== */
+.radio-item:hover .radio-button {
+  border-color: var(--color-primary);
+}
+
+.radio-input:checked + .radio-button:hover {
+  background: var(--color-primary);
+  opacity: 0.9;
+}
+
+/* ======== FOCUS STATE ======== */
+.radio-input:focus-visible + .radio-button {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 2px;
+}
+
+/* ======== DISABLED STATE ======== */
+.radio-input:disabled + .radio-button {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: var(--color-border);
+  background: var(--color-muted);
+}
+
+.radio-input:disabled ~ .radio-label {
+  opacity: 0.5;
+  cursor: not-allowed;
+  color: var(--color-muted-foreground);
+}
+
+.radio-input:disabled:checked + .radio-button {
+  background: var(--color-muted);
+  border-color: var(--color-border);
+}
+
+.radio-input:disabled:checked + .radio-button::after {
+  background: var(--color-muted-foreground);
+}
+
+/* ======== HORIZONTAL LAYOUT ======== */
+.radio-group-horizontal {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--spacing-6);
+}
+
+/* ======== WITH DESCRIPTION ======== */
+.radio-item-with-description {
+  align-items: flex-start;
+  padding: var(--spacing-4);
+  border-radius: var(--radius-md);
+  transition: var(--transition-all);
+  cursor: pointer;
+}
+
+.radio-item-with-description:hover {
+  background: var(--color-accent);
+}
+
+.radio-item-with-description .radio-button {
+  margin-top: 2px;
+}
+
+.radio-content {
+  display: flex;
+  flex-direction: column;
+  margin-left: var(--spacing-2);
+  flex: 1;
+}
+
+.radio-title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-foreground);
+  line-height: var(--line-height-tight);
+  margin-bottom: var(--spacing-1);
+}
+
+.radio-description {
+  font-size: var(--font-size-sm);
+  color: var(--color-muted-foreground);
+  line-height: var(--line-height-normal);
+}
+
+/* ======== CARD STYLE ======== */
+.radio-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-4);
+  cursor: pointer;
+  transition: var(--transition-all);
+  background: var(--color-card);
+}
+
+.radio-card:hover {
+  border-color: var(--color-primary);
+  background: var(--color-accent);
+}
+
+.radio-input:checked ~ .radio-card {
+  border-color: var(--color-primary);
+  background: var(--color-accent);
+  box-shadow: 0 0 0 1px var(--color-primary);
+}
+
+.radio-input:focus-visible ~ .radio-card {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 2px;
+}
+
+.radio-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-2);
+}
+
+.radio-card-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-foreground);
+}
+
+.radio-card-description {
+  font-size: var(--font-size-sm);
+  color: var(--color-muted-foreground);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Radio button inside card */
+.radio-card .radio-button {
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-border);
+  background: var(--color-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-all);
+  flex-shrink: 0;
+  position: relative;
+}
+
+.radio-card .radio-button::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary-foreground);
+  opacity: 0;
+  transform: scale(0);
+  transition: var(--transition-all);
+}
+
+.radio-input:checked ~ .radio-card .radio-button {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.radio-input:checked ~ .radio-card .radio-button::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ======== SIZES ======== */
+.radio-sm .radio-button {
+  width: 16px;
+  height: 16px;
+  border-width: 1.5px;
+}
+
+.radio-sm .radio-button::after {
+  width: 8px;
+  height: 8px;
+}
+
+.radio-sm .radio-label {
+  font-size: var(--font-size-sm);
+}
+
+/* ======== ERROR STATE ======== */
+.radio-group-error .radio-button {
+  border-color: var(--color-destructive);
+}
+
+.radio-group-error .radio-input:checked + .radio-button {
+  background: var(--color-destructive);
+  border-color: var(--color-destructive);
+}
+
+.radio-error-message {
+  margin-top: var(--spacing-2);
+  font-size: var(--font-size-sm);
+  color: var(--color-destructive);
+  line-height: var(--line-height-normal);
+}
+
+/* ======== FORM LABEL ======== */
+.form-label-radio {
+  display: block;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-foreground);
+  margin-bottom: var(--spacing-3);
+  line-height: var(--line-height-normal);
+}

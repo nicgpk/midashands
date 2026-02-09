@@ -1,17 +1,19 @@
 /**
  * DESIGN TOKENS - COLORS
- * 
+ *
  * Color palette for the design system.
  * Based on shadcn/ui zinc color scheme.
- * 
+ * Supports both light and dark modes.
+ *
  * Usage:
  *   background: var(--color-primary);
  */
 
+/* Dark Mode (Default) */
 :root {
-  /* Base background color - dark mode */
+  /* Base background color */
   --color-background: #0a0a0a;
-  /* Base text color - light on dark */
+  /* Base text color */
   --color-foreground: #fafafa;
   /* Card background */
   --color-card: #0a0a0a;
@@ -21,30 +23,72 @@
   --color-popover: #0a0a0a;
   /* Popover text */
   --color-popover-foreground: #fafafa;
-  /* Primary brand color - light button on dark */
+  /* Primary brand color */
   --color-primary: #fafafa;
-  /* Text on primary - dark on light */
+  /* Text on primary */
   --color-primary-foreground: #0a0a0a;
-  /* Secondary background - subtle dark */
+  /* Secondary background */
   --color-secondary: #262626;
-  /* Text on secondary - light on dark */
+  /* Text on secondary */
   --color-secondary-foreground: #fafafa;
-  /* Muted backgrounds - subtle dark */
+  /* Muted backgrounds */
   --color-muted: #262626;
-  /* Muted text - medium gray */
+  /* Muted text */
   --color-muted-foreground: #a1a1a1;
   /* Accent background */
   --color-accent: #262626;
   /* Accent text */
   --color-accent-foreground: #fafafa;
-  /* Destructive/error color - dark mode red */
+  /* Destructive/error color */
   --color-destructive: #991b1b;
   /* Text on destructive */
   --color-destructive-foreground: #fafafa;
-  /* Border color - subtle dark */
+  /* Border color */
   --color-border: #262626;
   /* Input border/background */
   --color-input: #262626;
   /* Focus ring color */
   --color-ring: #d4d4d4;
+}
+
+/* Light Mode */
+:root.light-mode {
+  /* Base background color */
+  --color-background: #ffffff;
+  /* Base text color */
+  --color-foreground: #09090b;
+  /* Card background */
+  --color-card: #ffffff;
+  /* Card text */
+  --color-card-foreground: #09090b;
+  /* Popover background */
+  --color-popover: #ffffff;
+  /* Popover text */
+  --color-popover-foreground: #09090b;
+  /* Primary brand color */
+  --color-primary: #18181b;
+  /* Text on primary */
+  --color-primary-foreground: #fafafa;
+  /* Secondary background */
+  --color-secondary: #f4f4f5;
+  /* Text on secondary */
+  --color-secondary-foreground: #18181b;
+  /* Muted backgrounds */
+  --color-muted: #f4f4f5;
+  /* Muted text */
+  --color-muted-foreground: #71717a;
+  /* Accent background */
+  --color-accent: #f4f4f5;
+  /* Accent text */
+  --color-accent-foreground: #18181b;
+  /* Destructive/error color */
+  --color-destructive: #dc2626;
+  /* Text on destructive */
+  --color-destructive-foreground: #fafafa;
+  /* Border color */
+  --color-border: #e4e4e7;
+  /* Input border/background */
+  --color-input: #e4e4e7;
+  /* Focus ring color */
+  --color-ring: #3f3f46;
 }
