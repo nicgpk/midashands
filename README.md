@@ -54,7 +54,7 @@ npm run build:figma
 <button class="btn btn-primary">Primary</button>
 <button class="btn btn-secondary">Secondary</button>
 <button class="btn btn-outline">Outline</button>
-<button class="btn btn-ghost">Ghost</button>
+<button class="btn btn-tertiary">Tertiary</button>
 <button class="btn btn-soft">Soft</button>
 <button class="btn btn-destructive">Delete</button>
 

@@ -4,7 +4,7 @@
  * A production-ready button component with all features.
  * 
  * Features:
- * - 6 variants (primary, secondary, outline, ghost, soft, destructive)
+ * - 6 variants (primary, secondary, outline, tertiary, soft, destructive)
  * - 3 sizes (small, default, large)
  * - Icon support (left, right, icon-only)
  * - Loading state with spinner
@@ -110,13 +110,13 @@
   color: var(--color-accent-foreground);
 }
 
-/* Ghost Variant - shadcn style (transparent with hover) */
-.btn-ghost {
+/* Tertiary Variant - shadcn style (transparent with hover) */
+.btn-tertiary {
   background: transparent;
   color: var(--color-foreground);
 }
 
-.btn-ghost:hover:not(:disabled) {
+.btn-tertiary:hover:not(:disabled) {
   background: var(--color-accent);
   color: var(--color-accent-foreground);
 }
@@ -268,7 +268,7 @@
 }
 
 .btn-outline.btn-loading::after,
-.btn-ghost.btn-loading::after {
+.btn-tertiary.btn-loading::after {
   --dot-color: var(--color-foreground);
 }
 
@@ -409,8 +409,8 @@ a.btn-destructive:hover {
 
 a.btn-outline,
 a.btn-outline:visited,
-a.btn-ghost,
-a.btn-ghost:visited,
+a.btn-tertiary,
+a.btn-tertiary:visited,
 a.btn-soft,
 a.btn-soft:visited {
   color: var(--color-foreground);

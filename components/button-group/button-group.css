@@ -25,11 +25,11 @@
   vertical-align: middle;
 }
 
-/* Active state - outline/ghost get accent background (shadcn style) */
+/* Active state - outline/tertiary get accent background (shadcn style) */
 .btn-group > .btn-outline.btn-active,
-.btn-group > .btn-ghost.btn-active,
+.btn-group > .btn-tertiary.btn-active,
 .btn-group > .btn-outline[aria-pressed="true"],
-.btn-group > .btn-ghost[aria-pressed="true"] {
+.btn-group > .btn-tertiary[aria-pressed="true"] {
   background: var(--color-accent);
   color: var(--color-accent-foreground);
   border-color: var(--color-border);
@@ -114,9 +114,9 @@
 }
 
 .btn-group-vertical > .btn-outline.btn-active,
-.btn-group-vertical > .btn-ghost.btn-active,
+.btn-group-vertical > .btn-tertiary.btn-active,
 .btn-group-vertical > .btn-outline[aria-pressed="true"],
-.btn-group-vertical > .btn-ghost[aria-pressed="true"] {
+.btn-group-vertical > .btn-tertiary[aria-pressed="true"] {
   background: var(--color-accent);
   color: var(--color-accent-foreground);
   border-color: var(--color-border);

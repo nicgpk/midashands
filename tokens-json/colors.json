@@ -87,6 +87,51 @@
       "type": "color",
       "comment": "Border color - subtle dark"
     },
+    "border-subtle": {
+      "value": "#1A1A1A",
+      "type": "color",
+      "comment": "Subtle border - barely visible"
+    },
+    "border-strong": {
+      "value": "#404040",
+      "type": "color",
+      "comment": "Strong border - more prominent"
+    },
+    "border-hover": {
+      "value": "#404040",
+      "type": "color",
+      "comment": "Border on hover state"
+    },
+    "border-focus": {
+      "value": "#D4D4D4",
+      "type": "color",
+      "comment": "Border on focus state"
+    },
+    "border-disabled": {
+      "value": "#1A1A1A",
+      "type": "color",
+      "comment": "Border for disabled elements"
+    },
+    "border-error": {
+      "value": "#DC2626",
+      "type": "color",
+      "comment": "Border for error states"
+    },
+    "border-success": {
+      "value": "#16A34A",
+      "type": "color",
+      "comment": "Border for success states"
+    },
+    "border-warning": {
+      "value": "#D97706",
+      "type": "color",
+      "comment": "Border for warning states"
+    },
+    "border-info": {
+      "value": "#0EA5E9",
+      "type": "color",
+      "comment": "Border for info states"
+    },
     "input": {
       "value": "#262626",
       "type": "color",

@@ -46,6 +46,51 @@
       "type": "color",
       "description": "Border color"
     },
+    "color-border-subtle": {
+      "value": "#F4F4F5",
+      "type": "color",
+      "description": "Subtle border - barely visible"
+    },
+    "color-border-strong": {
+      "value": "#A1A1AA",
+      "type": "color",
+      "description": "Strong border - more prominent"
+    },
+    "color-border-hover": {
+      "value": "#A1A1AA",
+      "type": "color",
+      "description": "Border on hover state"
+    },
+    "color-border-focus": {
+      "value": "#18181B",
+      "type": "color",
+      "description": "Border on focus state"
+    },
+    "color-border-disabled": {
+      "value": "#F4F4F5",
+      "type": "color",
+      "description": "Border for disabled elements"
+    },
+    "color-border-error": {
+      "value": "#DC2626",
+      "type": "color",
+      "description": "Border for error states"
+    },
+    "color-border-success": {
+      "value": "#16A34A",
+      "type": "color",
+      "description": "Border for success states"
+    },
+    "color-border-warning": {
+      "value": "#D97706",
+      "type": "color",
+      "description": "Border for warning states"
+    },
+    "color-border-info": {
+      "value": "#0EA5E9",
+      "type": "color",
+      "description": "Border for info states"
+    },
     "color-muted": {
       "value": "#F4F4F5",
       "type": "color",

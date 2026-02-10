@@ -9,7 +9,7 @@ Groups of buttons with connected borders and toggle states.
 - **Split Buttons**: Primary action with attached dropdown trigger
 - **Toggle States**: Active/pressed states with proper ARIA attributes
 - **Z-index Management**: Proper layering for hover and focus states
-- **Multi-variant Support**: Works with all button variants (primary, secondary, outline, ghost, soft, destructive)
+- **Multi-variant Support**: Works with all button variants (primary, secondary, outline, tertiary, soft, destructive)
 
 ## Dependencies
 

@@ -23,7 +23,7 @@ A fully-featured, production-ready button component with shadcn/ui dark mode sty
 
 ## Features
 
-- ✅ **6 visual variants** - Primary, Secondary, Outline, Ghost, Soft, Destructive
+- ✅ **6 visual variants** - Primary, Secondary, Outline, Tertiary, Soft, Destructive
 - ✅ **3 sizes** - Small, Default, Large
 - ✅ **Icon support** - Icon-only, left, and right positions
 - ✅ **Loading states** - Modern animated dot spinner
@@ -50,8 +50,8 @@ A fully-featured, production-ready button component with shadcn/ui dark mode sty
 <!-- Outline - Bordered style -->
 <button class="btn btn-outline">Outline</button>
 
-<!-- Ghost - Minimal style -->
-<button class="btn btn-ghost">Ghost</button>
+<!-- Tertiary - Minimal style -->
+<button class="btn btn-tertiary">Tertiary</button>
 
 <!-- Soft - Subtle colored background -->
 <button class="btn btn-soft">Soft</button>
@@ -135,10 +135,10 @@ See the **[Button Group Component](../button-group/)** for:
 ### Toolbar
 ```html
 <div class="btn-group">
-  <button class="btn btn-ghost btn-sm btn-icon" aria-label="Undo">
+  <button class="btn btn-tertiary btn-sm btn-icon" aria-label="Undo">
     <svg><!-- undo icon --></svg>
   </button>
-  <button class="btn btn-ghost btn-sm btn-icon" aria-label="Redo">
+  <button class="btn btn-tertiary btn-sm btn-icon" aria-label="Redo">
     <svg><!-- redo icon --></svg>
   </button>
 </div>
@@ -168,7 +168,7 @@ See the **[Button Group Component](../button-group/)** for:
 
 ### Tooltips
 ```html
-<button class="btn btn-ghost btn-icon" data-tooltip="Edit document" aria-label="Edit">
+<button class="btn btn-tertiary btn-icon" data-tooltip="Edit document" aria-label="Edit">
   <svg><!-- icon --></svg>
 </button>
 ```
