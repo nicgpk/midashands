@@ -7,7 +7,7 @@ A modern design system inspired by shadcn/ui, built with JSON-based design token
 - **🌙 Dark Mode First** - shadcn/ui inspired dark theme as primary
 - **🎯 JSON-Based Tokens** - Single source of truth for all design decisions
 - **🚀 Multi-Platform Export** - Generate CSS, JavaScript, and more from JSON
-- **📦 Production-Ready Components** - Button, Input, Button Groups, and more
+- **📦 Production-Ready Components** - Button, Input, Button Groups, Radio, Checkbox, Toggle, and more
 - **♿ Fully Accessible** - ARIA attributes, keyboard navigation, screen reader support
 - **🎭 Framework Agnostic** - Works with vanilla HTML, React, Vue, or any framework
 - **📖 Well Documented** - Clear examples, demos, and usage guides
@@ -47,14 +47,14 @@ npm run build:figma
 ## 📦 Components
 
 ### Button Component
-**6 variants • 3 sizes • Icons • Loading states • Badges**
+**6 variants • 3 sizes • Icons • Loading states • Badges • Tooltips**
 
 ```html
 <!-- Variants -->
 <button class="btn btn-primary">Primary</button>
 <button class="btn btn-secondary">Secondary</button>
 <button class="btn btn-outline">Outline</button>
-<button class="btn btn-tertiary">Tertiary</button>
+<button class="btn btn-tertiary">Tertiary</button>  <!-- Formerly "Ghost" -->
 <button class="btn btn-soft">Soft</button>
 <button class="btn btn-destructive">Delete</button>
 
@@ -122,6 +122,71 @@ npm run build:figma
 
 [View Input Docs →](./components/input/)
 
+### Radio Component
+**5 styles • Horizontal/Vertical • Card style • Descriptions**
+
+```html
+<!-- Basic Radio Group -->
+<div class="radio-group">
+  <label class="radio-item">
+    <input type="radio" name="plan" class="radio-input" checked>
+    <span class="radio-button"></span>
+    <span class="radio-label">Free Plan</span>
+  </label>
+  <label class="radio-item">
+    <input type="radio" name="plan" class="radio-input">
+    <span class="radio-button"></span>
+    <span class="radio-label">Pro Plan</span>
+  </label>
+</div>
+```
+
+[View Radio Docs →](./components/radio/)
+
+### Checkbox Component
+**6 styles • Indeterminate state • Descriptions**
+
+```html
+<!-- Basic Checkbox -->
+<label class="checkbox-label">
+  <input type="checkbox" class="checkbox-input" checked>
+  <span class="checkbox-checkmark"></span>
+  <span class="checkbox-text">I agree to the terms</span>
+</label>
+
+<!-- Indeterminate State -->
+<label class="checkbox-label">
+  <input type="checkbox" class="checkbox-input" indeterminate>
+  <span class="checkbox-checkmark"></span>
+  <span class="checkbox-text">Select All</span>
+</label>
+```
+
+[View Checkbox Docs →](./components/checkbox/)
+
+### Toggle Component
+**3 sizes • Icons • Labels • Accessible**
+
+```html
+<!-- Basic Toggle -->
+<label class="toggle">
+  <input type="checkbox" class="toggle-input" checked>
+  <span class="toggle-switch"></span>
+  <span class="toggle-label">Enable notifications</span>
+</label>
+
+<!-- With Icons -->
+<label class="toggle toggle-with-icons">
+  <input type="checkbox" class="toggle-input">
+  <span class="toggle-switch">
+    <svg class="toggle-icon-on">...</svg>
+    <svg class="toggle-icon-off">...</svg>
+  </span>
+</label>
+```
+
+[View Toggle Docs →](./components/toggle/)
+
 ## 🎯 Design Tokens
 
 All design tokens are defined in JSON and automatically compiled to CSS, JavaScript, and other formats.
@@ -142,6 +207,7 @@ All design tokens are defined in JSON and automatically compiled to CSS, JavaScr
 ### Color System (Dark Mode)
 
 ```css
+/* Base Colors */
 --color-background: #0A0A0A;      /* Deep dark background */
 --color-foreground: #FAFAFA;      /* Light text */
 --color-primary: #FAFAFA;         /* Light buttons on dark */
@@ -149,7 +215,19 @@ All design tokens are defined in JSON and automatically compiled to CSS, JavaScr
 --color-accent: #262626;          /* Accent elements */
 --color-muted: #262626;           /* Muted backgrounds */
 --color-destructive: #991B1B;     /* Dark mode red */
---color-border: #262626;          /* Subtle borders */
+
+/* Border Tokens (NEW!) */
+--color-border: #262626;          /* Default border */
+--color-border-subtle: #1A1A1A;   /* Barely visible */
+--color-border-strong: #404040;   /* More prominent */
+--color-border-hover: #404040;    /* Hover state */
+--color-border-focus: #D4D4D4;    /* Focus state */
+--color-border-error: #DC2626;    /* Error states */
+--color-border-success: #16A34A;  /* Success states */
+--color-border-warning: #D97706;  /* Warning states */
+--color-border-info: #0EA5E9;     /* Info states */
+
+/* Focus Ring */
 --color-ring: #D4D4D4;            /* Focus rings */
 ```
 
@@ -175,18 +253,32 @@ Then rebuild: `npm run build:tokens`
 
 ## 👀 Preview All Components
 
-Open **[examples/preview.html](./examples/preview.html)** in your browser to see all components in one place:
+Open **[examples/preview.html](./examples/preview.html)** in your browser to see all components in action:
 
-- ✨ Interactive accordion sections
+### Full Demo Page
+A complete project management dashboard showcasing realistic component usage:
+- **Dashboard Overview** - Stats cards with metrics
+- **Project Type Selection** - 4 selectable project type cards with icons
+- **Active Projects** - Radio button selection with project cards
+- **Button Groups** - Filter toggles (All Projects / Active / Archived)
+- **Create Project Form** - Inputs, date picker, checkboxes
+- **Project Settings** - Toggle switches for various options
+- **All button variants** - Primary, Secondary, Outline, Tertiary, Soft, Destructive
+
+### Individual Component Sections
 - 🎨 Color token showcase
 - 🔘 All button variants and states
 - 📝 Input types and validation
-- 🎮 Live component examples
+- 🎛️ Radio buttons (5 styles)
+- ☑️ Checkboxes (6 styles)
+- 🔄 Toggle switches (3 sizes)
+- 🎮 Button groups and split buttons
 
 **Features:**
-- Expand/Collapse All buttons
+- Sidebar navigation between sections
+- Dark/Light mode toggle
 - Component counts
-- Dark mode optimized
+- Interactive examples
 - Copy-paste ready code
 
 ## 📐 Spacing Scale
@@ -253,6 +345,18 @@ midashands/
 │   ├── input/
 │   │   ├── input.css
 │   │   ├── input.html
+│   │   └── README.md
+│   ├── radio/
+│   │   ├── radio.css
+│   │   ├── radio.html
+│   │   └── README.md
+│   ├── checkbox/
+│   │   ├── checkbox.css
+│   │   ├── checkbox.html
+│   │   └── README.md
+│   ├── toggle/
+│   │   ├── toggle.css
+│   │   ├── toggle.html
 │   │   └── README.md
 │   └── ...
 ├── examples/
